@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 public class BannersResponse extends BaseResponse {
 
+    public static String BASE_URL = "";
+
     @SerializedName("adds_details")
     @Expose
 //    private List<AddsDetail> addsDetails;
