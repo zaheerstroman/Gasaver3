@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/lightblue2" >
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/lightblue2"
+                android:layout_centerVertical="true">
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/relativelayout">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/logo_icon"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="60dp"
+                    android:background="@drawable/logo2" />
+
+                <LinearLayout
+                    android:id="@+id/customer_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@+id/logo_icon"
+                    android:layout_toLeftOf="@+id/bell_icon"
+                    android:orientation="vertical"
+                    android:layout_marginRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/customer_care"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/Blue"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="9032655838"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/Blue"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/notification_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/notification_icon" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_main1"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

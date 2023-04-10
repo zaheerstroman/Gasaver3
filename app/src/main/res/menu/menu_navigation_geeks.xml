@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/home_sky_blue_icons"
+
+        android:background="#55000000"
+        app:backgroundTint="#55000000"
+        />
+
+    <item
+        android:id="@+id/dashboard"
+        android:title="List"
+        android:icon="@drawable/menu"
+
+        app:backgroundTint="#55000000"
+        android:background="#55000000"
+        />
+
+<!--    <item-->
+<!--        android:id="@+id/home"-->
+<!--        android:title="Home"-->
+<!--        android:icon="@drawable/house_mansion04"/>-->
+
+<!--    android:iconTint="@color/toolbar_color"-->
+    <item
+        android:id="@+id/nav_search"
+        android:iconTint="@color/toolbar_color"
+        android:icon="@drawable/promotion3"
+        android:title="Promo"
+
+        app:backgroundTint="#55000000"
+        android:background="#55000000"
+        />
+
+
+    <item
+        android:id="@+id/about"
+        android:title="Wish list"
+        android:icon="@drawable/heart"
+
+        app:backgroundTint="#55000000"
+        android:background="#55000000"
+        />
+
+
+    <item
+        android:id="@+id/profile"
+        android:title="My account"
+        android:icon="@drawable/profile"
+
+        app:backgroundTint="#55000000"
+        android:background="#55000000"
+        />
+
+</menu>

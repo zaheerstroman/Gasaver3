@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.MainActivity">
+
+    <item
+        android:id="@+id/item_search"
+        android:icon="@drawable/search1"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom|withText" />
+
+    <item
+        android:id="@+id/item_setting"
+        android:icon="@drawable/man"
+        android:title="Profile"
+        app:showAsAction="withText" />
+</menu>

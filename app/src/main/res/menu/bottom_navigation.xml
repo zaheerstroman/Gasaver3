@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home1"
+        android:icon="@drawable/home_sky_blue_icons"
+        android:color="#FFFFFF"
+        android:tint="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_dashboard1"
+        android:icon="@drawable/folder_sky_blue_icon"
+        android:color="#FFFFFF"
+        android:tint="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:title="title_files" />
+
+    <item android:id="@+id/placeholder"
+        android:icon="@drawable/plus_white"
+        android:color="#FFFFFF"
+        android:tint="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:title="" />
+
+    <item
+        android:id="@+id/navigation_notifications1"
+        android:icon="@drawable/calendar_sky_blue_icon"
+        android:color="#FFFFFF"
+        android:tint="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:title="title_calender" />
+
+    <item
+        android:id="@+id/navigation_profile1"
+        android:icon="@drawable/profile_sky_icons"
+        android:color="#FFFFFF"
+        android:tint="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:title="title_profile" />
+</menu>

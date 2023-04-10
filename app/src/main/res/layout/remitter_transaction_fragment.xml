@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/dates_ll">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/from_date_ll"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_edittext_white"
+                    android:padding="5dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/calendar_date_icon"
+                        android:id="@+id/calendar_icon"> </ImageView>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/fromDate"
+                        android:hint="From"
+                        android:padding="@dimen/card_elevation_5dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/card_elevation_5dp"
+                        android:textSize="16sp"
+                        android:textIsSelectable="true"
+                        android:focusable="false"
+                        android:textColor="@color/Blue"
+                        android:background="@null"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/to_date_ll"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_edittext_white"
+                    android:padding="5dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/calendar_date_icon"
+                        android:id="@+id/calendar_date_icon"> </ImageView>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/toDate"
+                        android:hint="to"
+                        android:padding="@dimen/card_elevation_5dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/card_elevation_5dp"
+                        android:textSize="16sp"
+                        android:textIsSelectable="true"
+                        android:focusable="false"
+                        android:textColor="@color/Blue"
+                        android:background="@null"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/go_button"
+                    android:layout_weight="0.01"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/card_elevation_5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/proceed_button_background"
+                    android:text="Go"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/mobile_ll"
+                android:layout_below="@+id/dates_ll"
+                android:background="@drawable/rounded_edittext_white"
+                android:gravity="center"
+                android:padding="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="@dimen/margin_left_10dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/phoneicon"
+                    android:id="@+id/phoneicon"> </ImageView>
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mobileEt"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:hint="Mobile No."
+                    android:textSize="16sp"
+                    android:maxLength="10"
+                    android:inputType="phone"
+                    android:textColor="@color/Blue"
+                    android:background="@null"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#d3d3d3"
+                android:id="@+id/viewLine"
+                android:layout_below="@+id/mobile_ll"
+                android:layout_marginTop="5dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_View"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewLine"
+                android:scrollbars="none"
+                android:overScrollMode="never">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/no_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/records"
+        android:textColor="@color/Blue"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+</RelativeLayout>

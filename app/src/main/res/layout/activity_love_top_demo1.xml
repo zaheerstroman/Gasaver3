@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.LogInTaksikuActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/activity_sign_up"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.LogInTaksikuActivity">
+        <!--tools:context=".activity.LogInTaksikuActivity"-->
+
+        <!--    tools:context="com.uiresource.taksiku.LogIn"-->
+        <include
+            android:id="@+id/inc_toolbar"
+            layout="@layout/toolbar"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/inc_toolbar"
+            android:layout_marginLeft="@dimen/m_left_right"
+            android:layout_marginRight="@dimen/m_left_right"
+            android:layout_marginTop="@dimen/space20"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space15"
+                android:text="Budget Petrol Chippendale"
+                android:textAllCaps="true"
+                android:textSize="14sp"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/textGray" />
+
+
+            <Button
+                android:id="@+id/submit_Btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                style="@style/ButtonOrange"/>
+
+<!--            <Button-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/space15"-->
+<!--                android:drawableLeft="@drawable/ic_facebook"-->
+<!--                android:text="log in with facebook"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:background="@drawable/btn_facebook"-->
+<!--                style="@style/ButtonNoBg"/>-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_margin="10dp"
+                android:background="@color/colorAccent"
+                android:orientation="horizontal" />
+
+
+            <View
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/Blue"
+                    android:layout_below="@+id/submit_Btn" > </View>
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/space15"-->
+<!--                android:text="or"-->
+<!--                android:textAllCaps="true"-->
+<!--                android:textSize="14sp"-->
+<!--                android:textColor="@color/textGray" />-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space15"
+                android:text="'1234 will save as 123.4 Sing in for a Chance to win $ 25 Gift Card!'"
+                android:textAllCaps="true"
+                android:textSize="14sp"
+                android:textColor="@color/textGray" />
+
+<!--            <EditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/space15"-->
+<!--                android:hint="Email"-->
+<!--                android:inputType="textEmailAddress"-->
+<!--                style="@style/EditText"/>-->
+<!--            <EditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/space15"-->
+<!--                android:inputType="textPassword"-->
+<!--                android:hint="Password"-->
+<!--                style="@style/EditText"/>-->
+<!--            <Button-->
+<!--                android:id="@+id/bt_login"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/space15"-->
+<!--                android:text="login"-->
+<!--                style="@style/ButtonOrange"/>-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/space20"-->
+<!--                android:text="Forgot Password?"-->
+<!--                android:textSize="14sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@color/textGray" />-->
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

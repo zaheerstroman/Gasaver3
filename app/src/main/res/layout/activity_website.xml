@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.WebsiteActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"> </include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="Design your website in 48 hours.\n10 beautiful templates.\nUpload your photos and grab customers attention"
+                    android:textSize="12sp"> </TextView>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/state_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="16dp"
+                android:text="Website Plan   "
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toStartOf="@+id/state_div_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+            <TextView
+                android:id="@+id/state_div_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text=":"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="@+id/state_txt"
+                app:layout_constraintStart_toEndOf="@+id/state_txt"
+                app:layout_constraintTop_toTopOf="@+id/state_txt" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/state_card_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/colorLightBlue"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/state_div_tv"
+                app:layout_constraintEnd_toStartOf="@+id/textView24"
+                app:layout_constraintStart_toEndOf="@+id/state_div_tv"
+                app:layout_constraintTop_toTopOf="@+id/state_div_tv">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorLightBlue">
+
+                    <EditText
+                        android:id="@+id/state_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="7dp"
+                        android:background="@null"
+                        android:cursorVisible="false"
+                        android:editable="false"
+                        android:hint="Select"
+                        android:textSize="17sp"> </EditText>
+
+                    <ImageView
+                        android:id="@+id/right_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/right_arrow_bg"
+                        android:src="@drawable/white_arrow"> </ImageView>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/city_card_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="@color/colorLightBlue"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/city_div_tv"
+                app:layout_constraintEnd_toEndOf="@+id/state_card_view"
+                app:layout_constraintStart_toEndOf="@+id/city_div_tv"
+                app:layout_constraintTop_toTopOf="@+id/city_div_tv">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorLightBlue">
+
+                    <EditText
+                        android:id="@+id/city_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="7dp"
+                        android:background="@null"
+                        android:cursorVisible="false"
+                        android:editable="false"
+                        android:hint="Select"
+                        android:textSize="17sp"> </EditText>
+
+                    <ImageView
+                        android:id="@+id/city_right_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/right_arrow_bg"
+                        android:src="@drawable/white_arrow"> </ImageView>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/city_div_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="@+id/city_txt"
+                app:layout_constraintStart_toStartOf="@+id/state_div_tv"
+                app:layout_constraintTop_toTopOf="@+id/city_txt" />
+
+            <TextView
+                android:id="@+id/city_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Add-on Plan"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="@+id/state_txt"
+                app:layout_constraintTop_toBottomOf="@+id/state_card_view" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/area_card_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="@color/colorLightBlue"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/area_div_tv"
+                app:layout_constraintEnd_toEndOf="@+id/city_card_view"
+                app:layout_constraintStart_toEndOf="@+id/area_div_tv"
+                app:layout_constraintTop_toTopOf="@+id/area_div_tv">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorLightBlue">
+
+                    <EditText
+                        android:id="@+id/area_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="7dp"
+                        android:background="@null"
+                        android:cursorVisible="false"
+                        android:editable="false"
+                        android:hint="Select"
+                        android:textSize="17sp"> </EditText>
+
+                    <ImageView
+                        android:id="@+id/area_right_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/right_arrow_bg"
+                        android:src="@drawable/white_arrow"> </ImageView>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/area_div_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="@+id/area_txt"
+                app:layout_constraintStart_toStartOf="@+id/city_div_tv"
+                app:layout_constraintTop_toTopOf="@+id/area_txt" />
+
+            <TextView
+                android:id="@+id/area_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Total Amount"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="@+id/city_txt"
+                app:layout_constraintTop_toBottomOf="@+id/city_card_view" />
+
+            <Button
+                android:id="@+id/payment_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/search_btn_bg"
+                android:text="Make Payment"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="@+id/area_card_view"
+                app:layout_constraintStart_toStartOf="@+id/area_txt"
+                app:layout_constraintTop_toBottomOf="@+id/area_card_view" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="500"
+                app:layout_constraintBottom_toBottomOf="@+id/state_txt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/state_txt"> </TextView>
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="500"
+                app:layout_constraintBottom_toBottomOf="@+id/city_card_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView24"
+                app:layout_constraintTop_toTopOf="@+id/city_card_view" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="550"
+                app:layout_constraintBottom_toBottomOf="@+id/area_card_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView25"
+                app:layout_constraintTop_toTopOf="@+id/area_card_view" />
+
+            <include
+                layout="@layout/studio_details_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="60dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/payment_btn"> </include>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

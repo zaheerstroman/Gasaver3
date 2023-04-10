@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchView"
+        android:hint="Search"
+        android:padding="5dp"
+        android:textAlignment="center"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/rounded_edittext_white"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"/>
+
+    <ImageView
+        android:id="@+id/search_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/searchView"
+        android:layout_alignBottom="@+id/searchView"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:padding="5dp"
+        android:src="@drawable/searchicon" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/searchView"
+        android:layout_marginTop="5dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_View"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:overScrollMode="never" >
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recycler_View"
+            android:textColor="@color/Blue"
+            android:textSize="16sp"
+            android:layout_marginTop="100dp"
+            android:id="@+id/no_record"
+            android:text="No Records Found"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

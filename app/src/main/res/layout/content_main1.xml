@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/mainView"
+    android:background="@color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:id="@+id/banner_layout"
+        android:layout_marginTop="5dp" >
+
+<!--        <ss.com.bannerslider.views.BannerSlider-->
+<!--            android:id="@+id/banner_slider1"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="120dp"-->
+<!--            android:background="@color/bg01"-->
+<!--            app:animateIndicators="true"-->
+<!--            app:defaultIndicators="circle"-->
+<!--            app:interval="2500"-->
+<!--            app:loopSlides="true"/>-->
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relative_layout1"
+        android:padding="5dp"
+        android:background="@color/orange">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/avatar"
+            android:id="@+id/name_icon"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/name_ll"
+            android:layout_toLeftOf="@+id/relativewallet"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/name_icon"
+            android:layout_marginLeft="5dp" >
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/name_icon"
+                android:text="Hello, User"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/id_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="id"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dashed_border"
+            android:id="@+id/relativewallet"
+            android:padding="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:id="@+id/wallet_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="@dimen/card_elevation_5dp"
+                android:layout_marginEnd="@dimen/card_elevation_5dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/wallet"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/user_amount"
+                android:layout_toStartOf="@+id/user_amount" />
+
+            <TextView
+                android:id="@+id/user_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_alignParentRight="true"
+                android:text="000"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FED4D7"
+        android:layout_marginTop="1dp"
+        android:id="@+id/scrollinglayout">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cashback"
+            android:text=""
+            android:textColor="@color/Blue"
+            android:padding="5dp"
+            android:textSize="12sp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
+            android:scrollHorizontally="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit ="marquee_forever"/>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/content_frame1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+    </FrameLayout>
+
+
+</LinearLayout>

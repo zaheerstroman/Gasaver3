@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="false"
+    tools:openDrawer="start">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/Purple"
+        android:fitsSystemWindows="false">
+
+        <!--        <com.google.android.material.appbar.AppBarLayout-->
+        <!--            android:layout_width="164dp"-->
+        <!--            android:layout_height="54dp"-->
+        <!--            android:layout_marginLeft="96dp"-->
+        <!--            android:layout_marginRight="96dp"-->
+        <!--            android:background="@mipmap/pi_jlogo"-->
+        <!--            android:theme="@style/AppTheme.AppBarOverlay">-->
+
+        <!--            <androidx.appcompat.widget.Toolbar-->
+        <!--                android:id="@+id/toolbar"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="?attr/actionBarSize"-->
+        <!--                app:popupTheme="@style/AppTheme.PopupOverlay"-->
+        <!--                layout="@layout/layout_toolbar"-->
+        <!--                />-->
+        <!--            -->
+        <!--        </com.google.android.material.appbar.AppBarLayout>-->
+
+        <!--        <com.google.android.material.appbar.AppBarLayout-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="54dp"-->
+        <!--            android:layout_marginLeft="96dp"-->
+        <!--            android:layout_marginRight="96dp"-->
+        <!--            android:background="@mipmap/pi_jlogo"-->
+        <!--            android:theme="@style/AppTheme.AppBarOverlay">-->
+
+        <!--            <androidx.appcompat.widget.Toolbar-->
+        <!--                android:id="@+id/toolbar"-->
+        <!--                layout="@layout/layout_toolbar"-->
+        <!--                android:layout_width="307dp"-->
+        <!--                android:layout_height="?attr/actionBarSize"-->
+        <!--                app:popupTheme="@style/AppTheme.PopupOverlay"-->
+        <!--                />-->
+        <!--        </com.google.android.material.appbar.AppBarLayout>-->
+
+        <!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+
+        <!--        android:background="@mipmap/pi_logo_raju_sky_blue"-->
+        <!--        android:background="@mipmap/pi_jlogo"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="54dp"-->
+
+<!--        android:background="@mipmap/gas_saver_logo_rectangular_min"-->
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="96dp"
+            android:layout_marginRight="96dp"
+            android:scrollbarSize="30dp"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <!--            android:id="@+id/toolbar"-->
+            <androidx.appcompat.widget.Toolbar
+                layout="@layout/layout_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/layout_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        </include>
+
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/content_main" />
+
+<!--        <include-->
+<!--            android:id="@+id/include"-->
+<!--            layout="@layout/content_main1" />-->
+
+
+
+        <TextView
+            android:id="@+id/no_records_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Records Found"
+            android:textSize="20sp"
+            android:visibility="gone"
+            android:textColor="@color/purple_700"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"> </TextView>
+
+
+        <!--        &lt;!&ndash;<android.support.design.widget.FloatingActionButton-->
+        <!--            android:id="@+id/fab"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="bottom|end"-->
+        <!--            android:layout_margin="@dimen/fab_margin"-->
+        <!--            app:srcCompat="@android:drawable/ic_dialog_email" />&ndash;&gt;-->
+
+
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        android:background="@color/white"
+        app:menu="@menu/menu_navigation" />
+</androidx.drawerlayout.widget.DrawerLayout>

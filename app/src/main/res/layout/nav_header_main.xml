@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg01" >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user_profile"
+        android:src="@drawable/avatar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:id="@+id/user_name"
+        android:text="@string/Name"
+        android:textColor="@color/white"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/user_profile"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/welcome_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:lines="2"
+        android:layout_below="@+id/user_name"
+        android:layout_toRightOf="@+id/user_profile"
+        android:text="@string/welcome_name"
+        android:textColor="@color/white"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/id_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/welcome_note"
+        android:layout_toRightOf="@+id/user_profile"
+        android:text="DS001"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/mobile_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/id_text"
+        android:layout_toRightOf="@+id/user_profile"
+        android:text="9032757020"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginBottom="10dp"
+        android:textSize="16sp"/>
+
+    <RelativeLayout
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:background="@drawable/dashed_border"
+        android:layout_marginTop="45dp"
+        android:id="@+id/relativewallet"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@+id/user_profile"
+        android:layout_marginLeft="105dp">
+
+        <ImageView
+            android:id="@+id/wallet_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/whitewallet" />
+
+        <!--<ImageView-->
+        <!--android:id="@+id/rupee_symbol"-->
+        <!--android:layout_width="15dp"-->
+        <!--android:layout_height="13dp"-->
+        <!--android:layout_toRightOf="@+id/wallet_icon"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:src="@drawable/rupee"/>-->
+
+        <TextView
+            android:id="@+id/nav_user_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/wallet_icon"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

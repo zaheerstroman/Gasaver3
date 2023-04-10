@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/grp1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_menu1"
+            android:icon="@drawable/house_mansion04"
+            android:title="Home" />
+    </group>
+
+    <group
+        android:id="@+id/grp2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_menu2"
+            android:icon="@drawable/workout"
+            android:title="Files" />
+    </group>
+
+    <group
+        android:id="@+id/grp3"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_menu3"
+            android:icon="@drawable/feedback_review"
+            android:title="Search" />
+    </group>
+
+    <group
+        android:id="@+id/grp4"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_menu4"
+            android:icon="@drawable/playstore"
+            android:title="Our Apps" />
+    </group>
+
+    <group
+        android:id="@+id/grp5"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_menu5"
+            android:icon="@drawable/share_collaboration"
+            android:title="Share &amp; Rate" />
+    </group>
+
+    <group
+        android:id="@+id/grp6"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_menu6"
+            android:icon="@drawable/logout"
+            android:title="Logout" />
+    </group>
+</menu>

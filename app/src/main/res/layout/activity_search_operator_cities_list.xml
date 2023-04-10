@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:layout_centerVertical="true"
+        app:titleTextColor="@color/Blue"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+    </androidx.appcompat.widget.Toolbar>
+
+<!--
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select a Circle"
+        android:textStyle="bold"
+        android:layout_margin="@dimen/margin_left_10dp"
+        android:id="@+id/operator_title_tv"
+        android:textSize="20sp"
+        android:textColor="@color/colorBlack"/>
+-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/search_ll"
+        android:backgroundTint="#D3D3D3"
+        android:background="@drawable/rounded_rectangle"
+        android:gravity="center"
+        android:padding="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/searchicon"
+            android:id="@+id/search_icon">
+
+        </ImageView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/search_et"
+            android:padding="5dp"
+            android:hint="Search"
+            android:textSize="16sp"
+            android:textColor="@color/Blue"
+            android:background="@null"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_View"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>

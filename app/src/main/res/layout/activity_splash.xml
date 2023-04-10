@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="730dp"
+    android:id="@+id/relative_layout"
+
+    android:fitsSystemWindows="true"
+
+
+    android:background="@drawable/splash_screen500900" >
+
+<!--    android:background="@drawable/splash_screen7201129-->
+
+
+    <!--    android:background="@drawable/splash_screen482x801" >-->
+    <!--    android:background="@drawable/splash_screen500900" >-->
+<!--    android:background="@drawable/gasaver_splash_screen_720_1080" >-->
+<!--    android:background="@drawable/splash_screen_gas_saver"-->
+<!--    ajay@2607-->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
