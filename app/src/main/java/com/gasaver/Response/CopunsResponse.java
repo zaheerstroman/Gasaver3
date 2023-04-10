@@ -7,6 +7,9 @@ import java.util.ArrayList;
 
 public class CopunsResponse {
 
+    public static String BASE_URL = "";
+
+
     @SerializedName("copuns_details")
     @Expose
 //    private List<CopunsDetail> copunsDetails;
