@@ -1,5 +1,7 @@
 package com.gasaver.activity;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -7,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +40,8 @@ public class CopunsActivity extends AppCompatActivity {
 
     ActivityCopunsBinding binding;
 
+    CopunsResponse copunsResponse = new CopunsResponse();
+    String baseUrl =  "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +94,15 @@ public class CopunsActivity extends AppCompatActivity {
 //                    binding.recyclerviewCopunsList.setAdapter(new RewardActivity.UploadAdapter(CopunsActivity.this, response.body().getCopunsDetails()));
                     binding.recyclerviewCopunsList.setAdapter(new CopunsAdapter(CopunsActivity.this, response.body().getCopunsDetails()));
 
+                    Log.e(TAG, "onResponse: "+ response.body().getBasePath());
+//                    baseUrl = response.body().getBasePath();
+                    CopunsResponse.BASE_URL = response.body().getBasePath();
+
+
+//                    CopunsResponse copunsResponse = new CopunsResponse();
+                    copunsResponse.setBasePath(response.body().getBasePath());
+
+//                    binding.recyclerviewCopunsList.setAdapter(new CopunsAdapter(CopunsActivity.this, response.body().getBasePath()));
 
 //                    binding.recyclerview_Reward_List.setAdapter(new RewardActivity.UploadAdapter(RewardActivity.this, response.body().getData()));
 //                    binding.recyclerviewList.setAdapter(new UploadActivity.UploadAdapter(UploadActivity.this,response.body().getData()));
@@ -129,8 +143,6 @@ public class CopunsActivity extends AppCompatActivity {
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             CopunsResponse.CopunsDetail copunsDetail = list.get(position);
 
-            CopunsResponse copunsResponse = new CopunsResponse();
-
 //            holder.binding.iv_profile_img1.setText(copunsDetail.getAttachment());
 //            holder.binding.ivProfileImg1.setText(copunsDetail.getAttachment());
 
@@ -159,8 +171,16 @@ public class CopunsActivity extends AppCompatActivity {
 //            Glide.with(CopunsActivity.this).load(response.body().getBase_path() + response.body().getData().getProfilePhoto())
 //                    .error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfileImg);
 
-            Glide.with(CopunsActivity.this).load(copunsResponse.getBasePath() + copunsDetail.getAttachment())
+//            Glide.with(CopunsActivity.this).load(copunsResponse.getBasePath() + copunsDetail.getAttachment())
+//                    .error(R.drawable.profile_img).error(R.drawable.profile_img).into(holder.i);
+
+//            Glide.with(CopunsActivity.this).load(baseUrl + copunsDetail.getAttachment())
+//                    .error(R.drawable.profile_img).error(R.drawable.profile_img).into(holder.i);
+
+            Glide.with(CopunsActivity.this).load(CopunsResponse.BASE_URL + copunsDetail.getAttachment())
                     .error(R.drawable.profile_img).error(R.drawable.profile_img).into(holder.i);
+
+            Log.e(TAG, "onBindViewHolder: "+ copunsResponse.getBasePath() + copunsDetail.getAttachment());
 
 
 //            Glide.with(getActivity()).load(response.body().getBarCode())

@@ -159,19 +159,6 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
-
-//FragmentActivity
-//public class HomeFragmentGasaver extends FragmentActivity implements OnMapReadyCallback,
-//        GoogleMap.OnMarkerClickListener, NearLocationInterface {
-
-//NearMe
-//public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
-//        GoogleMap.OnMarkerClickListener, NearLocationInterface {
-
 //FindRoutesTechMirrors
 public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, NearLocationInterface, GoogleApiClient.OnConnectionFailedListener, RoutingListener {
 
@@ -285,22 +272,11 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-//        View rootView = inflater.inflate(R.layout.fragment_fitness_centers, container, false);
-
-        //Activity
-//        binding = FragmentHomeGasaverBinding.inflate(getLayoutInflater());
-//        setContentView(binding.getRoot());
 
         //Fragment
         binding = FragmentHomeGasaverBinding.inflate(inflater, container, false);
 
-//        spinner_budget.setSelection(0);
-//        spinner_budget = v.findViewById(R.id.spinner_budget);
-//        spinner_budget.setAdapter(new ArrayAdapter<>(getActivity(), R.layout.list_units, getResources().getStringArray(R.array.budgets)));
 
-//        spinner_subcat.setSelection(0);
-//        spinner_subcat = view.findViewById(R.id.spinner_subcat);
-//        spinner_subcat.setAdapter(new ArrayAdapter<>(getActivity(), R.layout.list_units, getResources().getStringArray(R.array.budgets)));
 
 
         appPermissions = new AppPermissions();
@@ -311,49 +287,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         userSavedLocationId = new ArrayList<>();
         locationReference = FirebaseDatabase.getInstance().getReference("Places");
 
-
-//        List<MainData> tempList = new ArrayList<>();
-
-//        for(MainData data :postList)
-//        for(StationDataResponse.StationDataModel stationDataModel :stationDataModel)
-//        for(StationDataResponse.StationDataModel stationDataModel :postList)
-
-//        for(StationDataResponse stationDataModel :postList)
-//            //or
-//            for(StationDataResponse stationDataModel :stationDataList1)
-//
-//
-//        {
-////            if(null!= data.getName() && !data.getName().isEmpty())
-////            if(null!= stationDataModel.getName() && !stationDataModel.getName().isEmpty())
-//            if(null!= stationDataModel.getData() && !stationDataModel.getData().isEmpty())
-//
-//
-//            {
-////                tempList.add(data);
-////                stationDataList.add(stationDataModel);
-//                stationDataList1.add(stationDataModel);
-//
-//            }
-//        }
-
-
-        //PushNotification:--
-//        NotificationManager notif=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-//
-//        Notification notify = new Notification(android.R.drawable.stat_notify_more,title,System.currentTimeMillis());
-//
-//        Notification notify=new Notification.Builder
-//                (getApplicationContext()).setContentTitle(tittle).setContentText(body).
-//                setContentTitle(subject).setSmallIcon(R.drawable.abc).build();
-//
-//        PendingIntent pending = PendingIntent.getActivity(getApplicationContext(), 0, new Intent(),0);
-//
-//        notify.setLatestEventInfo(getApplicationContext(), subject, body,pending);
-//        NM.notify(0, notify);
-//
-//        notify.flags |= Notification.FLAG_AUTO_CANCEL;
-//        notif.notify(0, notify);
 
         //-----------------------------
 
@@ -534,12 +467,10 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         // Position the map.
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(51.503186, -0.126446), 10));
 
-        // Initialize the manager with the context and the map.
-        // (Activity extends context, so we can pass 'this' in the constructor.)
+
         clusterManager = new ClusterManager<MyItem>(context, map);
 
-        // Point the map's listeners at the listeners implemented by the cluster
-        // manager.
+
         map.setOnCameraIdleListener(clusterManager);
         map.setOnMarkerClickListener(clusterManager);
 
@@ -568,13 +499,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
     private void getCategories() {
 
-        //        if (validateFields(et_location, et_prop_location, rg_prop_type, rg_bed_rooms, rg_bath_rooms, spinner_budget)) {
-//                if (validateFields(spinner_budget)) {
-//        if (validateFields(spinner_subcat)) {
-
-
-//        ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
-
 
         CommonUtils.showLoading(getActivity(), "Please Wait", false);
 
@@ -587,43 +511,12 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         jsonObject.addProperty("user_id", SharedPrefs.getInstance(getActivity()).getString(Constants.USER_ID));
         jsonObject.addProperty("token", SharedPrefs.getInstance(getActivity()).getString(Constants.TOKEN));
 
-//        String[] budget = budgetArrayList[spinner_budget.getSelectedItemPosition()].split("-");
-//            String[] budget = budgetArrayList[spinner_subcat.getSelectedItemPosition()].split("-");
-
-//            jsonObject.addProperty("budget_min", budget[0]);
-//            jsonObject.addProperty("budget_max", budget[1]);
 
         Call<CatResponse> call = apiInterface.getDefaultData(jsonObject);
         call.enqueue(new Callback<CatResponse>() {
             @Override
             public void onResponse(Call<CatResponse> call, Response<CatResponse> response) {
                 try {
-
-//                        MyReqResponse myReqResponse = response.body();
-//                        if (myReqResponse != null && myReqResponse.getMyRequirements() != null) {
-//                            setMyRequirements(myReqResponse.getMyRequirements());
-//                        }
-
-                    //SPINNER Selected By TPROPERTY
-
-//                        CatResponse catResponse = response.body();
-////                        if (catResponse != null && catResponse.getCategoryModel() != null) {
-//                        if (catResponse != null && catResponse.getData() != null) {
-//
-////                            setMyRequirements(catResponse.getCategoryModel());
-////                            setMyRequirements(catResponse.getData());
-//
-//                            setsubCategories(catResponse.getData());
-//
-//
-//                        }
-
-//                        OR
-
-//                        setMyRequirements(catResponse.getCategoryModel());
-//                        setMyRequirements(response.getCategoryModel());
-
-//                        setMyRequirements(catResponse.getData());
 
 
                     CommonUtils.hideLoading();
@@ -647,32 +540,13 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
                             jsonObject.addProperty("table_name", "subcategory");
                             jsonObject.addProperty("reference_id", "category_id");
                             jsonObject.addProperty("id", catList.get(binding.spinnerCaseText1.getSelectedItemPosition()).getId());
-//                            jsonObject.addProperty("id", catList.get(binding.spinnerSubcat.getSelectedItemPosition()).getId());
-
-//                            jsonObject.addProperty("id", catList.get(binding.spinnerCaseText1.getSelectedItem().toString());
-//                            jsonObject.addProperty("id", catList.get(Integer.parseInt(binding.spinnerCaseText1.getSelectedItem().toString())));
-//                            jsonObject.addProperty("id", String.valueOf(catList.get(Integer.parseInt(binding.spinnerCaseText1.getSelectedItem().toString()))));
-
-
-//                            jsonObject.addProperty("id", catList.get(binding.spinnerSubcat.getSelectedItem().toString());
-//                            jsonObject.addProperty("id", catList.get(Integer.parseInt(binding.spinnerSubcat.getSelectedItem().toString())));
-//                            jsonObject.addProperty("id", String.valueOf(catList.get(Integer.parseInt(binding.spinnerSubcat.getSelectedItem().toString()))));
-
-
-//                            .addFormDataPart("subcategory", binding.spinnerSubcat.getSelectedItem().toString())
-//                            jsonObject.addProperty("subcategory", binding.spinnerSubcat.getSelectedItem().toString());
 
 
                             jsonObject.addProperty("user_id", SharedPrefs.getInstance(getActivity()).getString(Constants.USER_ID));
                             jsonObject.addProperty("token", SharedPrefs.getInstance(getActivity()).getString(Constants.TOKEN));
 
 
-//                            builder.addFormDataPart("id", SharedPrefs.getInstance(getApplicationContext()).getString(Constants.ID))
-//                                    .addFormDataPart("user_id", SharedPrefs.getInstance(getApplicationContext()).getString(Constants.USER_ID))
-//                                    .addFormDataPart("subcategory", binding.spinnerSubcat.getSelectedItem().toString())
-//                                    .addFormDataPart("reference_id", SharedPrefs.getInstance(getApplicationContext()).getString(Constants.REFERENCE_ID))
-//                                    .addFormDataPart("token", SharedPrefs.getInstance(getApplicationContext()).getString(Constants.TOKEN))
-//                                    .build();
+
 
                             getsubCategories(jsonObject);
                         }
@@ -699,19 +573,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
     }
 
-    //    private boolean validateFields(EditText et_location, EditText et_prop_location, RadioGroup rg_prop_type, RadioGroup rg_bed_rooms, RadioGroup rg_bath_rooms, Spinner spinner_budget) {
-    //    private boolean validateFields(Spinner spinner_budget) {
-
-//    private boolean validateFields(Spinner spinner_subcat) {
-//
-//
-
-//        if (spinner_subcat.getSelectedItemPosition() == 0) {
-//            Toast.makeText(getActivity(), "Please Select", Toast.LENGTH_SHORT).show();
-//            return false;
-//        }
-//        return true;
-//    }
 
 
     private void getsubCategories(JsonObject jsonObject) {
@@ -839,19 +700,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         });
     }
 
-    //    private void setMyRequirements(MyReqResponse.MyRequirements myRequirements) {
-//    private void setsubCategories(CatResponse.CategoryModel categoryModel) {
-////        et_location.setText(myRequirements.getAddLocation());
-////        et_prop_location.setText(myRequirements.getLocationStatus());
-//
-////        String budget = CategoryModel.getBudgetMin() + "-" + CategoryModel.getBudgetMax();
-//        String budget = categoryModel.getId() + "-" + categoryModel.getId();
-//
-//
-//        for (int i = 0; i < budgetArrayList.length; i++) {
-//            if (budgetArrayList[i].equalsIgnoreCase(budget)) spinner_subcat.setSelection(i);
-//        }
-//    }
 
 
     private void getStationsData() {
@@ -925,15 +773,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
     }
 
-//    private void initMarker(ArrayList<StationDataResponse.StationDataModel> stationDataList) {
-//
-//        for (int i = 0; i<stationDataList.size();i++){
-//
-//            LatLng location = new LatLng(Double.parseDouble(stationDataList.get(i).getLatitude()),
-//                    Double.parseDouble(stationDataList.get(i).getLongitude()));
-//        }
-//
-//    }
 
     //RecyclerView Slider or Scroller:----------------
 
@@ -992,10 +831,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 //                Glide.with(getActivity()).load(Constants.PROPERTY_IMAGE_URL + latestProperties.get(position).getBrandIcon()).into(holder.project_img);
                 Glide.with(getActivity()).load(Constants.LOGO_IMG_URL + stationDataList.get(position).getBrandIcon()).into(holder.project_img);
 
-
-//                holder.project_loc.setText(latestProperties.get(position).getDepartmentId());
-//                holder.project_builder.setText(latestProperties.get(position).getBrand());
-//                holder.project_title.setText(latestProperties.get(position).getStationid());
 
                 holder.project_loc.setText(stationDataList.get(position).getDepartmentId());
                 holder.project_builder.setText(stationDataList.get(position).getBrand());
@@ -1056,213 +891,12 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
     //-----------------
 
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-//
-//        //
-//
-//        locationPermissionGranted = false;
-//
-//        if (requestCode
-//                == PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION) {// If request is cancelled, the result arrays are empty.
-//            if (grantResults.length > 0
-//                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                locationPermissionGranted = true;
-//            }
-//        } else {
-//            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        }
-//        updateLocationUI();
-//
-//        switch (requestCode) {
-//            case LOCATION_REQUEST_CODE: {
-//                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                    //if permission granted.
-//                    locationPermission = true;
-//                    getMyLocation();
-//
-//                } else {
-//                    // permission denied, boo! Disable the
-//                    // functionality that depends on getActivity() permission.
-//                }
-//                return;
-//            }
-//        }
-//    }
-
-//    private void updateLocationUI() {
-//        if (map == null) {
-//            return;
-//        }
-//        try {
-//            if (locationPermissionGranted) {
-//                map.setMyLocationEnabled(true);
-//                map.getUiSettings().setMyLocationButtonEnabled(true);
-//            } else {
-//                map.setMyLocationEnabled(false);
-//                map.getUiSettings().setMyLocationButtonEnabled(false);
-//                lastKnownLocation = null;
-//                getLocationPermission();
-//            }
-//        } catch (SecurityException e)  {
-//            Log.e("Exception: %s", e.getMessage());
-//        }
-//    }
-//
-//    private void getDeviceLocation() {
-//        /*
-//         * Get the best and most recent location of the device, which may be null in rare
-//         * cases when a location is not available.
-//         */
-//        try {
-//            if (locationPermissionGranted) {
-//                Task<Location> locationResult = fusedLocationProviderClient.getLastLocation();
-//                locationResult.addOnCompleteListener(this, new OnCompleteListener<Location>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Location> task) {
-//                        if (task.isSuccessful()) {
-//                            // Set the map's camera position to the current location of the device.
-//                            lastKnownLocation = task.getResult();
-//                            if (lastKnownLocation != null) {
-//                                map.moveCamera(CameraUpdateFactory.newLatLngZoom(
-//                                        new LatLng(lastKnownLocation.getLatitude(),
-//                                                lastKnownLocation.getLongitude()), DEFAULT_ZOOM));
-//                            }
-//                        } else {
-//                            Log.d(TAG, "Current location is null. Using defaults.");
-//                            Log.e(TAG, "Exception: %s", task.getException());
-//                            map.moveCamera(CameraUpdateFactory
-//                                    .newLatLngZoom(defaultLocation, DEFAULT_ZOOM));
-//                            map.getUiSettings().setMyLocationButtonEnabled(false);
-//                        }
-//                    }
-//                });
-//            }
-//        } catch (SecurityException e)  {
-//            Log.e("Exception: %s", e.getMessage(), e);
-//        }
-//    }
-//
-//    private void showCurrentPlace() {
-//        if (map == null) {
-//            return;
-//        }
-//
-//        if (locationPermissionGranted) {
-//            // Use fields to define the data types to return.
-//            List<Place.Field> placeFields = Arrays.asList(Place.Field.NAME, Place.Field.ADDRESS,
-//                    Place.Field.LAT_LNG);
-//
-//            // Use the builder to create a FindCurrentPlaceRequest.
-//            FindCurrentPlaceRequest request =
-//                    FindCurrentPlaceRequest.newInstance(placeFields);
-//
-//            // Get the likely places - that is, the businesses and other points of interest that
-//            // are the best match for the device's current location.
-//            @SuppressWarnings("MissingPermission") final
-//            Task<FindCurrentPlaceResponse> placeResult =
-//                    placesClient.findCurrentPlace(request);
-//            placeResult.addOnCompleteListener (new OnCompleteListener<FindCurrentPlaceResponse>() {
-//                @Override
-//                public void onComplete(@NonNull Task<FindCurrentPlaceResponse> task) {
-//                    if (task.isSuccessful() && task.getResult() != null) {
-//                        FindCurrentPlaceResponse likelyPlaces = task.getResult();
-//
-//                        // Set the count, handling cases where less than 5 entries are returned.
-//                        int count;
-//                        if (likelyPlaces.getPlaceLikelihoods().size() < M_MAX_ENTRIES) {
-//                            count = likelyPlaces.getPlaceLikelihoods().size();
-//                        } else {
-//                            count = M_MAX_ENTRIES;
-//                        }
-//
-//                        int i = 0;
-//                        likelyPlaceNames = new String[count];
-//                        likelyPlaceAddresses = new String[count];
-//                        likelyPlaceAttributions = new List[count];
-//                        likelyPlaceLatLngs = new LatLng[count];
-//
-//                        for (PlaceLikelihood placeLikelihood : likelyPlaces.getPlaceLikelihoods()) {
-//                            // Build a list of likely places to show the user.
-//                            likelyPlaceNames[i] = placeLikelihood.getPlace().getName();
-//                            likelyPlaceAddresses[i] = placeLikelihood.getPlace().getAddress();
-//                            likelyPlaceAttributions[i] = placeLikelihood.getPlace()
-//                                    .getAttributions();
-//                            likelyPlaceLatLngs[i] = placeLikelihood.getPlace().getLatLng();
-//
-//                            i++;
-//                            if (i > (count - 1)) {
-//                                break;
-//                            }
-//                        }
-//
-//                        // Show a dialog offering the user the list of likely places, and add a
-//                        // marker at the selected place.
-//                        MapsActivityCurrentPlace.this.openPlacesDialog();
-//                    }
-//                    else {
-//                        Log.e(TAG, "Exception: %s", task.getException());
-//                    }
-//                }
-//            });
-//        } else {
-//            // The user has not granted permission.
-//            Log.i(TAG, "The user did not grant location permission.");
-//
-//            // Add a default marker, because the user hasn't selected a place.
-//            map.addMarker(new MarkerOptions()
-//                    .title(getString(R.string.default_info_title))
-//                    .position(defaultLocation)
-//                    .snippet(getString(R.string.default_info_snippet)));
-//
-//            // Prompt the user for permission.
-//            getLocationPermission();
-//        }
-//    }
-//
-//    private void openPlacesDialog() {
-//        // Ask the user to choose the place where they are now.
-//        DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                // The "which" argument contains the position of the selected item.
-//                LatLng markerLatLng = likelyPlaceLatLngs[which];
-//                String markerSnippet = likelyPlaceAddresses[which];
-//                if (likelyPlaceAttributions[which] != null) {
-//                    markerSnippet = markerSnippet + "\n" + likelyPlaceAttributions[which];
-//                }
-//
-//                // Add a marker for the selected place, with an info window
-//                // showing information about that place.
-//                map.addMarker(new MarkerOptions()
-//                        .title(likelyPlaceNames[which])
-//                        .position(markerLatLng)
-//                        .snippet(markerSnippet));
-//
-//                // Position the map's camera at the location of the marker.
-//                map.moveCamera(CameraUpdateFactory.newLatLngZoom(markerLatLng,
-//                        DEFAULT_ZOOM));
-//            }
-//        };
-//
-//        // Display the dialog.
-//        AlertDialog dialog = new AlertDialog.Builder(this)
-//                .setTitle(R.string.pick_place)
-//                .setItems(likelyPlaceNames, listener)
-//                .show();
-//    }
-
 
     //to get user location
     private void getMyLocation() {
         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
         }
 
@@ -1279,22 +913,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
             }
         });
 
-        //get destination location when user click on map
-/*
-        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(LatLng latLng) {
-
-                end = latLng;
-
-                mMap.clear();
-
-                start = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
-                //start route finding
-                Findroutes(start, end);
-            }
-        });
-*/
 
     }
 
@@ -1353,12 +971,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(17));
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-//        getAllDataLocation();
-
-//   }
-//});
-//        return rootView;
-
 
 //      ---------------------------
 
@@ -1379,22 +991,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         }
 
     }
-
-//    private void addCustomMarker() {
-//        Log.d(TAG, "addCustomMarker()");
-//        if (mGoogleMap == null) {
-//            return;
-//        }
-//
-//        // adding a marker on map with image from  drawable
-//        mGoogleMap.addMarker(new MarkerOptions()
-////                .position(mDummyLatLng)
-//                .position(new LatLng("lat,lng"))
-////                .position(new LatLng("-33.8688197, 151.2092955"))
-//
-////                .position("-33.8688197, 151.2092955")
-//                .icon(BitmapDescriptorFactory.fromBitmap(getMarkerBitmapFromView(R.drawable.avatar))));
-//    }
 
 
     // function to find Routes.
@@ -1422,11 +1018,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
     //Routing call back functions.
     @Override
     public void onRoutingFailure(RouteException e) {
-//        View parentLayout = view.findViewById(android.R.id.content);
-//        Snackbar snackbar = Snackbar.make(getActivity(), e.toString(), Snackbar.LENGTH_LONG);
-//        snackbar.show();
-//        Toast.makeText(mContext, e.toString(), Toast.LENGTH_SHORT).show();
-//        Findroutes(start,end);
+
     }
 
     @Override
@@ -1603,25 +1195,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
     }
 
 
-//    private void getLocationPermission() {
-//        /*
-//         * Request location permission, so that we can get the location of the
-//         * device. The result of the permission request is handled by a callback,
-//         * onRequestPermissionsResult.
-//         */
-////        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
-//        if (ContextCompat.checkSelfPermission(getApplicationContext(),
-//                android.Manifest.permission.ACCESS_FINE_LOCATION)
-//                == PackageManager.PERMISSION_GRANTED) {
-//            locationPermissionGranted = true;
-//        } else {
-//            ActivityCompat.requestPermissions(this,
-//                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-//                    PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
-//        }
-//    }
-
-
     private void stopLocationUpdate() {
         fusedLocationProviderClient.removeLocationUpdates(locationCallback);
         Log.d("TAG", "stopLocationUpdate: Location Update stop");
@@ -1645,120 +1218,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
     }
 
 
-    //    private void initMarker(List<LocationModel> mListMarker) {
-//    private void initMarker(ArrayList<StationDataResponse> stationDataList) {
-//    private void initMarker(ArrayList<StationDataResponse.StationDataModel> stationDataList) {
-//
-//        for (int i = 0; i < stationDataList.size(); i++) {
-//
-//            LatLng location = new LatLng(Double.parseDouble(stationDataList.get(i).getLatitude()), Double.parseDouble(stationDataList.get(i).getLongitude()));
-//
-//            //homeMap
-//            Marker marker = mMap.addMarker(new MarkerOptions().position(location).title(stationDataList.get(i).getCity()).getSnippet(stationDataList.get(i).getBrandIcon()));
-//
-////            StationDataResponse info = new StationDataResponse();
-//            StationDataResponse.StationDataModel info = new StationDataResponse.StationDataModel();
-//            info.setBrandIcon(stationDataList.get(i).getBrandIcon());
-//
-//            marker.setTag(info);
-//
-//            LatLng latLng = new LatLng(Double.parseDouble(stationDataList.get(0).getLatitude()), Double.parseDouble(stationDataList.get(0).getLongitude()));
-//
-//            //homeMap
-//            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latLng.latitude, latLng.longitude), 11.0f));
-//
-//            if (stationDataList.size() != 0) {
-////                TestInfoWindowAdapter testInfoWindowAdapter = new TestInfoWindowAdapter(this);
-////                TestInfoWindowAdapter testInfoWindowAdapter = new TestInfoWindowAdapter(getApplicationContext());
-//                TestInfoWindowAdapter testInfoWindowAdapter = new TestInfoWindowAdapter(getActivity());
-//
-//
-//                //homeMap
-//                mMap.setInfoWindowAdapter(infoWindowAdapter);
-//            }
-//        }
-//
-//    }
-
-//    private class TestInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
-//
-//        private Context context;
-//
-//        public TestInfoWindowAdapter(Context context) {
-//            this.context = context;
-//        }
-//
-//        @Nullable
-//        @Override
-//        public View getInfoContents(@NonNull Marker marker) {
-//
-//            View view = ((Activity) context).getLayoutInflater().inflate(R.layout.info_popup, null);
-//
-//            TextView city = view.findViewById(R.id.mCityname);
-//            ImageView imageView = view.findViewById(R.id.image);
-//
-//            city.setText(marker.getTitle());
-//
-//            StationDataResponse.StationDataModel infomodel = (StationDataResponse.StationDataModel) marker.getTag();
-//            URLString = infomodel.getBrandIcon();
-//
-//            Picasso.get().load(URLString).error(R.mipmap.imageview, new MarkerCallBack(marker));
-//
-//            return view;
-////            return null;
-////            return null;
-//        }
-//
-//        @Nullable
-//        @Override
-//        public View getInfoWindow(@NonNull Marker marker) {
-//
-////            View view = ((Activity) context).getLayoutInflater().inflate(R.layout.info_popup, null);
-////
-////            TextView city = view.findViewById(R.id.mCityname);
-////            ImageView imageView = view.findViewById(R.id.image);
-////
-////            city.setText(marker.getTitle());
-////
-////            StationDataResponse.StationDataModel infomodel = (StationDataResponse.StationDataModel) marker.getTag();
-////            URLString = infomodel.getBrandIcon();
-////
-////            Picasso.get()
-////                    .load(URLString)
-////                    .error(R.mipmap.imageview, new MarkerCallBack(marker));
-////
-////            return view;
-//            return null;
-//        }
-//    }
-
-//    private class MarkerCallBack implements com.squareup.picasso.Callback {
-//
-//        Marker marker = null;
-//
-//        public MarkerCallBack(Marker marker) {
-//            this.marker = marker;
-//        }
-//
-//        @Override
-//        public void onSuccess() {
-//
-//            if (marker !=null && marker.isInfoWindowShown()){
-//
-//                marker.hideInfoWindow();
-//                marker.showInfoWindow();
-//
-//            }
-//        }
-//
-//        @Override
-//        public void onError(Exception e) {
-//
-//            Log.e(getClass().getSimpleName(), "Error Loading Thumbnail");
-//        }
-//    }
-
-
     //    private void initMarker(ArrayList<StationDataResponse.StationDataModel> stationDataList) {
     private void addMarker(StationDataResponse.StationDataModel stationDataModel) {
 
@@ -1774,15 +1233,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         mapmarker.setSnippet(new Gson().toJson(stationDataModel)); // 10 15 5
         mapmarker.setTag(stationDataModel.getStationid()); // 10 15 5
 
-//        private BitmapDescriptor bitmapDescriptorFromVector(Context context, @DrawableRes  int vectorDrawableResourceId) {
 
-//        Drawable background = ContextCompat.getDrawable(context, R.drawable.ic_map_pin_filled_blue_48dp);
-//        background.setBounds(0, 0, background.getIntrinsicWidth(), background.getIntrinsicHeight());
-//        Drawable vectorDrawable = ContextCompat.getDrawable(context, vectorDrawableResourceId);
-//        vectorDrawable.setBounds(40, 20, vectorDrawable.getIntrinsicWidth() + 40, vectorDrawable.getIntrinsicHeight() + 20);
-
-
-//        mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 13));
 
         mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 13));
 
@@ -1791,17 +1242,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
     }
 
-//        private BitmapDescriptor bitmapDescriptorFromVector(Context context, @DrawableRes int vectorDrawableResourceId) {
-//            Drawable background = ContextCompat.getDrawable(context, R.drawable.ic_my_location);
-//            background.setBounds(0, 0, background.getIntrinsicWidth(), background.getIntrinsicHeight());
-//            Drawable vectorDrawable = ContextCompat.getDrawable(context, vectorDrawableResourceId);
-//            vectorDrawable.setBounds(100, 80, vectorDrawable.getIntrinsicWidth() + 40, vectorDrawable.getIntrinsicHeight() + 20);
-//            Bitmap bitmap = Bitmap.createBitmap(background.getIntrinsicWidth(), background.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//            Canvas canvas = new Canvas(bitmap);
-//            background.draw(canvas);
-//            vectorDrawable.draw(canvas);
-//            return BitmapDescriptorFactory.fromBitmap(bitmap);
-//        }
+
 
 
     private void loadMarkerIcon(final Marker marker, String BrandIcon) {
@@ -1847,117 +1288,22 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
     private BitmapDescriptor getCustomIcon() {
 
-//        Drawable background = ContextCompat.getDrawable(requireContext(), R.drawable.ic_location);
-//        Drawable background = ContextCompat.getDrawable(requireContext(), R.mipmap.location_icon);
-//        Drawable background = ContextCompat.getDrawable(requireContext(), R.drawable.api1);
-//        Drawable background = ContextCompat.getDrawable(requireContext(), R.drawable.eleven7);
-//        Drawable background = ContextCompat.getDrawable(requireContext(), R.drawable.location01);
-//        Drawable background = ContextCompat.getDrawable(requireContext(), R.drawable.location02);
-//        Drawable background = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons1, R.drawable.gas_sever_icons2, R.drawable.gas_sever_icons3,R.drawable.gas_sever_icons4,R.drawable.gas_sever_icons5,R.drawable.gas_sever_icons6,R.drawable.gas_sever_icons7,R.drawable.gas_sever_icons8,R.drawable.gas_sever_icons9,R.drawable.gas_sever_icons10,R.drawable.gas_sever_icons11,R.drawable.gas_sever_icons12,R.drawable.gas_sever_icons13,R.drawable.gas_sever_icons14,R.drawable.gas_sever_icons15,R.drawable.gas_sever_icons16,R.drawable.gas_sever_icons17);
-//        Drawable background = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons1);
-//        Drawable background2 = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons2);
-//        Drawable background3 = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons3);
-//        Drawable background4 = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons4);
-//        Drawable background5 = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons5);
-//        Drawable background6 = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons6);
-//        Drawable background7 = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons7);
-//        Drawable background8 = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons8);
-//        Drawable background9 = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons9);
-//        Drawable background10 = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons10);
-//        Drawable background11 = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons11);
-//        Drawable background12 = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons12);
-//        Drawable background13 = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons13);
-//        Drawable background14 = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons14);
-//        Drawable background15 = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons15);
-//        Drawable background16 = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons16);
-//        Drawable background17 = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons17);
 
         Drawable background = ContextCompat.getDrawable(requireContext(), R.drawable.location03);
 
-        //57*57
-//        Drawable background = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons);
-        //32*32
-//        Drawable background = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons1);
-        //32*32 Petrol Spy
-//        Drawable background = ContextCompat.getDrawable(requireContext(), R.drawable.seven7eleven);
 
-//        Drawable background = ContextCompat.getDrawable(requireContext(), R.drawable.gas_sever_icons2);
-
-
-//        background.setTint(getResources().getColor(R.color.primaryColor, null));
-//        background.setTint(getResources().getColor(R.color.quantum_googred900, null));
 
         background.setBounds(0, 0, background.getIntrinsicWidth(), background.getIntrinsicHeight());
-//        background2.setBounds(0, 0, background2.getIntrinsicWidth(), background2.getIntrinsicHeight());
-//        background3.setBounds(0, 0, background3.getIntrinsicWidth(), background3.getIntrinsicHeight());
-//        background4.setBounds(0, 0, background4.getIntrinsicWidth(), background4.getIntrinsicHeight());
-//        background5.setBounds(0, 0, background5.getIntrinsicWidth(), background5.getIntrinsicHeight());
-//        background6.setBounds(0, 0, background6.getIntrinsicWidth(), background6.getIntrinsicHeight());
-//        background7.setBounds(0, 0, background7.getIntrinsicWidth(), background7.getIntrinsicHeight());
-//        background8.setBounds(0, 0, background8.getIntrinsicWidth(), background8.getIntrinsicHeight());
-//        background9.setBounds(0, 0, background9.getIntrinsicWidth(), background9.getIntrinsicHeight());
-//        background10.setBounds(0, 0, background10.getIntrinsicWidth(), background10.getIntrinsicHeight());
-//        background11.setBounds(0, 0, background11.getIntrinsicWidth(), background11.getIntrinsicHeight());
-//        background12.setBounds(0, 0, background12.getIntrinsicWidth(), background12.getIntrinsicHeight());
-//        background13.setBounds(0, 0, background13.getIntrinsicWidth(), background13.getIntrinsicHeight());
-//        background14.setBounds(0, 0, background14.getIntrinsicWidth(), background14.getIntrinsicHeight());
-//        background15.setBounds(0, 0, background15.getIntrinsicWidth(), background15.getIntrinsicHeight());
-//        background16.setBounds(0, 0, background16.getIntrinsicWidth(), background16.getIntrinsicHeight());
-//        background17.setBounds(0, 0, background17.getIntrinsicWidth(), background17.getIntrinsicHeight());
+
 
         Bitmap bitmap = Bitmap.createBitmap(background.getIntrinsicWidth(), background.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Bitmap bitmap2 = Bitmap.createBitmap(background2.getIntrinsicWidth(), background2.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Bitmap bitmap3 = Bitmap.createBitmap(background3.getIntrinsicWidth(), background3.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Bitmap bitmap4 = Bitmap.createBitmap(background4.getIntrinsicWidth(), background4.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Bitmap bitmap5 = Bitmap.createBitmap(background5.getIntrinsicWidth(), background5.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Bitmap bitmap6 = Bitmap.createBitmap(background6.getIntrinsicWidth(), background6.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Bitmap bitmap7 = Bitmap.createBitmap(background7.getIntrinsicWidth(), background7.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Bitmap bitmap8 = Bitmap.createBitmap(background8.getIntrinsicWidth(), background8.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Bitmap bitmap9 = Bitmap.createBitmap(background9.getIntrinsicWidth(), background9.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Bitmap bitmap10 = Bitmap.createBitmap(background10.getIntrinsicWidth(), background10.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Bitmap bitmap11 = Bitmap.createBitmap(background11.getIntrinsicWidth(), background11.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Bitmap bitmap12 = Bitmap.createBitmap(background12.getIntrinsicWidth(), background12.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Bitmap bitmap13 = Bitmap.createBitmap(background13.getIntrinsicWidth(), background13.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Bitmap bitmap14 = Bitmap.createBitmap(background14.getIntrinsicWidth(), background14.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Bitmap bitmap15 = Bitmap.createBitmap(background15.getIntrinsicWidth(), background15.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Bitmap bitmap16 = Bitmap.createBitmap(background16.getIntrinsicWidth(), background16.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Bitmap bitmap17 = Bitmap.createBitmap(background17.getIntrinsicWidth(), background17.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+
 
         Canvas canvas = new Canvas(bitmap);
-//        Canvas canvas2 = new Canvas(bitmap2);
-//        Canvas canvas3 = new Canvas(bitmap3);
-//        Canvas canvas4 = new Canvas(bitmap4);
-//        Canvas canvas5 = new Canvas(bitmap5);
-//        Canvas canvas6 = new Canvas(bitmap6);
-//        Canvas canvas7 = new Canvas(bitmap7);
-//        Canvas canvas8 = new Canvas(bitmap8);
-//        Canvas canvas9 = new Canvas(bitmap9);
-//        Canvas canvas10 = new Canvas(bitmap10);
-//        Canvas canvas11 = new Canvas(bitmap11);
-//        Canvas canvas12 = new Canvas(bitmap12);
-//        Canvas canvas13 = new Canvas(bitmap13);
-//        Canvas canvas14 = new Canvas(bitmap14);
-//        Canvas canvas15 = new Canvas(bitmap15);
-//        Canvas canvas16 = new Canvas(bitmap16);
-//        Canvas canvas17 = new Canvas(bitmap17);
+
 
         background.draw(canvas);
-//        background2.draw(canvas2);
-//        background3.draw(canvas3);
-//        background4.draw(canvas4);
-//        background5.draw(canvas5);
-//        background6.draw(canvas6);
-//        background7.draw(canvas7);
-//        background8.draw(canvas8);
-//        background9.draw(canvas9);
-//        background10.draw(canvas10);
-//        background11.draw(canvas11);
-//        background12.draw(canvas12);
-//        background13.draw(canvas13);
-//        background14.draw(canvas14);
-//        background15.draw(canvas15);
-//        background16.draw(canvas16);
-//        background17.draw(canvas17);
+
 
         return BitmapDescriptorFactory.fromBitmap(bitmap);
 
@@ -2038,15 +1384,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 //                binding.stationLayout.txtPlaceName.setText(wishlistModel.getName());
 
                 Glide.with(getActivity()).load(stationDataModel.getBrandIcon()).into(binding.stationLayout.ivProjImg);
-//                Glide.with(getActivity()).load(wishlistModel.getBrandIcon()).into(binding.stationLayout.ivProjImg);
-
-//                binding.stationLayout.txtBrand.setText(stationDataModel.getBrand());
-
-
-//                ll_calender_lastupdated
-
-//                binding.stationLayout.llCalenderLastupdated.setText(stationDataModel.getLastupdated());
-//                binding.stationLayout.llCalenderLastupdated.setText(StationDataResponse.PriceModel priceModel : stationDataModel.getLastupdated());
 
                 String latesttDTE = null;
 
@@ -2380,15 +1717,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
     }
 
 
-//    private BitmapDescriptor bitmapDescriptorFromVector(Context context, int vectorResId) {
-//        Drawable vectorDrawable = ContextCompat.getDrawable(context, vectorResId);
-//        vectorDrawable.setBounds(0, 0, vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight());
-//        Bitmap bitmap = Bitmap.createBitmap(vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Canvas canvas = new Canvas(bitmap);
-//        vectorDrawable.draw(canvas);
-//        return BitmapDescriptorFactory.fromBitmap(bitmap);
-//    }
-
     private class MarkerCallBack implements com.squareup.picasso.Callback {
 
         Marker marker = null;
@@ -2416,16 +1744,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
     }
 
 
-    //Location ON
-//    public void statusCheck() {
-//        final LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-//
-//        if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-//            buildAlertMessageNoGps();
-//
-//        }
-//    }
-
     private void buildAlertMessageNoGps() {
 //        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         final AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
@@ -2446,8 +1764,5 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         alert.show();
     }
 
-
-//    private class TestInfoWindowAdapter {
-//    }
 
 }
