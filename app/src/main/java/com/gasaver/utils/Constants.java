@@ -7,8 +7,8 @@ public class Constants {
 
     public static final String PROPERTY_IMAGE_URL = BASE_URL + "public/img/projects/photos/";
 
-//    public static final String BANNER_IMAGE_URL = BASE_URL + "public/img/banner/";
-public static final String BANNER_IMAGE_URL = BASE_URL + "assets/images_backup/banner/";
+    //    public static final String BANNER_IMAGE_URL = BASE_URL + "public/img/banner/";
+    public static final String BANNER_IMAGE_URL = BASE_URL + "assets/images_backup/banner/";
 
     public static final String GRAPH_IMAGE_URL = BASE_URL + "assets/portal/reports/report_graph.png";
 
@@ -16,19 +16,19 @@ public static final String BANNER_IMAGE_URL = BASE_URL + "assets/images_backup/b
     public static final String AMENITIES_IMAGE_URL = BASE_URL + "public/img/aminities/";
     public static final String PROFILE_IMG_URL = BASE_URL + "public/img/user/";
     public static final String CITY_IMG_URL = BASE_URL + "public/img/city/";
-//    public static final String LOGO_IMG_URL = BASE_URL + "public/img/projects/logo/";
+    //    public static final String LOGO_IMG_URL = BASE_URL + "public/img/projects/logo/";
     public static final String BROCHURE_IMG_URL = BASE_URL + "public/img/projects/brochure/";
     public static final String LAYOUT_IMG_URL = BASE_URL + "public/img/projects/layout/";
     public static final String UNIT_FLOOR_IMG_URL = BASE_URL + "public/img/projects/units/";
     public static final String PROP_NEWS_URL = BASE_URL + "frontend/Blog";
 
-//    public static final String TERMS_COND_URL = BASE_URL + "frontend/Terms";
-public static final String TERMS_COND_URL = BASE_URL + "termsAndConditions.html";
+    //    public static final String TERMS_COND_URL = BASE_URL + "frontend/Terms";
+    public static final String TERMS_COND_URL = BASE_URL + "termsAndConditions.html";
 
-//    public static final String LOGO_IMG_URL = BASE_URL + "assets/portal/icons/7-Eleven.png";
-public static final String LOGO_IMG_URL = BASE_URL + "assets/portal/icons/";
+    //    public static final String LOGO_IMG_URL = BASE_URL + "assets/portal/icons/7-Eleven.png";
+    public static final String LOGO_IMG_URL = BASE_URL + "assets/portal/icons/";
 
-
+    public static final String COPUNS_IMG_URL = BASE_URL + "assets/images_backup/copuns/";
 
 
     public static final int REQUEST_SEL_MUL = 123;
@@ -46,17 +46,10 @@ public static final String LOGO_IMG_URL = BASE_URL + "assets/portal/icons/";
     public static final String MESSAGE = "message";
 
 
-
-
-
-
     public static final String API_KEY = "api_key";
     public static final String USER_ID = "user_id";
 
     public static final String REFERENCE_ID = "reference_id";
-
-
-
 
 
     public static final String FCM_TOKEN = "fcm_token";
@@ -65,7 +58,6 @@ public static final String LOGO_IMG_URL = BASE_URL + "assets/portal/icons/";
     public static final String USER_NAME = "User_Name";
     public static final String USER_EMAIL = "User_Email";
 //    public static final String USER_CODE = "user_code";
-
 
 
     public static final String ID = "id";
@@ -94,9 +86,6 @@ public static final String LOGO_IMG_URL = BASE_URL + "assets/portal/icons/";
     public static final String IS_VERIFIED = "is_verified";
 
     public static final String NO_VENDOR = "no_vendor";
-
-
-
 
 
     public static final String USER_PKG_TITLE = "user_pkg_title";

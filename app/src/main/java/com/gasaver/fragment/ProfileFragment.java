@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.gasaver.R;
 import com.gasaver.Response.BaseResponse;
 import com.gasaver.Response.ProfileUserDataResponseGasaverT;
+import com.gasaver.activity.CopunsActivity;
 import com.gasaver.activity.PrivacyPolicyActivity;
 import com.gasaver.activity.RateUsActivity;
 import com.gasaver.activity.RewardActivity;
@@ -67,6 +68,10 @@ public class ProfileFragment extends BottomSheetDialogFragment implements View.O
         binding.layoutMyUploadResponses.setOnClickListener(this);
         binding.ivEdit.setOnClickListener(this);
         binding.llLogout.setOnClickListener(this);
+
+        binding.layoutMyCopunsProperties.setOnClickListener(this);
+
+
         fetchProfileDetails();
         return binding.getRoot();
 
@@ -158,6 +163,13 @@ public class ProfileFragment extends BottomSheetDialogFragment implements View.O
                 intent.putExtra("SELECTED_POS", 0);
                 startActivity(intent);
                 break;
+
+            case R.id.layout_myCopunsProperties:
+                intent = new Intent(getActivity(), CopunsActivity.class);
+                intent.putExtra("SELECTED_POS", 0);
+                startActivity(intent);
+                break;
+
 
 //            case R.id.layout_savedSearches:
             case R.id.layout_feedback_savedSearches:

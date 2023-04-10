@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.gasaver.R;
@@ -52,8 +53,6 @@ public class CopunsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
-//        getSupportActionBar().setTitle("ViewAttachment");
-//        getSupportActionBar().setTitle("Terms & Conditions");
         getSupportActionBar().setTitle("My Copuns");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -69,7 +68,6 @@ public class CopunsActivity extends AppCompatActivity {
 
     //    private void getReportsData() {
     private void getCopunsData() {
-
 
         CommonUtils.showLoading(this, "Please Wait", false);
         com.gasaver.network.ApiInterface apiInterface = APIClient.getClient().create(com.gasaver.network.ApiInterface.class);
@@ -89,7 +87,7 @@ public class CopunsActivity extends AppCompatActivity {
                     CommonUtils.hideLoading();
 
 //                    binding.recyclerviewCopunsList.setAdapter(new RewardActivity.UploadAdapter(CopunsActivity.this, response.body().getCopunsDetails()));
-                    binding.recyclerviewCopunsList.setAdapter(new CopunsActivity().CopunsAdapter(CopunsActivity.this, response.body().getCopunsDetails()));
+                    binding.recyclerviewCopunsList.setAdapter(new CopunsAdapter(CopunsActivity.this, response.body().getCopunsDetails()));
 
 
 //                    binding.recyclerview_Reward_List.setAdapter(new RewardActivity.UploadAdapter(RewardActivity.this, response.body().getData()));
@@ -122,17 +120,19 @@ public class CopunsActivity extends AppCompatActivity {
 
         @NonNull
         @Override
-        public CopunsActivity.CopunsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             CopunsListItemBinding copunsListItemBinding = CopunsListItemBinding.inflate(LayoutInflater.from(parent.getContext()));
-            return new CopunsActivity().CopunsAdapter.ViewHolder(copunsListItemBinding);
+            return new ViewHolder(copunsListItemBinding);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull CopunsActivity.CopunsAdapter.ViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             CopunsResponse.CopunsDetail copunsDetail = list.get(position);
 
+            CopunsResponse copunsResponse = new CopunsResponse();
+
 //            holder.binding.iv_profile_img1.setText(copunsDetail.getAttachment());
-            holder.binding.ivProfileImg1.setText(copunsDetail.getAttachment());
+//            holder.binding.ivProfileImg1.setText(copunsDetail.getAttachment());
 
 //            holder.binding.tvStationCode.setText(copunsDetail.getStation_name()+" ("+copunsDetail.getStationId()+")");
 //
@@ -144,10 +144,42 @@ public class CopunsActivity extends AppCompatActivity {
 //            holder.binding.tvStatus.setText(copunsDetail.getStatus());
 //            holder.binding.tv_StationCode1.setText(copunsDetail.getStatus());
 
-            holder.binding.tvStationCode1.setText(copunsDetail.getStatus());
+//            holder.binding.tvStationCode1.setText(copunsDetail.getStatus());
+            holder.binding.tvStationCode1.setText(copunsDetail.getName());
 
-//            Glide.with(CopunsActivity.this).load(catList.get(position).getName()).into(holder.project_img);
-//            Glide.with(CopunsActivity.this).load(Constants.LOGO_IMG_URL + stationDataList.get(position).getBrandIcon()).into(holder.project_img);
+//            iv_profile_img1
+//            ivProfileImg1
+
+//            Glide.with(CopunsActivity.this).load(stationDataModel.getBrandIcon()).into(binding.stationLayout.ivProjImg);
+//            Glide.with(CopunsActivity.this).load(copunsDetail.getAttachment()).into(binding.recyclerviewCopunsList.ivProfileImg1);
+
+//            Glide.with(CopunsActivity.this).load(copunsDetail.getAttachment()).into(i);
+//            Glide.with(CopunsActivity.this).load(copunsDetail.getAttachment()).into(holder.i);
+
+//            Glide.with(CopunsActivity.this).load(response.body().getBase_path() + response.body().getData().getProfilePhoto())
+//                    .error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfileImg);
+
+            Glide.with(CopunsActivity.this).load(copunsResponse.getBasePath() + copunsDetail.getAttachment())
+                    .error(R.drawable.profile_img).error(R.drawable.profile_img).into(holder.i);
+
+
+//            Glide.with(getActivity()).load(response.body().getBarCode())
+//                    .error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfileImg1);
+
+//            Glide.with(CopunsActivity.this).load(copunsDetail.getAttachment()).into(binding.tv_StationCode3.ivProfileImg1);
+//            Glide.with(CopunsActivity.this).load(copunsDetail.getAttachment()).into(binding.tvStationCode1.ivProfileImg1);
+//            Glide.with(CopunsActivity.this).load(copunsDetail.getAttachment()).into(binding.tvStationCode2.ivProfileImg1);
+//            Glide.with(CopunsActivity.this).load(copunsDetail.getAttachment()).into(binding.tv_StationCode3.ivProfileImg1);
+//
+//            Glide.with(CopunsActivity.this).load(copunsDetail.getAttachment()).into(binding.recyclerviewCopunsList.tv_StationCode1.ivProfileImg1);
+//
+//
+////            Glide.with(CopunsActivity.this).load(catList.get(position).getName()).into(holder.project_img);
+////            Glide.with(CopunsActivity.this).load(catList.get(position).getName()).into(holder.ivProfileImg1);
+//            Glide.with(CopunsActivity.this).load(copunsDetail.get(position).getName()).into(holder.ivProfileImg1);
+//
+////            Glide.with(CopunsActivity.this).load(Constants.LOGO_IMG_URL + stationDataList.get(position).getBrandIcon()).into(holder.project_img);
+//            Glide.with(CopunsActivity.this).load(Constants.COPUNS_IMG_URL + get(position).getBrandIcon()).into(holder.ivProfileImg1);
 //
 //
 //            Glide.with(CopunsActivity.this).load(position.body().getBase_path() + position.body().getCopunsDetails().getAttachment())
@@ -156,8 +188,6 @@ public class CopunsActivity extends AppCompatActivity {
 //
 //            Glide.with(CopunsActivity.this).load(position.body().getBase_path())
 //                    .error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfileImg1);
-
-
 
         }
 
@@ -170,10 +200,12 @@ public class CopunsActivity extends AppCompatActivity {
             //            UploadsListItemBinding binding;
             CopunsListItemBinding binding;
 
+            ImageView i;
 
             public ViewHolder(@NonNull CopunsListItemBinding ubinding) {
                 super(ubinding.getRoot());
                 binding = ubinding;
+                 i = binding.getRoot().findViewById(R.id.iv_profile_img1);
             }
         }
     }

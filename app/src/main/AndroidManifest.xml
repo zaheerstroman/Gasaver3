@@ -80,14 +80,14 @@
         tools:ignore="HardcodedDebugMode"
         tools:targetApi="31">
         <activity
-            android:name=".CopunsActivity"
+            android:name=".activity.CopunsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SelectCityActivity"
+            android:name=".activity.SelectCityActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
