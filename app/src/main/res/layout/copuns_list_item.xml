@@ -47,8 +47,8 @@
                     android:paddingLeft="05dp"
                     android:paddingTop="05dp"
                     android:text="# Name (US-7856)"
-                    android:textColor="@color/black"
-                    android:textSize="13dp"
+                    android:textColor="@color/purple"
+                    android:textSize="14dp"
                     android:textStyle="bold" />
 
 
@@ -86,14 +86,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingTop="10dp">
+                    android:paddingTop="10dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+
+                    >
 
                     <RelativeLayout
                         android:id="@+id/tv_StationCode3"
 
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1.9">
+                        android:layout_weight="1.9"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        >
 
                         <!--                    app:shapeAppearanceOverlay="@style/circleImageViewStyle"-->
 

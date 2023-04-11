@@ -81,6 +81,7 @@ public class MainActivityGas extends AppCompatActivity {
 
 //        spinner_subcat = view.findViewById(R.id.spinner_subcat);
 //        spinner_subcat.setAdapter(new ArrayAdapter<>(getActivity(), R.layout.list_units, getResources().getStringArray(R.array.budgets)));
+
         spinner_subcat.setAdapter(new ArrayAdapter<>(getApplicationContext(), R.layout.list_units, getResources().getStringArray(R.array.budgets)));
 
 
@@ -199,14 +200,14 @@ public class MainActivityGas extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), AdvancedBannerSlidSearchActivity.class);
                         startActivity(intent);
 
-                        navHostFragment = getSupportFragmentManager().getPrimaryNavigationFragment();
-                        fragment = navHostFragment.getChildFragmentManager().getFragments().get(0);
-                        if (fragment instanceof HomeFragmentGasaver) {
-                            intent.putExtra("data", new Gson().toJson(((HomeFragmentGasaver) fragment).stationDataList));
-                            startActivity(intent);
-                        }
-
-                        break;
+//                        navHostFragment = getSupportFragmentManager().getPrimaryNavigationFragment();
+//                        fragment = navHostFragment.getChildFragmentManager().getFragments().get(0);
+//                        if (fragment instanceof HomeFragmentGasaver) {
+//                            intent.putExtra("data", new Gson().toJson(((HomeFragmentGasaver) fragment).stationDataList));
+//                            startActivity(intent);
+//                        }
+//
+//                        break;
 
 //                        AdvancedBannerSlidSearchFragment addPhotoBottomDialogFragment1 =
 //                                new AdvancedBannerSlidSearchFragment();
@@ -246,7 +247,6 @@ public class MainActivityGas extends AppCompatActivity {
 //                        startActivity(new Intent(getApplicationContext(), DataRecoveryPikmenActivity.class));
 //                        overridePendingTransition(0, 0);
                         return true;
-
 
                 }
                 return false;
