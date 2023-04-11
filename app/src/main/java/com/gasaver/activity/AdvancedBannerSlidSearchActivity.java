@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.gasaver.R;
 import com.gasaver.Response.BannersResponse;
 import com.gasaver.network.APIClient;
@@ -76,7 +78,7 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
 // Add more image URLs as needed
 
         recyclerview_Company_Logos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        recyclerview_Company_Logos.setAdapter(new recyclerview_Company_Logos_Adaptor(imageUrlList));
+        recyclerview_Company_Logos.setAdapter(new recyclerview_Company_Logos_Adaptor(this,imageUrlList));
         viewPager = findViewById(R.id.view_pager);
 
         viewPager.setAdapter(new ImageAdapter(this, imageIds));
@@ -141,7 +143,7 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
 
 // Set the adapter with the logo list
                 recyclerview_Company_Logos.setLayoutManager(new LinearLayoutManager(AdvancedBannerSlidSearchActivity.this.getBaseContext(), LinearLayoutManager.HORIZONTAL, false));
-                recyclerview_Company_Logos.setAdapter(new recyclerview_Company_Logos_Adaptor(logoList));
+                recyclerview_Company_Logos.setAdapter(new recyclerview_Company_Logos_Adaptor(AdvancedBannerSlidSearchActivity.this,logoList));
 
 
             }
@@ -157,9 +159,11 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
 
     private static class recyclerview_Company_Logos_Adaptor extends RecyclerView.Adapter<recyclerview_Company_Logos_ViewHolder> {
         private List<String> imageUrls;
+        private Activity activity;
 
-        public recyclerview_Company_Logos_Adaptor(List<String> imageUrls) {
+        public recyclerview_Company_Logos_Adaptor(Activity activity ,List<String> imageUrls) {
             this.imageUrls = imageUrls;
+            this.activity = activity;
         }
 
         @NonNull
@@ -173,7 +177,7 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
         public void onBindViewHolder(@NonNull recyclerview_Company_Logos_ViewHolder holder, int position) {
             String imageUrl = imageUrls.get(position);
             // Load the image from the URL and set it in the ImageView using Picasso or Glide
-            Picasso.get().load(imageUrl).into(holder.companyLogoImageView);
+            Glide.with(activity).load(imageUrl).circleCrop().into(holder.companyLogoImageView);
         }
 
         @Override
