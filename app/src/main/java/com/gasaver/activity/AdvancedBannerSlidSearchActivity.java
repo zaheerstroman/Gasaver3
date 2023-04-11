@@ -82,8 +82,8 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
             }
         }, DELAY_MS, PERIOD_MS);
 
-
         fetchBanners();
+//        getComponyLogs();
     }
     @Override
     protected void onDestroy() {
