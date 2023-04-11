@@ -28,9 +28,7 @@
         android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-
         android:src="@drawable/search_blue_icon"
-
         app:backgroundTint="@color/transparent_thick"
 
         app:tint="@color/Purple"

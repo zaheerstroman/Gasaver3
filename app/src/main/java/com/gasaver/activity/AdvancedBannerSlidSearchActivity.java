@@ -1,16 +1,22 @@
 package com.gasaver.activity;
 
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -21,6 +27,7 @@ import com.gasaver.network.APIClient;
 import com.gasaver.network.ApiInterface;
 import com.gasaver.utils.CommonUtils;
 import com.google.gson.JsonObject;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,6 +49,8 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
     private final long DELAY_MS = 500;
     private final long PERIOD_MS = 3000;
 
+    BannersResponse bannersResponse;
+    RecyclerView recyclerview_Company_Logos;
     private int[] imageIds = new int[]{
             R.drawable.sample1,
             R.drawable.sample2,
@@ -53,12 +62,21 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advanced_banner_slid_search);
 
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Promotions");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        recyclerview_Company_Logos = findViewById(R.id.recyclerview_Company_Logos);
+        ArrayList<String> imageUrlList = new ArrayList<>();
+        imageUrlList.add("https://cdn.pixabay.com/photo/2023/03/22/11/07/seeds-7869190_960_720.jpg");
+        imageUrlList.add("https://cdn.pixabay.com/photo/2022/05/11/22/17/pink-hibiscus-7190314_960_720.jpg");
+        imageUrlList.add("https://cdn.pixabay.com/photo/2023/03/16/08/51/flowers-7856225_960_720.jpg");
+// Add more image URLs as needed
 
+        recyclerview_Company_Logos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerview_Company_Logos.setAdapter(new recyclerview_Company_Logos_Adaptor(imageUrlList));
         viewPager = findViewById(R.id.view_pager);
 
         viewPager.setAdapter(new ImageAdapter(this, imageIds));
@@ -82,8 +100,8 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
             }
         }, DELAY_MS, PERIOD_MS);
 
+
         fetchBanners();
-//        getComponyLogs();
     }
     @Override
     protected void onDestroy() {
@@ -108,8 +126,24 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<BannersResponse> call, Response<BannersResponse> response) {
 
-                BannersResponse bannersResponse = response.body();
+                bannersResponse = response.body();
                 CommonUtils.hideLoading();
+                ArrayList<String> logoList = new ArrayList<>();
+
+                for (int i = 0; i < bannersResponse.getCompanyDetails().size(); i++) {
+                    String logoUrl = bannersResponse.getCompanyBasePath() + bannersResponse.getCompanyDetails().get(i).getLogo();
+                    // Add the logo URL to the list only if it is not null or empty and its size is greater than 0
+                    if (!logoUrl.isEmpty()) {
+                        logoUrl.length();
+                        logoList.add(logoUrl);
+                    }
+                }
+
+// Set the adapter with the logo list
+                recyclerview_Company_Logos.setLayoutManager(new LinearLayoutManager(AdvancedBannerSlidSearchActivity.this.getBaseContext(), LinearLayoutManager.HORIZONTAL, false));
+                recyclerview_Company_Logos.setAdapter(new recyclerview_Company_Logos_Adaptor(logoList));
+
+
             }
 
             @Override
@@ -120,8 +154,44 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
         });
     }
 
-    private static class ImageAdapter extends PagerAdapter {
 
+    private static class recyclerview_Company_Logos_Adaptor extends RecyclerView.Adapter<recyclerview_Company_Logos_ViewHolder> {
+        private List<String> imageUrls;
+
+        public recyclerview_Company_Logos_Adaptor(List<String> imageUrls) {
+            this.imageUrls = imageUrls;
+        }
+
+        @NonNull
+        @Override
+        public recyclerview_Company_Logos_ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_company_logo_profile, parent, false);
+            return new recyclerview_Company_Logos_ViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull recyclerview_Company_Logos_ViewHolder holder, int position) {
+            String imageUrl = imageUrls.get(position);
+            // Load the image from the URL and set it in the ImageView using Picasso or Glide
+            Picasso.get().load(imageUrl).into(holder.companyLogoImageView);
+        }
+
+        @Override
+        public int getItemCount() {
+            return imageUrls.size();
+        }
+    }
+
+    private static class recyclerview_Company_Logos_ViewHolder extends RecyclerView.ViewHolder
+    {
+        ImageView companyLogoImageView;
+
+        public recyclerview_Company_Logos_ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            companyLogoImageView = itemView.findViewById(R.id.iv_profile_img);
+        }
+    }
+    private static class ImageAdapter extends PagerAdapter {
         private final Context context;
         private final int[] imageIds;
 
