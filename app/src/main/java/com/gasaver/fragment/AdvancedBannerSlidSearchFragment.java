@@ -60,6 +60,11 @@ import retrofit2.Response;
  */
 public class AdvancedBannerSlidSearchFragment extends Fragment implements View.OnClickListener {
 
+    //    CopunsResponse copunsResponse = new CopunsResponse();
+    BannersResponse bannersResponse = new BannersResponse();
+
+    String baseUrl =  "";
+
     ViewPager mViewPager;
     ViewPagerAdapter mViewPagerAdapter;
     ImageView iv_left_nav_viewpager, iv_right_nav_viewpager, iv_left_nav_proj, iv_right_nav_proj, iv_left_nav_prop, iv_right_nav_prop, iv_left_nav_agents, iv_right_nav_agents, iv_left_nav_dev, iv_right_nav_dev;
@@ -97,10 +102,8 @@ public class AdvancedBannerSlidSearchFragment extends Fragment implements View.O
 
         fetchBanners();
 
-        getLatestProjects();
-
+//        getLatestProjects();
 //        getAgents();
-
 //        AddBannerProjectAdapter();
 
         return view;
@@ -116,27 +119,28 @@ public class AdvancedBannerSlidSearchFragment extends Fragment implements View.O
 
         rv_latest_projects.setLayoutManager(linearLayoutManager_proj = new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
 //        rv_latest_projects.setLayoutManager(linearLayoutManager_proj = new LinearLayoutManager(getApplicationContext(), RecyclerView.HORIZONTAL, false));
+
         rv_agents.setLayoutManager(linearLayoutManager_agents = new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
 
         iv_left_nav_viewpager = view.findViewById(R.id.iv_left_nav_viewpager);
         iv_right_nav_viewpager = view.findViewById(R.id.iv_right_nav_viewpager);
 
-        iv_left_nav_proj = view.findViewById(R.id.iv_left_nav_proj);
-        iv_right_nav_proj = view.findViewById(R.id.iv_right_nav_proj);
-
-        iv_left_nav_agents = view.findViewById(R.id.iv_left_nav_agents);
-        iv_right_nav_agents = view.findViewById(R.id.iv_right_nav_agents);
+//        iv_left_nav_proj = view.findViewById(R.id.iv_left_nav_proj);
+//        iv_right_nav_proj = view.findViewById(R.id.iv_right_nav_proj);
+//
+//        iv_left_nav_agents = view.findViewById(R.id.iv_left_nav_agents);
+//        iv_right_nav_agents = view.findViewById(R.id.iv_right_nav_agents);
 
         mViewPager = view.findViewById(R.id.viewpager);
 
         iv_left_nav_viewpager.setOnClickListener(this);
         iv_right_nav_viewpager.setOnClickListener(this);
 
-        iv_left_nav_proj.setOnClickListener(this);
-        iv_right_nav_proj.setOnClickListener(this);
-
-        iv_left_nav_agents.setOnClickListener(this);
-        iv_right_nav_agents.setOnClickListener(this);
+//        iv_left_nav_proj.setOnClickListener(this);
+//        iv_right_nav_proj.setOnClickListener(this);
+//
+//        iv_left_nav_agents.setOnClickListener(this);
+//        iv_right_nav_agents.setOnClickListener(this);
 
 
 //        rv_latest_projects.setLayoutManager(linearLayoutManager_proj = new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
@@ -224,86 +228,86 @@ public class AdvancedBannerSlidSearchFragment extends Fragment implements View.O
     }
 
     //    private void getAddBannerProject() {
-    private void getLatestProjects() {
-
-        CommonUtils.showLoading(getActivity(), "Please Wait", false);
-        ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
-        RequestBody requestBody = new MultipartBody.Builder()
-                .setType(MultipartBody.FORM)
-
-//                .addFormDataPart("type", "latest_projects")
-//                .addFormDataPart("location", "Hyderabad")
-//                .addFormDataPart("property_id", "7")
-
-
-//                .addFormDataPart("user_id", "2168")
-//                .addFormDataPart("token", "51da1d874ab9626e5f851d02fa31472259d759ae508c988f38184582c0433fb1")
+//    private void getLatestProjects() {
 //
-//                .addFormDataPart("user_id", 119)
-                .addFormDataPart("user_id", "119")
-                .addFormDataPart("token", "24631cdd0323cea063e6cb4e5b2b0f6606540a5ae48428ed41e412131efb3c5a")
-//                .addFormDataPart("company_id", 3)
-                .addFormDataPart("company_id", "3")
-                .build();
-
-//        Call<LatestPropertiesResponse> call = apiInterface.fetchLatestProperties(requestBody);
-//        fetchBanners
-        Call<BannersResponse> call = apiInterface.fetchBanners1(requestBody);
-//        Call<BannersResponse> call = apiInterface.fetchBanners(jsonObject);
-
-        call.enqueue(new Callback<BannersResponse>() {
-            @Override
-            public void onResponse(Call<BannersResponse> call, Response<BannersResponse> response) {
-                BannersResponse bannersResponse = response.body();
-
-//                    catList = response.body().getData();
-
-//                addList = response.body().getAddsDetails();
-                addsDetailList = response.body().getAddsDetails();
-                addCompanyDetailList = response.body().getCompanyDetails();
-
-//                ArrayList<String> spinnerItems = new ArrayList<>();
-                ArrayList<String> addListspinnerItems = new ArrayList<>();
-
-
-//                for (CategoryModel c : response.body().getData()) {
-//                    spinnerItems.add(c.getName());
+//        CommonUtils.showLoading(getActivity(), "Please Wait", false);
+//        ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
+//        RequestBody requestBody = new MultipartBody.Builder()
+//                .setType(MultipartBody.FORM)
+//
+////                .addFormDataPart("type", "latest_projects")
+////                .addFormDataPart("location", "Hyderabad")
+////                .addFormDataPart("property_id", "7")
+//
+//
+////                .addFormDataPart("user_id", "2168")
+////                .addFormDataPart("token", "51da1d874ab9626e5f851d02fa31472259d759ae508c988f38184582c0433fb1")
+////
+////                .addFormDataPart("user_id", 119)
+//                .addFormDataPart("user_id", "119")
+//                .addFormDataPart("token", "24631cdd0323cea063e6cb4e5b2b0f6606540a5ae48428ed41e412131efb3c5a")
+////                .addFormDataPart("company_id", 3)
+//                .addFormDataPart("company_id", "3")
+//                .build();
+//
+////        Call<LatestPropertiesResponse> call = apiInterface.fetchLatestProperties(requestBody);
+////        fetchBanners
+//        Call<BannersResponse> call = apiInterface.fetchBanners1(requestBody);
+////        Call<BannersResponse> call = apiInterface.fetchBanners(jsonObject);
+//
+//        call.enqueue(new Callback<BannersResponse>() {
+//            @Override
+//            public void onResponse(Call<BannersResponse> call, Response<BannersResponse> response) {
+//                BannersResponse bannersResponse = response.body();
+//
+////                    catList = response.body().getData();
+//
+////                addList = response.body().getAddsDetails();
+//                addsDetailList = response.body().getAddsDetails();
+//                addCompanyDetailList = response.body().getCompanyDetails();
+//
+////                ArrayList<String> spinnerItems = new ArrayList<>();
+//                ArrayList<String> addListspinnerItems = new ArrayList<>();
+//
+//
+////                for (CategoryModel c : response.body().getData()) {
+////                    spinnerItems.add(c.getName());
+////                }
+//
+////                for (BannersResponse c : response.body().getCompanyDetails()) {
+////                    addListspinnerItems.add(c.getCompanyBasePath());
+////                }
+//
+//
+//
+//
+//
+////                addList addsDetailList  addCompanyDetailList  :----
+//
+//
+////                if (latestPropertiesResponse != null && !latestPropertiesResponse.getLatestProperties().isEmpty()) {
+//                if (bannersResponse != null && !bannersResponse.getCompanyDetails().isEmpty()) {
+////                if (bannersResponse != null && !bannersResponse.getCompanyBasePath().isEmpty()) {
+//
+//
+////                    rv_latest_projects.setAdapter(new ProjectAdapter(latestPropertiesResponse.getLatestProperties()));
+//
+////                    rv_latest_projects.setAdapter(new AddBannerProjectAdapter(bannersResponse.getCompanyDetails()));
+//                    rv_latest_projects.setAdapter(new AddBannerProjectAdapter(String.valueOf(bannersResponse.getCompanyDetails())));
+////                    rv_latest_projects.setAdapter(new AddBannerProjectAdapter(bannersResponse.getCompanyBasePath()));
+//
 //                }
-
-//                for (BannersResponse c : response.body().getCompanyDetails()) {
-//                    addListspinnerItems.add(c.getCompanyBasePath());
-//                }
-
-
-
-
-
-//                addList addsDetailList  addCompanyDetailList  :----
-
-
-//                if (latestPropertiesResponse != null && !latestPropertiesResponse.getLatestProperties().isEmpty()) {
-                if (bannersResponse != null && !bannersResponse.getCompanyDetails().isEmpty()) {
-//                if (bannersResponse != null && !bannersResponse.getCompanyBasePath().isEmpty()) {
-
-
-//                    rv_latest_projects.setAdapter(new ProjectAdapter(latestPropertiesResponse.getLatestProperties()));
-
-//                    rv_latest_projects.setAdapter(new AddBannerProjectAdapter(bannersResponse.getCompanyDetails()));
-                    rv_latest_projects.setAdapter(new AddBannerProjectAdapter(String.valueOf(bannersResponse.getCompanyDetails())));
-//                    rv_latest_projects.setAdapter(new AddBannerProjectAdapter(bannersResponse.getCompanyBasePath()));
-
-                }
-                CommonUtils.hideLoading();
-            }
-
-            @Override
-            public void onFailure(Call<BannersResponse> call, Throwable t) {
-                t.printStackTrace();
-                CommonUtils.hideLoading();
-            }
-        });
-
-    }
+//                CommonUtils.hideLoading();
+//            }
+//
+//            @Override
+//            public void onFailure(Call<BannersResponse> call, Throwable t) {
+//                t.printStackTrace();
+//                CommonUtils.hideLoading();
+//            }
+//        });
+//
+//    }
 
     //    public class ProjectAdapter extends RecyclerView.Adapter<ViewHolder> {
     public class AddBannerProjectAdapter extends RecyclerView.Adapter<ViewHolder> {
