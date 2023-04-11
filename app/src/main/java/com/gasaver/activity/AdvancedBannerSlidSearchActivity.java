@@ -81,7 +81,12 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
         recyclerview_Company_Logos.setAdapter(new recyclerview_Company_Logos_Adaptor(this,imageUrlList));
         viewPager = findViewById(R.id.view_pager);
 
-        viewPager.setAdapter(new ImageAdapter(this, imageIds));
+        // Create an array of image URLs
+        String[] imageUrls = {"https://cdn.pixabay.com/photo/2023/03/22/11/07/seeds-7869190_960_720.jpg", "https://cdn.pixabay.com/photo/2022/05/11/22/17/pink-hibiscus-7190314_960_720.jpg", "https://cdn.pixabay.com/photo/2023/03/16/08/51/flowers-7856225_960_720.jpg"};
+
+        // Set the adapter to the ViewPager
+        viewPager.setAdapter(new ImageAdapter(this, imageUrls));
+
 
         // Auto start of viewpager
         final Handler handler = new Handler();
@@ -134,6 +139,7 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
 
                 for (int i = 0; i < bannersResponse.getCompanyDetails().size(); i++) {
                     String logoUrl = bannersResponse.getCompanyBasePath() + bannersResponse.getCompanyDetails().get(i).getLogo();
+                    bannersResponse.getCompanyDetails().get(i).getId();
                     // Add the logo URL to the list only if it is not null or empty and its size is greater than 0
                     if (!logoUrl.isEmpty()) {
                         logoUrl.length();
@@ -197,16 +203,16 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
     }
     private static class ImageAdapter extends PagerAdapter {
         private final Context context;
-        private final int[] imageIds;
+        private final String[] imageUrls;
 
-        public ImageAdapter(Context context, int[] imageIds) {
+        public ImageAdapter(Context context, String[] imageUrls) {
             this.context = context;
-            this.imageIds = imageIds;
+            this.imageUrls = imageUrls;
         }
 
         @Override
         public int getCount() {
-            return imageIds.length;
+            return imageUrls.length;
         }
 
         @Override
@@ -218,7 +224,7 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
         public Object instantiateItem(ViewGroup container, int position) {
             ImageView imageView = new ImageView(context);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setImageResource(imageIds[position]);
+            Glide.with(context).load(imageUrls[position]).into(imageView);
             container.addView(imageView, 0);
             return imageView;
         }
@@ -228,6 +234,7 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
             container.removeView((ImageView) object);
         }
     }
+
 }
 
 
