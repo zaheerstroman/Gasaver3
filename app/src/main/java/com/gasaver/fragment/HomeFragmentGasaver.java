@@ -43,9 +43,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -353,15 +355,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
                         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
                         break;
 
-//                    case R.id.rl_search:
-//                        Intent intent = new Intent(getActivity(), SelectCityActivity.class);
-//                        startActivity(intent);
-//                        break;
-
-                    case R.id.place_autocomplete:
-                        Intent intent = new Intent(getActivity(), SelectCityActivity.class);
-                        startActivity(intent);
-                        break;
 
                 }
                 return true;
@@ -429,38 +422,51 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
             e.printStackTrace();
         }
 
-        AutocompleteSupportFragment placeAutoComplete = (AutocompleteSupportFragment) getChildFragmentManager().findFragmentById(R.id.place_autocomplete);
-        placeAutoComplete.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG));
-        placeAutoComplete.setTypeFilter(TypeFilter.CITIES);
-        placeAutoComplete.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+        EditText editText = (EditText) binding.getRoot().findViewById(R.id.edit_search);
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void onError(@NonNull Status status) {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    // Handle search action here
+                    performSearch();
+                    return true;
 
-            }
-
-            @Override
-            public void onPlaceSelected(@NonNull Place place) {
-                try {
-                    searchCity = place.getName();
-                    searchCityLat = place.getLatLng().latitude;
-                    searchCityLang = place.getLatLng().longitude;
-
-                    //--------------------------------
-
-                    //05-04-2023
-//                    if (binding.spinnerSubcat.getSelectedItemPosition() != 0)
-                        getStationsData();
-
-
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
+                performSearch();
+                return false;
             }
         });
+
+
         return binding.getRoot();
     }
 
-
+    private void performSearch() {
+        EditText searchEditText = (EditText) binding.getRoot().findViewById(R.id.edit_search);
+        String searchString = searchEditText.getText().toString();
+        Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+        try {
+            List<Address> addresses = geocoder.getFromLocationName(searchString, 1);
+            if (addresses != null && addresses.size() > 0) {
+                Address address = addresses.get(0);
+                double lat = address.getLatitude();
+                double lng = address.getLongitude();
+                LatLng latLng = new LatLng(lat, lng);
+                mGoogleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+                String city = address.getLocality();
+                String country = address.getCountryName();
+                searchCity = city + ", " + country;
+                searchCityLat = lat;
+                searchCityLang = lng;
+                getStationsData();
+            }
+            else {
+                // No results found
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     private void setUpClusterer() {
@@ -1183,7 +1189,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
                     Geocoder geocoder = new Geocoder(getActivity(), Locale.getDefault());
                     List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
                     searchCity = addresses.get(0).getAddressLine(0);
-                    AutocompleteSupportFragment placeAutoComplete = (AutocompleteSupportFragment) getChildFragmentManager().findFragmentById(R.id.place_autocomplete);
+                    AutocompleteSupportFragment placeAutoComplete = (AutocompleteSupportFragment) getChildFragmentManager().findFragmentById(R.id.edit_search);
                     placeAutoComplete.setHint(searchCity);
 
                 } catch (Exception e) {

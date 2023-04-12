@@ -5,309 +5,137 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.HomeFragmentGasaver"
-
-
-
-
     >
-<!--    android:backgroundTintMode="src_over"-->
 
 
-    <!--    app:backgroundTint="#55000000"-->
-<!--    android:background="#55000000"-->
 
-<!--    android:alpha="0.x"-->
-<!--    android:backgroundTintMode="src_over"-->
-<!--    android:backgroundTint="#80FFFFFF"-->
-
-    <!--    android:layout_height="wrap_content"-->
-<!--    android:background="@drawable/outline_border_curve"-->
-
-    <fragment
-        android:id="@+id/place_autocomplete"
-        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:src="@drawable/search_blue_icon"
-        app:backgroundTint="@color/transparent_thick"
-
-        app:tint="@color/Purple"
-        app:drawableTint="@color/primaryColor"
-        android:backgroundTintMode="@color/primaryColor"
-
-        android:background="@drawable/outline_border_curve"
-        android:hint="Suburb/Postcode"
-        />
-
-<!--    android:id="@+id/rl_search"-->
-    <RelativeLayout
-        android:id="@+id/place_autocomplete2"
-        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
-        android:layout_width="600dp"
-        android:layout_height="70dp"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginRight="@dimen/_20sdp"
-        android:background="@drawable/outline_border_curve"
-        android:paddingBottom="10dp">
-
-<!--        android:hint="Enter Location or City or Village or Property ID."-->
-        <!--        android:hint="Suburb/Postcode"-->
-
-        <EditText
-            android:id="@+id/edit_search"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_toLeftOf="@+id/rl_img_search"
-            android:background="@null"
-            android:clickable="true"
-            android:editable="false"
-            android:enabled="true"
-            android:focusable="false"
-            android:gravity="center_vertical"
-            android:paddingLeft="@dimen/_10sdp"
-            android:textSize="@dimen/_10sdp" />
-
-        <RelativeLayout
-            android:id="@+id/rl_img_search"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/search_bg">
-
-            <ImageView
-                android:id="@+id/img_search"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_centerInParent="true"
-                android:paddingLeft="@dimen/_5sdp"
-                android:paddingRight="@dimen/_5sdp"
-                android:src="@drawable/ic_search" />
-
-        </RelativeLayout>
-    </RelativeLayout>
-
-
-    <!--    app:backgroundTint="@color/transparent"-->
-<!--    android:background="@color/transparent"-->
     <fragment
         android:id="@+id/homeMap"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/place_autocomplete"
-
-
         />
 
-
-    <!--    <Spinner-->
-    <!--        android:id="@+id/spinner_caseText2"-->
-    <!--        android:layout_width="280dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginLeft="30dp"-->
-    <!--        android:layout_marginRight="30dp"-->
-    <!--        android:background="@drawable/spinner_border_background"-->
-    <!--        android:backgroundTint="@color/colorBackground"-->
-    <!--        android:padding="25dp"-->
-    <!--        android:spinnerMode="dropdown">-->
-
-    <!--    </Spinner>-->
-
-    <!--    app:itemIconTint="@color/white"-->
-    <!--    app:itemTextColor="@color/white"-->
-    <!--    android:background="@android:color/transparent"-->
-
-<!--    android:background="@android:color/transparent"-->
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/coordinate"
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edit_search"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_below="@+id/place_autocomplete"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/custom_home_search_edit_text"
+        android:drawableEnd="@drawable/ic_search"
+        android:drawablePadding="@dimen/_10sdp"
+        android:paddingStart="@dimen/_10sdp"
+        android:hint="Suburb / Postcode"
+        android:paddingEnd="@dimen/_10sdp"
+        android:singleLine="true"
+        android:visibility="visible" />
 
-        android:foregroundGravity="center_horizontal"
-
-        app:backgroundTint="@color/transparent"
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_search"
+        android:id="@+id/DropdownHolder"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
         >
 
-        <!--        android:background="@color/colorAccent"-->
-
-        <!--        android:background="@android:color/transparent"-->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardMaterialCardView1"
+        <Spinner
+            android:id="@+id/spinner_caseText1"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="4dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="3dp"
+            android:layout_height="50dp"
+            android:layout_weight="1.1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/spinner_border_background"
+            app:tint="@color/primaryColor"
+            app:drawableTint="@color/primaryColor"
+            android:popupBackground="@android:color/transparent"
+            android:gravity="center"
+            android:padding="10dp"
+            android:spinnerMode="dropdown"
+            android:textColor="@color/gray"
+            android:textSize="10sp"
+            app:fontFamily="@font/quicksand_semibold"
+            app:layout_constraintEnd_toEndOf="parent">
+        </Spinner>
 
-            app:cardUseCompatPadding="true"
+        <Spinner
+            android:id="@+id/spinner_subcat"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1.1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/spinner_border_background"
+            app:tint="@color/primaryColor"
+            app:drawableTint="@color/primaryColor"
+            android:backgroundTintMode="@color/primaryColor"
+            android:spinnerMode="dropdown"
+            android:gravity="center"
+            android:padding="10dp"
+            android:popupBackground="@android:color/transparent"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:hint="Selected"
+            app:fontFamily="@font/quicksand_semibold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_caseText1">
 
-            app:backgroundTint="@color/transparent"
+        </Spinner>
 
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:elevation="10dp"
+            android:visibility="gone"
+            app:boxCornerRadiusBottomEnd="25dp"
+            app:boxCornerRadiusBottomStart="25dp"
+            app:boxCornerRadiusTopEnd="25dp"
+            app:boxCornerRadiusTopStart="25dp"
+            app:boxStrokeWidth="0dp"
+            app:endIconMode="clear_text"
+            app:hintEnabled="false"
+            app:layout_anchor="@id/view"
 
+            app:boxBackgroundColor="@color/transparent_thick"
+            app:boxStrokeColor="@color/transparent_thick"
+            android:background="@color/transparent_thick"
+            android:backgroundTint="@color/transparent_thick"
 
-            >
+            app:layout_anchorGravity="start|center">
 
-            <!--                android:background="@android:color/transparent"-->
-            <LinearLayout
+            <!--                    android:backgroundTint="@color/colorBackground"-->
+
+            <AutoCompleteTextView
+                android:id="@+id/edtPlaceName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/ic_location"
+                android:drawablePadding="10dp"
 
-                android:backgroundTint="@color/transparent"
-
-                >
-
-                <!--                    android:backgroundTint="@color/colorBackground"-->
-                <Spinner
-                    android:id="@+id/spinner_caseText1"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="1.1"
-                    android:adjustViewBounds="true"
-                    android:background="@drawable/spinner_border_background"
+                android:backgroundTint="@color/Purple"
 
 
-                    app:tint="@color/primaryColor"
-                    app:drawableTint="@color/primaryColor"
+                android:drawableTint="@color/primaryColor"
+                android:hint="Search Place"
+                android:inputType="text"
+                android:maxLines="1"
 
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:spinnerMode="dropdown"
-                    android:textColor="@color/gray"
-                    android:textSize="10sp"
-                    app:fontFamily="@font/quicksand_semibold"
-                    app:layout_constraintEnd_toEndOf="parent">
+                android:textColorHint="@color/transparent" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                </Spinner>
-                <!--                    android:backgroundTint="@color/colorBackground"-->
-<!--                android:spinnerMode="dropdown"-->
-<!--                app:tint="@color/primaryColor"-->
-<!--                app:drawableTint="@color/primaryColor"-->
-                <Spinner
-                    android:id="@+id/spinner_subcat"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="1.1"
-                    android:adjustViewBounds="true"
-                    android:background="@drawable/spinner_border_background"
-
-                    app:tint="@color/primaryColor"
-                    app:drawableTint="@color/primaryColor"
-
-
-                    android:backgroundTintMode="@color/primaryColor"
-
-                    android:spinnerMode="dropdown"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:textColor="@color/gray"
-                    android:textSize="10sp"
-
-                    android:hint="Selected"
-
-
-                    app:fontFamily="@font/quicksand_semibold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/spinner_caseText1">
-
-                </Spinner>
-
-
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/verticalGuideLine"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.65"
-
-                    android:backgroundTint="@color/transparent_thick"
-                    android:background="@color/transparent_thick"
-
-
-
-                    />
-
-<!--                android:backgroundTint="@color/colorBackground"-->
-<!--                app:boxBackgroundColor="@color/white"-->
-<!--                app:boxStrokeColor="@color/white"-->
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:elevation="10dp"
-                    android:visibility="gone"
-                    app:boxCornerRadiusBottomEnd="25dp"
-                    app:boxCornerRadiusBottomStart="25dp"
-                    app:boxCornerRadiusTopEnd="25dp"
-                    app:boxCornerRadiusTopStart="25dp"
-                    app:boxStrokeWidth="0dp"
-                    app:endIconMode="clear_text"
-                    app:hintEnabled="false"
-                    app:layout_anchor="@id/view"
-
-                    app:boxBackgroundColor="@color/transparent_thick"
-                    app:boxStrokeColor="@color/transparent_thick"
-                    android:background="@color/transparent_thick"
-                    android:backgroundTint="@color/transparent_thick"
-
-                    app:layout_anchorGravity="start|center">
-
-<!--                    android:backgroundTint="@color/colorBackground"-->
-
-                    <AutoCompleteTextView
-                        android:id="@+id/edtPlaceName"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_40sdp"
-                        android:layout_weight="1"
-                        android:drawableStart="@drawable/ic_location"
-                        android:drawablePadding="10dp"
-
-                        android:backgroundTint="@color/Purple"
-
-
-                        android:drawableTint="@color/primaryColor"
-                        android:hint="Search Place"
-                        android:inputType="text"
-                        android:maxLines="1"
-
-                        android:textColorHint="@color/transparent" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-            </LinearLayout>
-
-
-        </com.google.android.material.card.MaterialCardView>
-
-<!--        android:background="@color/transparent"-->
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="30dp"
-            android:elevation="5dp" />
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
+    </LinearLayout>
 
     <HorizontalScrollView
         android:id="@+id/placesList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/coordinate"
+        android:layout_below="@+id/DropdownHolder"
         android:scrollbars="none"
-
-
-
-
         >
 
         <com.google.android.material.chip.ChipGroup
@@ -317,9 +145,6 @@
             android:layout_height="wrap_content"
             app:singleLine="true"
             app:singleSelection="true"
-
-
-
             />
 
     </HorizontalScrollView>
@@ -332,20 +157,10 @@
         android:layout_below="@+id/placesList"
         android:layout_margin="@dimen/_20sdp"
         android:layout_toLeftOf="@+id/btnMenu"
-
         android:background="#55000000"
         app:backgroundTint="#55000000"
-
         />
 
-<!--    ligt-->
-<!--    android:backgroundTint="#80FFFFFF"-->
-
-<!--    android:background="@null"-->
-<!--    app:backgroundTint="00000000"-->
-
-<!--    android:backgroundTintMode="src_over"-->
-<!--    android:alpha="0.4"-->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnMenu"
