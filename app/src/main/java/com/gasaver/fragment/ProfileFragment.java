@@ -120,8 +120,8 @@ public class ProfileFragment extends BottomSheetDialogFragment implements View.O
                             .error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfileImg);
 
 
-                    Glide.with(getActivity()).load(response.body().getBarCode())
-                            .error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfileImg1);
+//                    Glide.with(getActivity()).load(response.body().getBarCode())
+//                            .error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfileImg1);
 
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -139,6 +139,7 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
 
                 for (int i = 0; i < bannersResponse.getCompanyDetails().size(); i++) {
                     String logoUrl = bannersResponse.getCompanyBasePath() + bannersResponse.getCompanyDetails().get(i).getLogo();
+                    bannersResponse.getCompanyDetails().get(i).getId();
                     // Add the logo URL to the list only if it is not null or empty and its size is greater than 0
                     if (!logoUrl.isEmpty()) {
                         logoUrl.length();

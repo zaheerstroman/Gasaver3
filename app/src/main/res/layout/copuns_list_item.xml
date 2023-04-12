@@ -44,11 +44,11 @@
                     android:id="@+id/tv_StationCode1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="05dp"
+                    android:paddingLeft="20dp"
                     android:paddingTop="05dp"
                     android:text="# Name (US-7856)"
                     android:textColor="@color/purple"
-                    android:textSize="14dp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
 
@@ -110,8 +110,8 @@
                             android:id="@+id/iv_profile_img1"
                             android:layout_width="@dimen/_200sdp"
                             android:layout_height="@dimen/_120sdp"
-
                             android:layout_centerInParent="true"
+                            android:paddingLeft="20dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/profile_img"
                             app:shapeAppearanceOverlay="@style/circleImageViewStyle" />
