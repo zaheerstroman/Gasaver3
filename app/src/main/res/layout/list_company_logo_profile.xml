@@ -21,5 +21,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/circleImageViewStyle" />
 
+<!--    <com.google.android.material.imageview.ShapeableImageView-->
+<!--        android:id="@+id/iv_profile_img1"-->
+<!--        android:layout_width="@dimen/_70sdp"-->
+<!--        android:layout_height="@dimen/_80sdp"-->
+<!--        android:layout_gravity="top"-->
+<!--        android:layout_marginLeft="02dp"-->
+<!--        android:paddingTop="10dp"-->
+<!--        android:scaleType="fitXY"-->
+<!--        android:src="@drawable/profile_img"-->
+<!--        android:layout_margin="5sp"-->
+<!--        app:shapeAppearanceOverlay="@style/circleImageViewStyle" />-->
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

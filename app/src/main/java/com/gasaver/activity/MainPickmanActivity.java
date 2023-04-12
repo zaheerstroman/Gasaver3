@@ -74,7 +74,6 @@ public class MainPickmanActivity extends AppCompatActivity implements View.OnCli
 //        setContentView(R.layout.activity_main_pickman);
 //        setContentView(R.layout.activity_data_recovery);
 //        setContentView(R.layout.activity_main_pickman_copy);
-
 //        setContentView(R.layout.activity_main_pickman_demo);
 //        setContentView(R.layout.activity_main_pickman_demo_old);
 
@@ -158,7 +157,7 @@ public class MainPickmanActivity extends AppCompatActivity implements View.OnCli
                             startCamera();
                         } else
 //                            Toast.makeText(MainPickmanActivity.this, "Distance greater than 100", Toast.LENGTH_SHORT).show();
-                            Toast.makeText(MainPickmanActivity.this, "With in 100Meters Camera will be Allow", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainPickmanActivity.this, "With in 100 Meters Radius Camera will be Allow", Toast.LENGTH_SHORT).show();
 
                     } catch (Exception e) {
                         e.printStackTrace();

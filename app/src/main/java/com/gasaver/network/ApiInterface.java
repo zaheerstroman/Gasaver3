@@ -168,8 +168,8 @@ public interface ApiInterface {
 
 //    Call<BannersResponse> fetchBanners1(@Body JsonObject postObj);
 
-//    @POST("adds")
-//    Call<BannersResponse> fetchBanners1(@Body RequestBody postObj);
+    @POST("adds")
+    Call<BannersResponse> fetchBanners1(@Body RequestBody postObj);
 //    Call<BannersResponse.CompanyDetail> fetchBanners1(@Body RequestBody postObj);
 
     //------------------------------------------------------------------------------------

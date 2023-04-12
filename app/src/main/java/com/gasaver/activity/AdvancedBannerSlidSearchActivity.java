@@ -53,6 +53,7 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
 
     BannersResponse bannersResponse;
     RecyclerView recyclerview_Company_Logos;
+
     private int[] imageIds = new int[]{
             R.drawable.sample1,
             R.drawable.sample2,
@@ -70,22 +71,28 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Promotions");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         recyclerview_Company_Logos = findViewById(R.id.recyclerview_Company_Logos);
+
         ArrayList<String> imageUrlList = new ArrayList<>();
+
         imageUrlList.add("https://cdn.pixabay.com/photo/2023/03/22/11/07/seeds-7869190_960_720.jpg");
         imageUrlList.add("https://cdn.pixabay.com/photo/2022/05/11/22/17/pink-hibiscus-7190314_960_720.jpg");
         imageUrlList.add("https://cdn.pixabay.com/photo/2023/03/16/08/51/flowers-7856225_960_720.jpg");
 // Add more image URLs as needed
 
         recyclerview_Company_Logos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        recyclerview_Company_Logos.setAdapter(new recyclerview_Company_Logos_Adaptor(this,imageUrlList));
+        recyclerview_Company_Logos.setAdapter(new recyclerview_Company_Logos_Adaptor(this, imageUrlList));
+
         viewPager = findViewById(R.id.view_pager);
 
-        // Create an array of image URLs
         String[] imageUrls = {"https://cdn.pixabay.com/photo/2023/03/22/11/07/seeds-7869190_960_720.jpg", "https://cdn.pixabay.com/photo/2022/05/11/22/17/pink-hibiscus-7190314_960_720.jpg", "https://cdn.pixabay.com/photo/2023/03/16/08/51/flowers-7856225_960_720.jpg"};
+        imageUrls[1] = "flps";
 
-        // Set the adapter to the ViewPager
-        viewPager.setAdapter(new ImageAdapter(this, imageUrls));
+        viewPager.setAdapter(new ImageAdapter(this, imageIds));
+        //viewPager.setAdapter(new ImageAdapter(this, imageIds));
+
+//        viewPager.setAdapter(new ImageAdapter(this, imageUrlList));
 
 
         // Auto start of viewpager
@@ -110,6 +117,7 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
 
         fetchBanners();
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -138,8 +146,12 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
                 ArrayList<String> logoList = new ArrayList<>();
 
                 for (int i = 0; i < bannersResponse.getCompanyDetails().size(); i++) {
+
                     String logoUrl = bannersResponse.getCompanyBasePath() + bannersResponse.getCompanyDetails().get(i).getLogo();
+
+                    //Changes:- Company Logo -->  Add Banner
                     bannersResponse.getCompanyDetails().get(i).getId();
+
                     // Add the logo URL to the list only if it is not null or empty and its size is greater than 0
                     if (!logoUrl.isEmpty()) {
                         logoUrl.length();
@@ -149,7 +161,7 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
 
 // Set the adapter with the logo list
                 recyclerview_Company_Logos.setLayoutManager(new LinearLayoutManager(AdvancedBannerSlidSearchActivity.this.getBaseContext(), LinearLayoutManager.HORIZONTAL, false));
-                recyclerview_Company_Logos.setAdapter(new recyclerview_Company_Logos_Adaptor(AdvancedBannerSlidSearchActivity.this,logoList));
+                recyclerview_Company_Logos.setAdapter(new recyclerview_Company_Logos_Adaptor(AdvancedBannerSlidSearchActivity.this, logoList));
 
 
             }
@@ -164,10 +176,11 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
 
 
     private static class recyclerview_Company_Logos_Adaptor extends RecyclerView.Adapter<recyclerview_Company_Logos_ViewHolder> {
+
         private List<String> imageUrls;
         private Activity activity;
 
-        public recyclerview_Company_Logos_Adaptor(Activity activity ,List<String> imageUrls) {
+        public recyclerview_Company_Logos_Adaptor(Activity activity, List<String> imageUrls) {
             this.imageUrls = imageUrls;
             this.activity = activity;
         }
@@ -190,10 +203,10 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
         public int getItemCount() {
             return imageUrls.size();
         }
+
     }
 
-    private static class recyclerview_Company_Logos_ViewHolder extends RecyclerView.ViewHolder
-    {
+    private static class recyclerview_Company_Logos_ViewHolder extends RecyclerView.ViewHolder {
         ImageView companyLogoImageView;
 
         public recyclerview_Company_Logos_ViewHolder(@NonNull View itemView) {
@@ -201,19 +214,34 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
             companyLogoImageView = itemView.findViewById(R.id.iv_profile_img);
         }
     }
+
     private static class ImageAdapter extends PagerAdapter {
         private final Context context;
-        private final String[] imageUrls;
+        private final int[] imageIds;
+//        private final String[] imageUrls;
 
-        public ImageAdapter(Context context, String[] imageUrls) {
+
+        public ImageAdapter(Context context, int[] imageIds) {
             this.context = context;
-            this.imageUrls = imageUrls;
+            this.imageIds = imageIds;
         }
+
+//        public ImageAdapter(Context context, String[] imageUrls) {
+//            this.context = context;
+////            this.imageIds = imageIds;
+//            this.imageUrls = imageUrls;
+//        }
+
 
         @Override
         public int getCount() {
-            return imageUrls.length;
+            return imageIds.length;
         }
+
+//        @Override
+//        public int getCount() {
+//            return imageUrls.length;
+//        }
 
         @Override
         public boolean isViewFromObject(View view, Object object) {
@@ -224,7 +252,8 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
         public Object instantiateItem(ViewGroup container, int position) {
             ImageView imageView = new ImageView(context);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            Glide.with(context).load(imageUrls[position]).into(imageView);
+            imageView.setImageResource(imageIds[position]);
+//            Glide.with(context).load(imageUrls[position]).into(ImageView);
             container.addView(imageView, 0);
             return imageView;
         }
@@ -234,7 +263,6 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
             container.removeView((ImageView) object);
         }
     }
-
 }
 
 

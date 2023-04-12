@@ -92,14 +92,18 @@
 
             <Button
                 android:id="@+id/search_btn"
-                android:layout_width="match_parent"
+                layout_gravity="center"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="32dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:background="@drawable/search_btn_bg"
+                android:layout_marginEnd="141dp"
+                android:layout_marginBottom="18dp"
+                android:background="@drawable/buttonshape_purpule_blue"
+                android:backgroundTint="@color/purple"
+                android:gravity="center"
                 android:text="Upload"
                 android:textColor="@color/colorWhite" />
 

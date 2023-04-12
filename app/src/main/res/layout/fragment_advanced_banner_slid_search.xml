@@ -23,7 +23,7 @@
 
         <!--            android:layout_centerInParent="true"-->
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/iv_profile_img"
+            android:id="@+id/iv_profile_img1"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_80sdp"
             android:layout_gravity="top"

@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_220sdp"
+        android:layout_height="@dimen/_100sdp"
         android:background="@color/profile_bg_color"
         android:orientation="horizontal">
 
@@ -159,44 +159,44 @@
             </LinearLayout>
 
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="10dp">
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:paddingTop="10dp">-->
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.9">
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="1.9">-->
 
-                    <!--                    app:shapeAppearanceOverlay="@style/circleImageViewStyle"-->
+<!--                    &lt;!&ndash;                    app:shapeAppearanceOverlay="@style/circleImageViewStyle"&ndash;&gt;-->
 
-                    <!--                    <com.google.android.material.imageview.ShapeableImageView-->
-                    <ImageView
+<!--                    &lt;!&ndash;                    <com.google.android.material.imageview.ShapeableImageView&ndash;&gt;-->
+<!--                    <ImageView-->
 
-                        android:id="@+id/iv_profile_img1"
-                        android:layout_width="@dimen/_200sdp"
-                        android:layout_height="@dimen/_120sdp"
+<!--                        android:id="@+id/iv_profile_img1"-->
+<!--                        android:layout_width="@dimen/_200sdp"-->
+<!--                        android:layout_height="@dimen/_120sdp"-->
 
-                        android:layout_centerInParent="true"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/profile_img"
-                        app:shapeAppearanceOverlay="@style/circleImageViewStyle" />
-                </RelativeLayout>
+<!--                        android:layout_centerInParent="true"-->
+<!--                        android:scaleType="fitXY"-->
+<!--                        android:src="@drawable/profile_img"-->
+<!--                        app:shapeAppearanceOverlay="@style/circleImageViewStyle" />-->
+<!--                </RelativeLayout>-->
 
 
-                <!--                <Button-->
-                <!--                    android:id="@+id/btn_upgrade"-->
-                <!--                    android:layout_width="@dimen/_55sdp"-->
-                <!--                    android:layout_height="@dimen/_15sdp"-->
-                <!--                    android:layout_marginLeft="@dimen/_10sdp"-->
-                <!--                    android:background="@drawable/button_bg_red"-->
-                <!--                    android:text="upgrade"-->
-                <!--                    android:textColor="@color/white"-->
-                <!--                    android:textSize="@dimen/_8sdp" />-->
+<!--                &lt;!&ndash;                <Button&ndash;&gt;-->
+<!--                &lt;!&ndash;                    android:id="@+id/btn_upgrade"&ndash;&gt;-->
+<!--                &lt;!&ndash;                    android:layout_width="@dimen/_55sdp"&ndash;&gt;-->
+<!--                &lt;!&ndash;                    android:layout_height="@dimen/_15sdp"&ndash;&gt;-->
+<!--                &lt;!&ndash;                    android:layout_marginLeft="@dimen/_10sdp"&ndash;&gt;-->
+<!--                &lt;!&ndash;                    android:background="@drawable/button_bg_red"&ndash;&gt;-->
+<!--                &lt;!&ndash;                    android:text="upgrade"&ndash;&gt;-->
+<!--                &lt;!&ndash;                    android:textColor="@color/white"&ndash;&gt;-->
+<!--                &lt;!&ndash;                    android:textSize="@dimen/_8sdp" />&ndash;&gt;-->
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
 
         </LinearLayout>
@@ -527,10 +527,10 @@
                     android:layout_weight="3">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="19dp"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_30sdp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/coupon" />
+                        android:src="@drawable/gift_card_coupon" />
 
                 </RelativeLayout>
 
