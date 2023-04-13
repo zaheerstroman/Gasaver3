@@ -180,6 +180,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, NearLocationInterface, GoogleApiClient.OnConnectionFailedListener, RoutingListener {
 
 
+    private static final int REQUEST_LOCATION_PERMISSION = 1;
     //    Spinner spinner_budget;
     Spinner spinner_subcat;
 
@@ -300,6 +301,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
         //-----------------------------
 
+        context = requireContext();
         // Create a notification manager
         NotificationManager notificationManager = (NotificationManager) requireContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -414,7 +416,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         });
 
 
-        binding.currentLocation.setOnClickListener(currentLocation -> getCurrentLocation());
+        binding.currentLocation.setOnClickListener(v -> getMyLocationNow());
 
 
         binding.btnSearchPlus.setOnClickListener(new View.OnClickListener() {
@@ -449,8 +451,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
             e.printStackTrace();
         }
 
-        // Define the location for which to fetch city names
-        LatLng location = new LatLng(17.3850, 78.4867);
 
         AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) binding.getRoot().findViewById(R.id.edit_search);
         new FetchCityNamesTask(requireContext(), autoCompleteTextView).execute();
@@ -805,9 +805,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
                 try {
                     CommonUtils.hideLoading();
                     stationDataList = response.body().getData();
-                    Log.e(TAG, response.body().getData().get(1).getDefault_data().get(0).getType() + response.body().getData().get(0).getDefault_data().get(0).getAmount() );
-                    Log.e(TAG, response.body().getData().get(1).getDefault_data().get(1).getType() + response.body().getData().get(1).getDefault_data().get(1).getAmount() );
-                    Log.e(TAG, response.body().getData().get(1).getDefault_data().get(2).getType() + response.body().getData().get(2).getDefault_data().get(2).getAmount() );
 
                     // Extract default data from the response
                     StationDataResponse.StationDataModel dataResponse = response.body().getData().get(1);
@@ -985,19 +982,39 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         }
 
         //homeMap
-        mMap.setMyLocationEnabled(true);
-        mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
-            @Override
-            public void onMyLocationChange(Location location) {
+        mGoogleMap.setMyLocationEnabled(true);
+        mGoogleMap.setOnMyLocationChangeListener(location -> {
 
-                myLocation = location;
-                LatLng ltlng = new LatLng(location.getLatitude(), location.getLongitude());
-                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(ltlng, 16f);
-//                mMap.animateCamera(cameraUpdate);
-            }
+            myLocation = location;
+            LatLng ltlng = new LatLng(location.getLatitude(), location.getLongitude());
+            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(ltlng, 16f);
+                mGoogleMap.animateCamera(cameraUpdate);
         });
+        mGoogleMap.animateCamera(CameraUpdateFactory.newCameraPosition(mGoogleMap.getCameraPosition()));
 
 
+    }
+    private void getMyLocationNow() {
+        // Check if location permission is granted
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+
+            // Get the last known location
+            FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext());
+            fusedLocationClient.getLastLocation()
+                    .addOnSuccessListener(location -> {
+                        if (location != null) {
+                            // Zoom the camera to the current location
+                            LatLng myLocation = new LatLng(location.getLatitude(), location.getLongitude());
+                            mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 15)); // 15 is the zoom level
+                        } else {
+                            Toast.makeText(requireContext(), "Unable to get current location", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        } else {
+            // Request location permission
+            ActivityCompat.requestPermissions(HomeFragmentGasaver.this.getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION_PERMISSION);
+        }
     }
 
 
@@ -1261,14 +1278,12 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
             @Override
             public void onSuccess(Location location) {
                 currentLocation = location;
-
+                Log.e(TAG, "onSuccess: "+location );
 
                 try {
-                    Geocoder geocoder = new Geocoder(getActivity(), Locale.getDefault());
-                    List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                    searchCity = addresses.get(0).getAddressLine(0);
-                    AutocompleteSupportFragment placeAutoComplete = (AutocompleteSupportFragment) getChildFragmentManager().findFragmentById(R.id.edit_search);
-                    placeAutoComplete.setHint(searchCity);
+                    LatLng latLng = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
+                    mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,13f));
+
 
                 } catch (Exception e) {
                     e.printStackTrace();

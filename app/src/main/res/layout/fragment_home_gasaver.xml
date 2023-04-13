@@ -7,8 +7,6 @@
     tools:context=".fragment.HomeFragmentGasaver"
     >
 
-
-
     <fragment
         android:id="@+id/homeMap"
         android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -53,6 +51,7 @@
             app:drawableTint="@color/primaryColor"
             android:popupBackground="#A6FFFFFF"
             android:gravity="center"
+            android:layout_marginStart="@dimen/_10sdp"
             android:padding="10dp"
             android:spinnerMode="dropdown"
             android:textColor="@color/black"
@@ -73,6 +72,7 @@
             android:backgroundTintMode="@color/primaryColor"
             android:spinnerMode="dropdown"
             android:gravity="center"
+            android:layout_marginStart="@dimen/_10sdp"
             android:padding="10dp"
             android:popupBackground="#A6FFFFFF"
             android:textColor="@color/black"
