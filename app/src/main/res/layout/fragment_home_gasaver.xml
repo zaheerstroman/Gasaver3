@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         />
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <AutoCompleteTextView
         android:id="@+id/edit_search"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
@@ -51,11 +51,11 @@
             android:background="@drawable/spinner_border_background"
             app:tint="@color/primaryColor"
             app:drawableTint="@color/primaryColor"
-            android:popupBackground="@android:color/transparent"
+            android:popupBackground="#81FFFFFF"
             android:gravity="center"
             android:padding="10dp"
             android:spinnerMode="dropdown"
-            android:textColor="@color/gray"
+            android:textColor="@color/black"
             android:textSize="10sp"
             app:fontFamily="@font/quicksand_semibold"
             app:layout_constraintEnd_toEndOf="parent">
@@ -74,7 +74,7 @@
             android:spinnerMode="dropdown"
             android:gravity="center"
             android:padding="10dp"
-            android:popupBackground="@android:color/transparent"
+            android:popupBackground="#92FFFFFF"
             android:textColor="@color/black"
             android:textSize="10sp"
             android:hint="Selected"

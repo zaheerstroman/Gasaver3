@@ -50,6 +50,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -116,6 +117,7 @@ import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
@@ -125,7 +127,10 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.model.PlaceLikelihood;
 import com.google.android.libraries.places.api.model.TypeFilter;
+import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest;
+import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.android.material.chip.Chip;
@@ -144,6 +149,10 @@ import com.google.maps.android.SphericalUtil;
 import com.google.maps.android.clustering.ClusterManager;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -153,6 +162,8 @@ import java.util.List;
 import java.util.Locale;
 
 import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -422,7 +433,38 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
             e.printStackTrace();
         }
 
-        EditText editText = (EditText) binding.getRoot().findViewById(R.id.edit_search);
+        // Define the location for which to fetch city names
+        LatLng location = new LatLng(17.3850, 78.4867);
+
+        AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) binding.getRoot().findViewById(R.id.edit_search);
+        new FetchCityNamesTask(requireContext(), autoCompleteTextView).execute(location);
+
+        // Define an array of city names to use as suggestions
+        String[] cityNames = new String[]{"New York", "Los Angeles", "Chicago", "Houston", "Philadelphia", "Phoenix", "San Antonio", "San Diego", "Dallas", "San Jose"};
+
+// Create an ArrayAdapter to provide the suggestions
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_dropdown_item_1line, cityNames);
+
+// Get the AutoCompleteTextView and set the adapter
+
+        autoCompleteTextView.setAdapter(adapter);
+
+// Set the minimum number of characters required to show suggestions
+        autoCompleteTextView.setThreshold(1);
+
+// Set a listener to handle the user's selection of a suggestion
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedCity = (String) parent.getItemAtPosition(position);
+                // Handle the selected city here
+                EditText editText = binding.getRoot().findViewById(R.id.edit_search);
+                editText.setText(selectedCity);
+                performSearch();
+            }
+        });
+
+        AutoCompleteTextView editText = (AutoCompleteTextView) binding.getRoot().findViewById(R.id.edit_search);
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -442,7 +484,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
     }
 
     private void performSearch() {
-        EditText searchEditText = (EditText) binding.getRoot().findViewById(R.id.edit_search);
+        AutoCompleteTextView searchEditText = (AutoCompleteTextView) binding.getRoot().findViewById(R.id.edit_search);
         String searchString = searchEditText.getText().toString();
         Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
         try {
@@ -747,6 +789,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
                 try {
                     CommonUtils.hideLoading();
                     stationDataList = response.body().getData();
+                    Log.e(TAG, response.body().getData().toString() );
                     if (stationDataList == null || stationDataList.isEmpty())
                         Toast.makeText(getActivity(), "No stations found", Toast.LENGTH_SHORT).show();
 

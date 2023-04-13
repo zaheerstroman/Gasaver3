@@ -402,87 +402,7 @@
 
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
-        </activity> <!-- zaheerstroman@gmail.com key=API_KEY = API key 1 =   AIzaSyCbDwBFbjSeagA6nH4hZ-ekN_WVbp1dExU -->
-        <!-- <meta-data -->
-        <!-- android:name="com.google.android.geo.API_KEY" -->
-        <!-- android:value="AIzaSyCbDwBFbjSeagA6nH4hZ-ekN_WVbp1dExU" /> -->
-        <!-- <meta-data -->
-        <!-- android:name="com.google.android.geo.API_KEY" -->
-        <!-- android:value="@string/API_KEY" /> -->
-        <!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; -->
-        <!-- PUSH NOTIFICATION -->
-        <!-- &lt;!&ndash; Set custom default icon. This is used when no icon is set for incoming notification messages. -->
-        <!-- See README(https://goo.gl/l4GJaQ) for more. &ndash;&gt; -->
-        <!-- <meta-data -->
-        <!-- android:name="com.google.firebase.messaging.default_notification_icon" -->
-        <!-- android:resource="@drawable/ic_backspace_black_24dp" /> -->
-        <!-- &lt;!&ndash; Set color used with incoming notification messages. This is used when no color is set for the incoming -->
-        <!-- notification message. See README(https://goo.gl/6BKBk7) for more. &ndash;&gt; -->
-        <!-- <meta-data -->
-        <!-- android:name="com.google.firebase.messaging.default_notification_color" -->
-        <!-- android:resource="@color/colorAccent" /> -->
-        <!-- <meta-data -->
-        <!-- android:name="com.google.android.geo.API_KEY" -->
-        <!-- android:value="@string/google_maps_key" /> -->
-        <!-- <meta-data -->
-        <!-- android:name="com.google.android.geo.API_KEY" -->
-        <!-- android:value="AIzaSyCbDwBFbjSeagA6nH4hZ-ekN_WVbp1dExU" /> -->
-        <!-- <activity -->
-        <!-- android:name=".MainActivity" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <!-- <activity -->
-        <!-- android:name=".SigninActivity" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <!-- <activity -->
-        <!-- android:name=".SetProfile" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <!-- <activity -->
-        <!-- android:name=".OtpAuthentication" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <!-- <activity -->
-        <!-- android:name=".NavigationActivity" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <!-- <activity -->
-        <!-- android:name=".IntroActivity" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <!-- <activity -->
-        <!-- android:name=".DashboardNearbyFuelStation" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <!-- <activity -->
-        <!-- android:name=".CountryActivity" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
+        </activity>
         <activity
             android:name=".activity.BottomNavigationLayoutActivity"
             android:exported="false"
@@ -531,34 +451,10 @@
         <activity
             android:name=".activity.UserSignInActivity"
             android:exported="true" /> <!-- <activity -->
-        <!-- android:name="com.theartofdev.edmodo.cropper.CropImageActivity" -->
-        <!-- android:theme="@style/Base.Theme.AppCompat" /> -->
+
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" /> <!-- Google Cloud Platform     Credentials -->
-        <!-- Android APi Key : AIzaSyBE7yYMI-BoD9YVZ7MTjLze7Oi6sNhbMAw -->
-        <!-- Browser APi Key : AIzaSyAArfpE3kYg4MtafV_s9Xjj7rh3XZSp9oo -->
-        <!-- OAuth 2.0 Client IDs -->
-        <!-- 1055328443007-75k2hjrp8cniovj1rhu05vti4cqc62up.apps.googleusercontent.com -->
-        <!-- Service Account -->
-        <!-- gasserviceapp@appspot.gserviceaccount.com -->
-        <!-- firebase-adminsdk-rweth@gasserviceapp.iam.gserviceaccount.com -->
-        <!-- 2022 -->
-        <!-- AIzaSyCbDwBFbjSeagA6nH4hZ-ekN_WVbp1dExU -->
-        <!-- 2023 -->
-        <!-- Ok -->
-        <!-- AIzaSyBE7yYMI-BoD9YVZ7MTjLze7Oi6sNhbMAw -->
-        <!-- Billing Account -->
-        <!-- AIzaSyC9XBwSdZXnvuWPDXH26NJphvRAZpDzo74 -->
-        <!-- Android Aakruti Account 30 Api -->
-        <!-- AIzaSyA1B-lkYW4V5rR8PP3Zr9gUbBWZoR3hOkg -->
-        <!-- zaheerstroman@gmail.com -->
-        <!-- 16 Restricted Apis -->
-        <!-- 69 apis -->
-        <!-- AIzaSyBrBCjR96NhwdK1RM5S00y-8edeAuMuA0g -->
-        <!-- <meta-data -->
-        <!-- android:name="com.google.android.geo.API_KEY" -->
-        <!-- android:value="AIzaSyBrBCjR96NhwdK1RM5S00y-8edeAuMuA0g" -->
+            android:value="@integer/google_play_services_version" />
         <!-- /> -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
