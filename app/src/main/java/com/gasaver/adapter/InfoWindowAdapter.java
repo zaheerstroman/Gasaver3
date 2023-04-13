@@ -1,6 +1,7 @@
 package com.gasaver.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.location.Location;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -105,15 +106,20 @@ public class InfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 //                        for (int i = 0; i < txtPriceLocationDistance; i++){
 //            }
 
-// Sort the default data models by price in ascending order
+/// Sort the default data models by price in ascending order
             List<DefaultDataModel> sortedDefaultDataModels = defaultDataModels.stream()
                     .sorted(Comparator.comparingDouble(dm -> Double.parseDouble(dm.getAmount())))
                     .collect(Collectors.toList());
 
-// Set the price values for the UI text views
-            binding.txtPriceLocationDistance.setText(sortedDefaultDataModels.get(0).getType()+ " $ " + sortedDefaultDataModels.get(0).getAmount());
-            binding.txtPriceLocationDistance2.setText(sortedDefaultDataModels.get(1).getType()+" $ " + sortedDefaultDataModels.get(1).getAmount());
-            binding.txtPriceLocationDistance3.setText(sortedDefaultDataModels.get(2).getType()+" $ " + sortedDefaultDataModels.get(2).getAmount());
+// Set the price values and colors for the UI text views
+            binding.txtPriceLocationDistance.setText(sortedDefaultDataModels.get(0).getType() + " $ " + sortedDefaultDataModels.get(0).getAmount());
+            binding.txtPriceLocationDistance.setTextColor(Color.parseColor("#44AE53"));
+
+            binding.txtPriceLocationDistance2.setText(sortedDefaultDataModels.get(1).getType() + " $ " + sortedDefaultDataModels.get(1).getAmount());
+            binding.txtPriceLocationDistance2.setTextColor(Color.parseColor("#FFA500")); // orange color
+
+            binding.txtPriceLocationDistance3.setText(sortedDefaultDataModels.get(2).getType() + " $ " + sortedDefaultDataModels.get(2).getAmount());
+            binding.txtPriceLocationDistance3.setTextColor(Color.RED);
 
 
         } catch (Exception e) {

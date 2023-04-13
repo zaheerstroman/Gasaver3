@@ -199,20 +199,7 @@ public class MainActivityGas extends AppCompatActivity {
 //                        Intent intent = new Intent(MainActivityGas.this, AdvancedBannerSlidSearchActivity.class);
                         Intent intent = new Intent(getApplicationContext(), AdvancedBannerSlidSearchActivity.class);
                         startActivity(intent);
-
-//                        navHostFragment = getSupportFragmentManager().getPrimaryNavigationFragment();
-//                        fragment = navHostFragment.getChildFragmentManager().getFragments().get(0);
-//                        if (fragment instanceof HomeFragmentGasaver) {
-//                            intent.putExtra("data", new Gson().toJson(((HomeFragmentGasaver) fragment).stationDataList));
-//                            startActivity(intent);
-//                        }
-//
-//                        break;
-
-//                        AdvancedBannerSlidSearchFragment addPhotoBottomDialogFragment1 =
-//                                new AdvancedBannerSlidSearchFragment();
-//                        addPhotoBottomDialogFragment1.show(getSupportFragmentManager(), "");
-//                        return true;
+                        return true;
 
 
                     case R.id.about:
