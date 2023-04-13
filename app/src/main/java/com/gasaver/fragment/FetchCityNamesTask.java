@@ -34,7 +34,7 @@ public class FetchCityNamesTask extends AsyncTask<Void, Void, List<String>> {
         mAutoCompleteTextView = autoCompleteTextView;
     }
 
-
+//
     //
     @Override
     protected List<String> doInBackground(Void... params) {
