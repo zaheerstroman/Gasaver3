@@ -41,6 +41,8 @@ public class FetchCityNamesTask extends AsyncTask<LatLng, Void, List<String>> {
         // Build the URL for the Geocoding API request
         String url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + location.latitude + "," + location.longitude + "&result_type=locality" +"&key=AIzaSyA1B-lkYW4V5rR8PP3Zr9gUbBWZoR3hOkg";
 
+        //https://www.geonames.org/activate/yru7rQNK/mohammadzaheeruddin/
+
         // Set up the HTTP client
         OkHttpClient client = new OkHttpClient();
 
