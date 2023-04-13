@@ -75,6 +75,7 @@ import com.gasaver.NearLocationInterface;
 import com.gasaver.PlaceModel;
 import com.gasaver.R;
 import com.gasaver.Response.CatResponse;
+import com.gasaver.Response.DefaultDataModel;
 import com.gasaver.Response.StationDataResponse;
 import com.gasaver.Response.WishlistResponse;
 import com.gasaver.SavedPlaceModel;
@@ -184,14 +185,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
     public Context context;
 
-    private RecyclerView rv_latest_projects;
-    private RecyclerView rv_location_marker_rv_latest_projects;
 
-    //    boolean fromPropertyDetails = false;
-    boolean fromMarkersDetails = false;
-
-
-    //   private FragmentHomeBinding binding;
     private FragmentHomeGasaverBinding binding;
 
     private GoogleMap homeMap;
@@ -789,11 +783,30 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
                 try {
                     CommonUtils.hideLoading();
                     stationDataList = response.body().getData();
-                    Log.e(TAG, response.body().getData().toString() );
+                    Log.e(TAG, response.body().getData().get(1).getDefault_data().get(0).getType() + response.body().getData().get(0).getDefault_data().get(0).getAmount() );
+                    Log.e(TAG, response.body().getData().get(1).getDefault_data().get(1).getType() + response.body().getData().get(1).getDefault_data().get(1).getAmount() );
+                    Log.e(TAG, response.body().getData().get(1).getDefault_data().get(2).getType() + response.body().getData().get(2).getDefault_data().get(2).getAmount() );
+
+                    // Extract default data from the response
+                    StationDataResponse.StationDataModel dataResponse = response.body().getData().get(1);
+
+// Create a list of default data models
+                    ArrayList<DefaultDataModel> defaultDataModels = new ArrayList<>();
+                    for (DefaultDataModel defaultData : dataResponse.getDefault_data()) {
+                        // Create a new DefaultDataModel object
+                        DefaultDataModel defaultDataModel = new DefaultDataModel();
+
+                        // Set the type and amount values for the current default data object
+                        defaultDataModel.setType(defaultData.getType());
+                        defaultDataModel.setAmount(defaultData.getAmount());
+
+                        // Add the current default data object to the list
+                        defaultDataModels.add(defaultDataModel);
+                    }
                     if (stationDataList == null || stationDataList.isEmpty())
                         Toast.makeText(getActivity(), "No stations found", Toast.LENGTH_SHORT).show();
 
-                    mGoogleMap.setInfoWindowAdapter(new InfoWindowAdapter(getActivity()));
+                    mGoogleMap.setInfoWindowAdapter(new InfoWindowAdapter(requireContext(),defaultDataModels));
 
 //                    DefaultDataModel
                     for (StationDataResponse.StationDataModel stationDataModel : stationDataList) {

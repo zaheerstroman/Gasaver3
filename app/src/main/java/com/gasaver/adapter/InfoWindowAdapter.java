@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.gasaver.Response.DefaultDataModel;
 import com.gasaver.Response.StationDataResponse;
 import com.gasaver.databinding.InfoWindowLayoutBinding;
 import com.gasaver.utils.CommonUtils;
@@ -16,17 +17,22 @@ import com.google.gson.Gson;
 import com.google.maps.android.SphericalUtil;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class InfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 
 
     private InfoWindowLayoutBinding binding;
     private Context context;
+    private ArrayList<DefaultDataModel> defaultDataModels;
 
 
-    public InfoWindowAdapter( Context context) {
+    public InfoWindowAdapter(Context context , ArrayList<DefaultDataModel> defaultDataModels) {
 
         this.context = context;
+        this.defaultDataModels = defaultDataModels;
 
         binding = InfoWindowLayoutBinding.inflate(LayoutInflater.from(context), null, false);
 
@@ -99,58 +105,16 @@ public class InfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 //                        for (int i = 0; i < txtPriceLocationDistance; i++){
 //            }
 
-            String latesttDTE=null;
+// Sort the default data models by price in ascending order
+            List<DefaultDataModel> sortedDefaultDataModels = defaultDataModels.stream()
+                    .sorted(Comparator.comparingDouble(dm -> Double.parseDouble(dm.getAmount())))
+                    .collect(Collectors.toList());
 
-//            double smalVal= Double.parseDouble(stationDataModel.getPrices().get(0).getAmount());
-//            DefaultDataModel
-            double smalVal= Double.parseDouble(stationDataModel.getDefault_data().get(0).getAmount());
-            double smalVal2= Double.parseDouble(stationDataModel.getDefault_data().get(0).getAmount());
-            double smalVal3= Double.parseDouble(stationDataModel.getDefault_data().get(0).getAmount());
+// Set the price values for the UI text views
+            binding.txtPriceLocationDistance.setText(sortedDefaultDataModels.get(0).getType()+ " $ " + sortedDefaultDataModels.get(0).getAmount());
+            binding.txtPriceLocationDistance2.setText(sortedDefaultDataModels.get(1).getType()+" $ " + sortedDefaultDataModels.get(1).getAmount());
+            binding.txtPriceLocationDistance3.setText(sortedDefaultDataModels.get(2).getType()+" $ " + sortedDefaultDataModels.get(2).getAmount());
 
-//            for (StationDataResponse.PriceModel priceModel : stationDataModel.getPrices()) {
-            for (StationDataResponse.DefaultDataModel defaultDataModel : stationDataModel.getDefault_data()) {
-
-//                Double am= Double.valueOf(priceModel.getAmount());
-                Double am= Double.valueOf(defaultDataModel.getAmount());
-                Double am2= Double.valueOf(defaultDataModel.getAmount());
-                Double am3= Double.valueOf(defaultDataModel.getAmount());
-
-                if (latesttDTE == null)
-//                if (latesttDTE == markerTag)
-
-//                    latesttDTE = priceModel.getLastupdated();
-                    latesttDTE = defaultDataModel.getAmount();
-
-//                else if (CommonUtils.getDate(latesttDTE).getTime() >= (CommonUtils.getDate(defaultDataModel.getAmount()).getTime())) {
-//                    latesttDTE = defaultDataModel.getAmount();
-//                }
-
-                if (smalVal>am)
-                    smalVal=am;
-
-                if (smalVal2>am2)
-                    smalVal2=am2;
-
-                if (smalVal3>am3)
-                    smalVal3=am3;
-
-//                else if (CommonUtils.getDate(latesttDTE).getTime() >= (CommonUtils.getDate(defaultDataModel.getAmount()).getTime())) {
-//                    latesttDTE = defaultDataModel.getAmount();
-//                }
-            }
-
-            binding.txtPriceLocationDistance.append(latesttDTE);
-            binding.txtPriceLocationDistance2.append(latesttDTE);
-            binding.txtPriceLocationDistance3.append(latesttDTE);
-
-
-            binding.txtPriceLocationDistance.setText("$ " +smalVal);
-            binding.txtPriceLocationDistance2.setText("$ " +smalVal2);
-            binding.txtPriceLocationDistance3.setText("$ " +smalVal3);
-
-
-
-//            binding.stationLayout.txtLastUpdated.append(latesttDTE);
 
         } catch (Exception e) {
             e.printStackTrace();
