@@ -42,6 +42,8 @@ public class FetchCityNamesTask extends AsyncTask<Void, Void, List<String>> {
         // Build the URL for the GeoNames API request
         String url = "http://api.geonames.org/searchJSON?formatted=true&country=AU&maxRows=1000&username=paradox122";
 
+        //https://www.geonames.org/activate/yru7rQNK/mohammadzaheeruddin/
+
         // Set up the HTTP client
         OkHttpClient client = new OkHttpClient();
 
