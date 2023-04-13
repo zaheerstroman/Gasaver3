@@ -34,6 +34,8 @@ public class FetchCityNamesTask extends AsyncTask<Void, Void, List<String>> {
         mAutoCompleteTextView = autoCompleteTextView;
     }
 
+
+    //
     @Override
     protected List<String> doInBackground(Void... params) {
         // Build the URL for the GeoNames API request
