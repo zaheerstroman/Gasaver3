@@ -12,6 +12,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,6 +22,7 @@ import androidx.recyclerview.widget.SnapHelper;
 
 import android.app.AlertDialog;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -37,6 +39,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.text.Editable;
@@ -274,7 +277,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
     public HomeFragmentGasaver() {
     }
 
-
+    private static final int NOTIFICATION_ID = 1;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -297,6 +300,25 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
         //-----------------------------
 
+        // Create a notification manager
+        NotificationManager notificationManager = (NotificationManager) requireContext().getSystemService(Context.NOTIFICATION_SERVICE);
+
+        // Create a notification builder
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(requireContext(), "channel_id")
+                .setSmallIcon(R.drawable.ic_notification)
+                .setContentTitle("GaSaver")
+                .setContentText("Welcome To Gasaver \uD83C\uDF89")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setAutoCancel(true);
+
+        // Create a notification channel (required for Android Oreo and above)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("channel_id", "Channel Name", NotificationManager.IMPORTANCE_HIGH);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        // Show the notification
+        notificationManager.notify(NOTIFICATION_ID, builder.build());
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.homeMap);
         assert mapFragment != null;
