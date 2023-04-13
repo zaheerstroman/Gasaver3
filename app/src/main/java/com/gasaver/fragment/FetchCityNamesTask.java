@@ -27,7 +27,7 @@ import okhttp3.Response;
 public class FetchCityNamesTask extends AsyncTask<Void, Void, List<String>> {
 
     private Context mContext;
-    
+
     private AutoCompleteTextView mAutoCompleteTextView;
 
     public FetchCityNamesTask(Context context, AutoCompleteTextView autoCompleteTextView) {
