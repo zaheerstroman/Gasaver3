@@ -21,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.gasaver.R;
@@ -45,11 +46,12 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
 
     private static final int NUM_PAGES = 3;
 
-    private ViewPager viewPager;
+    public static ViewPager viewPager;
     private int currentPage = 0;
     private Timer timer;
     private final long DELAY_MS = 500;
     private final long PERIOD_MS = 3000;
+    public static Context context;
 
     BannersResponse bannersResponse;
     RecyclerView recyclerview_Company_Logos;
@@ -75,17 +77,18 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
         imageUrlList.add("https://cdn.pixabay.com/photo/2023/03/22/11/07/seeds-7869190_960_720.jpg");
         imageUrlList.add("https://cdn.pixabay.com/photo/2022/05/11/22/17/pink-hibiscus-7190314_960_720.jpg");
         imageUrlList.add("https://cdn.pixabay.com/photo/2023/03/16/08/51/flowers-7856225_960_720.jpg");
+        ArrayList<String> ids = new ArrayList<>();
+        ids.add("1");
+        ids.add("1");
+        ids.add("1");
+        context = getApplicationContext();
 // Add more image URLs as needed
 
         recyclerview_Company_Logos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        recyclerview_Company_Logos.setAdapter(new recyclerview_Company_Logos_Adaptor(this,imageUrlList));
+        recyclerview_Company_Logos.setAdapter(new recyclerview_Company_Logos_Adaptor(this,imageUrlList , ids));
         viewPager = findViewById(R.id.view_pager);
 
-        // Create an array of image URLs
-        String[] imageUrls = {"https://cdn.pixabay.com/photo/2023/03/22/11/07/seeds-7869190_960_720.jpg", "https://cdn.pixabay.com/photo/2022/05/11/22/17/pink-hibiscus-7190314_960_720.jpg", "https://cdn.pixabay.com/photo/2023/03/16/08/51/flowers-7856225_960_720.jpg"};
 
-        // Set the adapter to the ViewPager
-        viewPager.setAdapter(new ImageAdapter(this, imageUrls));
 
 
         // Auto start of viewpager
@@ -136,20 +139,75 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
                 bannersResponse = response.body();
                 CommonUtils.hideLoading();
                 ArrayList<String> logoList = new ArrayList<>();
-
+                ArrayList<String> urls = new ArrayList<>();
+                ArrayList<String> ids = new ArrayList<>();
                 for (int i = 0; i < bannersResponse.getCompanyDetails().size(); i++) {
                     String logoUrl = bannersResponse.getCompanyBasePath() + bannersResponse.getCompanyDetails().get(i).getLogo();
-                    bannersResponse.getCompanyDetails().get(i).getId();
+                    ids.add(bannersResponse.getCompanyDetails().get(i).getId().toString());
                     // Add the logo URL to the list only if it is not null or empty and its size is greater than 0
                     if (!logoUrl.isEmpty()) {
                         logoUrl.length();
                         logoList.add(logoUrl);
                     }
                 }
+                for (int i = 0; i < bannersResponse.getAddsDetails().size(); i++) {
+                    urls.add(bannersResponse.getBasePath()+ bannersResponse.getAddsDetails().get(i).getAttachment());
+                }
 
 // Set the adapter with the logo list
+
                 recyclerview_Company_Logos.setLayoutManager(new LinearLayoutManager(AdvancedBannerSlidSearchActivity.this.getBaseContext(), LinearLayoutManager.HORIZONTAL, false));
-                recyclerview_Company_Logos.setAdapter(new recyclerview_Company_Logos_Adaptor(AdvancedBannerSlidSearchActivity.this,logoList));
+                recyclerview_Company_Logos.setAdapter(new recyclerview_Company_Logos_Adaptor(AdvancedBannerSlidSearchActivity.this,logoList,ids));
+                ImageAdapter adapter = new ImageAdapter(AdvancedBannerSlidSearchActivity.this, urls);
+                viewPager.setAdapter(adapter);
+
+            }
+
+            @Override
+            public void onFailure(Call<BannersResponse> call, Throwable t) {
+                t.printStackTrace();
+                CommonUtils.hideLoading();
+            }
+        });
+    }
+    private void fetchBannersAds(String id) {
+        CommonUtils.showLoading(AdvancedBannerSlidSearchActivity.this, "Please Wait", false);
+        ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("user_id", "2168");
+        jsonObject.addProperty("token", "51da1d874ab9626e5f851d02fa31472259d759ae508c988f38184582c0433fb1");
+        jsonObject.addProperty("company_id",id);
+        Call<BannersResponse> call = apiInterface.fetchBanners(jsonObject);
+
+        call.enqueue(new Callback<BannersResponse>() {
+
+            @Override
+            public void onResponse(Call<BannersResponse> call, Response<BannersResponse> response) {
+
+                bannersResponse = response.body();
+                CommonUtils.hideLoading();
+                ArrayList<String> urls = new ArrayList<>();
+                if (response.isSuccessful()) {
+                    bannersResponse = response.body();
+                    if (response.body().getMessage() == null)
+                    {
+                        for (int i = 0; i < bannersResponse.getAddsDetails().size(); i++) {
+                            urls.add(bannersResponse.getBasePath() + bannersResponse.getAddsDetails().get(i).getAttachment());
+                        }
+                        // Set the adapter with the logo list
+
+
+
+                        ImageAdapter adapter = new ImageAdapter(AdvancedBannerSlidSearchActivity.context, urls);
+                        AdvancedBannerSlidSearchActivity.viewPager.setAdapter(adapter);
+                    }
+                     else {
+                        // No promotions data available, handle this case
+                        Toast.makeText(AdvancedBannerSlidSearchActivity.context, "No Data Fund", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    // Handle unsuccessful response
+                }
 
 
             }
@@ -166,10 +224,12 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
     private static class recyclerview_Company_Logos_Adaptor extends RecyclerView.Adapter<recyclerview_Company_Logos_ViewHolder> {
         private List<String> imageUrls;
         private Activity activity;
+        private final ArrayList<String> ids;
 
-        public recyclerview_Company_Logos_Adaptor(Activity activity ,List<String> imageUrls) {
+        public recyclerview_Company_Logos_Adaptor(Activity activity ,List<String> imageUrls , ArrayList<String> ids) {
             this.imageUrls = imageUrls;
             this.activity = activity;
+            this.ids = ids;
         }
 
         @NonNull
@@ -184,6 +244,10 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
             String imageUrl = imageUrls.get(position);
             // Load the image from the URL and set it in the ImageView using Picasso or Glide
             Glide.with(activity).load(imageUrl).circleCrop().into(holder.companyLogoImageView);
+            holder.companyLogoImageView.setOnClickListener(view -> {
+                AdvancedBannerSlidSearchActivity advancedBannerSlidSearchActivity = new AdvancedBannerSlidSearchActivity();
+                advancedBannerSlidSearchActivity.fetchBannersAds(ids.get(position));
+            });
         }
 
         @Override
@@ -203,16 +267,16 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
     }
     private static class ImageAdapter extends PagerAdapter {
         private final Context context;
-        private final String[] imageUrls;
+        private final ArrayList<String> imageUrls;
 
-        public ImageAdapter(Context context, String[] imageUrls) {
+        public ImageAdapter(Context context, ArrayList<String> imageUrls) {
             this.context = context;
             this.imageUrls = imageUrls;
         }
 
         @Override
         public int getCount() {
-            return imageUrls.length;
+            return imageUrls.size();
         }
 
         @Override
@@ -224,7 +288,7 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
         public Object instantiateItem(ViewGroup container, int position) {
             ImageView imageView = new ImageView(context);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            Glide.with(context).load(imageUrls[position]).into(imageView);
+            Glide.with(context).load(imageUrls.get(position)).into(imageView);
             container.addView(imageView, 0);
             return imageView;
         }
@@ -234,6 +298,7 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
             container.removeView((ImageView) object);
         }
     }
+
 
 }
 

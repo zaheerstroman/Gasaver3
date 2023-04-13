@@ -98,7 +98,7 @@ public class InfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
         try {
 
 
-                binding.txtPriceLocationDistance.setText("");
+            binding.txtPriceLocationDistance.setText("");
             binding.txtPriceLocationDistance2.setText("");
             binding.txtPriceLocationDistance3.setText("");
 
