@@ -994,6 +994,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
 
     }
+
     private void getMyLocationNow() {
         // Check if location permission is granted
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
