@@ -453,7 +453,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         LatLng location = new LatLng(17.3850, 78.4867);
 
         AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) binding.getRoot().findViewById(R.id.edit_search);
-        new FetchCityNamesTask(requireContext(), autoCompleteTextView).execute(location);
+        new FetchCityNamesTask(requireContext(), autoCompleteTextView).execute();
 
         // Define an array of city names to use as suggestions
         String[] cityNames = new String[]{"New York", "Los Angeles", "Chicago", "Houston", "Philadelphia", "Phoenix", "San Antonio", "San Diego", "Dallas", "San Jose"};

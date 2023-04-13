@@ -24,7 +24,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class FetchCityNamesTask extends AsyncTask<LatLng, Void, List<String>> {
+public class FetchCityNamesTask extends AsyncTask<Void, Void, List<String>> {
 
     private Context mContext;
     private AutoCompleteTextView mAutoCompleteTextView;
@@ -35,11 +35,9 @@ public class FetchCityNamesTask extends AsyncTask<LatLng, Void, List<String>> {
     }
 
     @Override
-    protected List<String> doInBackground(LatLng... params) {
-        LatLng location = params[0];
-
-        // Build the URL for the Geocoding API request
-        String url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + location.latitude + "," + location.longitude + "&result_type=locality" +"&key=AIzaSyA1B-lkYW4V5rR8PP3Zr9gUbBWZoR3hOkg";
+    protected List<String> doInBackground(Void... params) {
+        // Build the URL for the GeoNames API request
+        String url = "http://api.geonames.org/searchJSON?formatted=true&country=AU&maxRows=1000&username=paradox122";
 
         // Set up the HTTP client
         OkHttpClient client = new OkHttpClient();
@@ -54,20 +52,13 @@ public class FetchCityNamesTask extends AsyncTask<LatLng, Void, List<String>> {
             Response response = client.newCall(request).execute();
             String json = response.body().string();
             JSONObject jsonObject = new JSONObject(json);
-            JSONArray resultsArray = jsonObject.getJSONArray("results");
-            HashSet<String> cityNames = new HashSet<>();
-            for (int i = 0; i < resultsArray.length(); i++) {
-                JSONArray addressComponents = resultsArray.getJSONObject(i).getJSONArray("address_components");
-                for (int j = 0; j < addressComponents.length(); j++) {
-                    JSONArray types = addressComponents.getJSONObject(j).getJSONArray("types");
-                    cityNames.add(addressComponents.getJSONObject(j).getString("long_name"));
-                    if (types.toString().contains("locality")) {
-                        String cityName = addressComponents.getJSONObject(j).getString("long_name");
-                        cityNames.add(cityName);
-                    }
-                }
+            JSONArray geonamesArray = jsonObject.getJSONArray("geonames");
+            List<String> cityNames = new ArrayList<>();
+            for (int i = 0; i < geonamesArray.length(); i++) {
+                String cityName = geonamesArray.getJSONObject(i).getString("name");
+                cityNames.add(cityName);
             }
-            return new ArrayList<>(cityNames);
+            return cityNames;
         } catch (IOException | JSONException e) {
             e.printStackTrace();
             return null;
