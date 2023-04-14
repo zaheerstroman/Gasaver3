@@ -56,9 +56,13 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
     BannersResponse bannersResponse;
     RecyclerView recyclerview_Company_Logos;
     private int[] imageIds = new int[]{
-            R.drawable.sample1,
-            R.drawable.sample2,
-            R.drawable.sample3
+//            R.drawable.sample1,
+//            R.drawable.sample2,
+//            R.drawable.sample3
+
+            R.drawable.statice_company_logo_3_4,
+            R.drawable.statice_company_logo_3_4,
+            R.drawable.statice_company_logo_3_4
     };
 
     @Override
@@ -72,12 +76,26 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Promotions");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //do something you want
+                finish();
+            }
+        });
+
+
         recyclerview_Company_Logos = findViewById(R.id.recyclerview_Company_Logos);
-        
+
         ArrayList<String> imageUrlList = new ArrayList<>();
-        imageUrlList.add("https://cdn.pixabay.com/photo/2023/03/22/11/07/seeds-7869190_960_720.jpg");
-        imageUrlList.add("https://cdn.pixabay.com/photo/2022/05/11/22/17/pink-hibiscus-7190314_960_720.jpg");
-        imageUrlList.add("https://cdn.pixabay.com/photo/2023/03/16/08/51/flowers-7856225_960_720.jpg");
+//        imageUrlList.add("https://cdn.pixabay.com/photo/2023/03/22/11/07/seeds-7869190_960_720.jpg");
+//        imageUrlList.add("https://cdn.pixabay.com/photo/2022/05/11/22/17/pink-hibiscus-7190314_960_720.jpg");
+//        imageUrlList.add("https://cdn.pixabay.com/photo/2023/03/16/08/51/flowers-7856225_960_720.jpg");
+
+        imageUrlList.add("https://houseofspiritshyd.in/gasaver/admin/assets/images_backup/company/4725_1680756148_BP.png");
+        imageUrlList.add("https://houseofspiritshyd.in/gasaver/admin/assets/images_backup/company/4673_1680756441_Shell.png");
+        imageUrlList.add("https://houseofspiritshyd.in/gasaver/admin/assets/images_backup/company/8033_1680850274_category-03.jpg");
         ArrayList<String> ids = new ArrayList<>();
         ids.add("1");
         ids.add("1");

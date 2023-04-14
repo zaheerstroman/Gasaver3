@@ -80,6 +80,7 @@ public class WishListActivity extends AppCompatActivity {
 //
 //    }
 
+    LinearLayout loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +97,9 @@ public class WishListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
+        loading = findViewById(R.id.ll_no_data);
+
+        loading.setVisibility(View.VISIBLE);
 //        getSupportActionBar().setTitle("ViewAttachment");
 //        getSupportActionBar().setTitle("Terms & Conditions");
         getSupportActionBar().setTitle("My WishList");
@@ -169,6 +173,7 @@ public class WishListActivity extends AppCompatActivity {
                     CommonUtils.hideLoading();
                     wishList = response.body().getData();
                     binding.recyclerviewList.setAdapter(wishListAdapter = new WishlistAdapter(WishListActivity.this, wishList));
+                    loading.setVisibility(View.GONE);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

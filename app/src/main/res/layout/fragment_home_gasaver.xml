@@ -22,13 +22,16 @@
         android:layout_marginEnd="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/custom_home_search_edit_text"
-        android:drawableEnd="@drawable/ic_search"
+        android:drawableEnd="@drawable/search"
         android:drawablePadding="@dimen/_10sdp"
         android:paddingStart="@dimen/_10sdp"
         android:hint="Suburb / Postcode"
         android:paddingEnd="@dimen/_10sdp"
         android:singleLine="true"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:textColor="@color/gray"
+        android:textColorHint="@color/gray"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"

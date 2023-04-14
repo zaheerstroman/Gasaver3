@@ -12,14 +12,17 @@
         android:layout_height="@dimen/_75sdp"
         android:layout_gravity="top"
         android:layout_margin="5sp"
-        android:paddingTop="10dp"
+        android:paddingTop="20dp"
         app:circularflow_radiusInDP="100"
         android:src="@drawable/sample1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/circleImageViewStyle" />
+        app:shapeAppearanceOverlay="@style/circleImageViewStyle"
+
+        android:layout_marginTop="20dp"
+        />
 
 <!--    <com.google.android.material.imageview.ShapeableImageView-->
 <!--        android:id="@+id/iv_profile_img1"-->

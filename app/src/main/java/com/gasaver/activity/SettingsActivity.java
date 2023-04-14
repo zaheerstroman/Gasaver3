@@ -34,8 +34,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        getActionBar().setTitle("Settings");
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
         getSupportActionBar().setTitle("Settings");
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
