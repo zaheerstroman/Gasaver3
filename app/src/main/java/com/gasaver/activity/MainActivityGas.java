@@ -120,6 +120,7 @@ public class MainActivityGas extends AppCompatActivity {
 //        }
 
 
+
         FloatingActionButton fab1 = (FloatingActionButton) findViewById(R.id.btnMenu);
         fab1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -196,7 +197,7 @@ public class MainActivityGas extends AppCompatActivity {
                         //HOME
                         //startActivity(new Intent(getApplicationContext(),DashBoardGeeksActivity.class));
                         //                        overridePendingTransition(0,0);
-                        return true;
+                        break;
 
                     case R.id.dashboard:
                         Fragment navHostFragment = getSupportFragmentManager().getPrimaryNavigationFragment();
@@ -330,8 +331,6 @@ public class MainActivityGas extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-//        if (navDrawerLayoutBinding.navDrawer.isDrawerOpen(GravityCompat.START))
-//            navDrawerLayoutBinding.navDrawer.closeDrawer(GravityCompat.START);
         if (navDrawerLayoutGasBinding.navDrawer.isDrawerOpen(GravityCompat.START))
             navDrawerLayoutGasBinding.navDrawer.closeDrawer(GravityCompat.START);
         else
