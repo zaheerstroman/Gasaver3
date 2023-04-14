@@ -73,6 +73,7 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Promotions");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         recyclerview_Company_Logos = findViewById(R.id.recyclerview_Company_Logos);
+        
         ArrayList<String> imageUrlList = new ArrayList<>();
         imageUrlList.add("https://cdn.pixabay.com/photo/2023/03/22/11/07/seeds-7869190_960_720.jpg");
         imageUrlList.add("https://cdn.pixabay.com/photo/2022/05/11/22/17/pink-hibiscus-7190314_960_720.jpg");

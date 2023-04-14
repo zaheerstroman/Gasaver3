@@ -32,7 +32,9 @@
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@drawable/outline_border_white"
+        >
 
 <!--        android:layout_centerVertical="true"-->
 <!--        <ImageView-->
@@ -49,7 +51,10 @@
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:background="@drawable/button_bg_curve_white" />
+
+            android:background="@drawable/outline_border_white"
+
+            />
 
 
 <!--        <ImageView-->

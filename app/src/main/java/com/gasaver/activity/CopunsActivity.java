@@ -66,7 +66,7 @@ public class CopunsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
-        getSupportActionBar().setTitle("My Coupuns");
+        getSupportActionBar().setTitle("My Coupon");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
