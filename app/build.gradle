@@ -503,6 +503,9 @@ dependencies {
 
 //    implementation 'io.sentry:sentry-android:6.15.0'
 
+    implementation 'com.github.chathuralakmal:AndroidImagePopup:1.2.2'
+
+
 
 
 

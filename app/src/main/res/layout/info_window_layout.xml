@@ -17,7 +17,7 @@
         >
 
         <ImageView
-            android:visibility="gone"
+        android:visibility="gone"
         android:id="@+id/iv_close"
         android:layout_width="@dimen/_20sdp"
         android:layout_height="@dimen/_20sdp"
@@ -29,11 +29,13 @@
             android:id="@+id/txtLocationName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:maxLines="1"
             android:textColor="@color/Purple"
             android:textSize="14dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+
+            android:gravity="center"
+            android:layout_gravity="center"/>
 
         <LinearLayout
             android:visibility="gone"
@@ -43,6 +45,9 @@
             android:layout_below="@+id/txtLocationName"
             android:layout_marginTop="05dp"
             android:orientation="horizontal"
+
+            android:gravity="center"
+            android:layout_gravity="center"
             >
 
             <TextView
@@ -50,7 +55,11 @@
                 android:layout_height="wrap_content"
                 android:text="Distance : "
                 android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+
+                android:gravity="center"
+                android:layout_gravity="center"
+                />
 
             <TextView
                 android:id="@+id/txtLocationDistance"
@@ -59,10 +68,14 @@
                 android:maxLines="1"
                 android:text="2.5 KM"
                 android:textColor="@color/toolbar_color"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+
+                android:gravity="center"
+                android:layout_gravity="center"/>
 
 
         </LinearLayout>
+
 
         <LinearLayout
             android:visibility="gone"
@@ -71,9 +84,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/distanceLayout"
             android:layout_marginTop="05dp"
-
             android:orientation="horizontal"
 
+            android:gravity="center"
+            android:layout_gravity="center"
             >
 
 <!--            android:text="Estimated Time : "-->
@@ -82,7 +96,11 @@
                 android:layout_height="wrap_content"
                 android:text="Est Time : "
                 android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+
+                />
 
             <TextView
                 android:id="@+id/txtLocationTime"
@@ -91,7 +109,11 @@
                 android:maxLines="1"
                 android:text="5 sec"
                 android:textColor="@color/toolbar_color"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+
+                />
 
 
         </LinearLayout>
@@ -143,10 +165,6 @@
                 android:text="10.00"
                 android:textColor="@color/red"
                 android:textStyle="bold" />
-
-
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -157,6 +175,8 @@
             android:layout_below="@+id/priceLayout"
             android:layout_marginTop="05dp"
             android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center"
             >
 
 <!--            android:id="@+id/txtBrand"-->
@@ -166,6 +186,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Brand : "
+                android:gravity="center"
+                android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -176,6 +198,8 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:text="E10"
+                android:gravity="center"
+                android:layout_gravity="center"
                 android:textColor="@color/toolbar_color"
                 android:textStyle="bold" />
 

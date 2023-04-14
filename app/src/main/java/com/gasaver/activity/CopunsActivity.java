@@ -8,6 +8,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.ceylonlabs.imageviewpopup.ImagePopup;
 import com.gasaver.R;
 import com.gasaver.Response.CopunsResponse;
 import com.gasaver.Response.GetRewardDataResponse;
@@ -29,6 +32,7 @@ import com.gasaver.utils.CommonUtils;
 import com.gasaver.utils.Constants;
 import com.gasaver.utils.SharedPrefs;
 import com.google.gson.JsonObject;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -39,9 +43,13 @@ import retrofit2.Response;
 public class CopunsActivity extends AppCompatActivity {
 
     ActivityCopunsBinding binding;
+    //    ImageView imageView;
+//    ImageView iv_profile_img1;
+//    ImageView recyclerview_Copuns_Listc;
 
     CopunsResponse copunsResponse = new CopunsResponse();
-    String baseUrl =  "";
+    String baseUrl = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +76,57 @@ public class CopunsActivity extends AppCompatActivity {
                 finish();
             }
         });
+        final String photoUrl = "http://pngriver.com/wp-content/uploads/2017/12/download-Android-Technology-logo-PNG-transparent-images-transparent-backgrounds-PNGRIVER-COM-Android-Mobile-App-Development-Company-In-India-brillmindztech-39975001-800-799.png";
+//        final String photoUrl = "http://pngriver.com/wp-content/uploads/2017/12/download-Android-Technology-logo-PNG-transparent-images-transparent-backgrounds-PNGRIVER-COM-Android-Mobile-App-Development-Company-In-India-brillmindztech-39975001-800-799.png";
+
+//        imageView = (ImageView) findViewById(R.id.imageView);
+//        iv_profile_img1 = (ImageView) findViewById(R.id.iv_profile_img1);
+//        recyclerview_Copuns_List = (ImageView) findViewById(R.id.recyclerview_Copuns_List);
+
+
+
+
+//        Picasso.get().load(photoUrl).into(imageView);
+//        Picasso.get().load(photoUrl).into(iv_profile_img1);
+//        Picasso.get().load(photoUrl).into(recyclerview_Copuns_List);
+
+        //------
+
+//        Picasso.setSingletonInstance(new Picasso.Builder(this).build());
+//        Log.e("Width", "" + Resources.getSystem().getDisplayMetrics().widthPixels);
+
+        final ImagePopup imagePopup = new ImagePopup(this);
+        imagePopup.setBackgroundColor(Color.BLACK);
+        imagePopup.setFullScreen(false);
+        imagePopup.setHideCloseIcon(true);
+        imagePopup.setImageOnClickClose(true);
+
+        imagePopup.initiatePopupWithPicasso(photoUrl);
+
+//        imageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                /** Initiate Popup view **/
+//                imagePopup.viewPopup();
+//            }
+//        });
+
+//        iv_profile_img1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                /** Initiate Popup view **/
+//                imagePopup.viewPopup();
+//            }
+//        });
+
+//        recyclerview_Copuns_List.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                /** Initiate Popup view **/
+//                imagePopup.viewPopup();
+//            }
+//        });
+//    }
 
     }
 
@@ -94,7 +153,7 @@ public class CopunsActivity extends AppCompatActivity {
 //                    binding.recyclerviewCopunsList.setAdapter(new RewardActivity.UploadAdapter(CopunsActivity.this, response.body().getCopunsDetails()));
                     binding.recyclerviewCopunsList.setAdapter(new CopunsAdapter(CopunsActivity.this, response.body().getCopunsDetails()));
 
-                    Log.e(TAG, "onResponse: "+ response.body().getBasePath());
+                    Log.e(TAG, "onResponse: " + response.body().getBasePath());
 //                    baseUrl = response.body().getBasePath();
                     CopunsResponse.BASE_URL = response.body().getBasePath();
 
@@ -103,7 +162,6 @@ public class CopunsActivity extends AppCompatActivity {
                     copunsResponse.setBasePath(response.body().getBasePath());
 
 //                    binding.recyclerviewCopunsList.setAdapter(new CopunsAdapter(CopunsActivity.this, response.body().getBasePath()));
-
 //                    binding.recyclerview_Reward_List.setAdapter(new RewardActivity.UploadAdapter(RewardActivity.this, response.body().getData()));
 //                    binding.recyclerviewList.setAdapter(new UploadActivity.UploadAdapter(UploadActivity.this,response.body().getData()));
 
@@ -143,71 +201,40 @@ public class CopunsActivity extends AppCompatActivity {
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             CopunsResponse.CopunsDetail copunsDetail = list.get(position);
 
-//            holder.binding.iv_profile_img1.setText(copunsDetail.getAttachment());
-//            holder.binding.ivProfileImg1.setText(copunsDetail.getAttachment());
-
-//            holder.binding.tvStationCode.setText(copunsDetail.getStation_name()+" ("+copunsDetail.getStationId()+")");
-//
-//            holder.binding.tvLoc.setText(copunsDetail.getBrand());
-//            holder.binding.tvAmnt.setText(copunsDetail.getAmount());
-//            holder.binding.tvType.setText(copunsDetail.getSubcategory_name());
-//            holder.binding.tvTime.setText(copunsDetail.getLastupdated());
-
-//            holder.binding.tvStatus.setText(copunsDetail.getStatus());
-//            holder.binding.tv_StationCode1.setText(copunsDetail.getStatus());
-
-//            holder.binding.tvStationCode1.setText(copunsDetail.getStatus());
             holder.binding.tvStationCode1.setText(copunsDetail.getName());
 
-//            iv_profile_img1
-//            ivProfileImg1
-
-//            Glide.with(CopunsActivity.this).load(stationDataModel.getBrandIcon()).into(binding.stationLayout.ivProjImg);
-//            Glide.with(CopunsActivity.this).load(copunsDetail.getAttachment()).into(binding.recyclerviewCopunsList.ivProfileImg1);
-
-//            Glide.with(CopunsActivity.this).load(copunsDetail.getAttachment()).into(i);
-//            Glide.with(CopunsActivity.this).load(copunsDetail.getAttachment()).into(holder.i);
-
-//            Glide.with(CopunsActivity.this).load(response.body().getBase_path() + response.body().getData().getProfilePhoto())
-//                    .error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfileImg);
-
-//            Glide.with(CopunsActivity.this).load(copunsResponse.getBasePath() + copunsDetail.getAttachment())
-//                    .error(R.drawable.profile_img).error(R.drawable.profile_img).into(holder.i);
-
-//            Glide.with(CopunsActivity.this).load(baseUrl + copunsDetail.getAttachment())
-//                    .error(R.drawable.profile_img).error(R.drawable.profile_img).into(holder.i);
 
             Glide.with(CopunsActivity.this).load(CopunsResponse.BASE_URL + copunsDetail.getAttachment())
                     .error(R.drawable.profile_img).error(R.drawable.profile_img).into(holder.i);
 
-            Log.e(TAG, "onBindViewHolder: "+ copunsResponse.getBasePath() + copunsDetail.getAttachment());
+
+//        recyclerview_Copuns_List.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                /** Initiate Popup view **/
+//                imagePopup.viewPopup();
+//            }
+//        });
+//    }
+
+            holder.i.setOnClickListener(v -> {
+
+                Log.e("Width", "" + Resources.getSystem().getDisplayMetrics().widthPixels);
+                final ImagePopup imagePopup = new ImagePopup(CopunsActivity.this);
+                imagePopup.setBackgroundColor(Color.WHITE);
+                imagePopup.setFullScreen(false);
+                imagePopup.setHideCloseIcon(true);
+                imagePopup.setImageOnClickClose(true);
+                imagePopup.setHideCloseIcon(true);
+                imagePopup.setMaxWidth(60);
+                imagePopup.setMaxHeight(200);
+
+//                imagePopup.initiatePopupWithPicasso(photoUrl);
+                imagePopup.initiatePopupWithPicasso(CopunsResponse.BASE_URL + copunsDetail.getAttachment());
+                imagePopup.viewPopup();
+            });
 
 
-//            Glide.with(getActivity()).load(response.body().getBarCode())
-//                    .error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfileImg1);
-
-//            Glide.with(CopunsActivity.this).load(copunsDetail.getAttachment()).into(binding.tv_StationCode3.ivProfileImg1);
-//            Glide.with(CopunsActivity.this).load(copunsDetail.getAttachment()).into(binding.tvStationCode1.ivProfileImg1);
-//            Glide.with(CopunsActivity.this).load(copunsDetail.getAttachment()).into(binding.tvStationCode2.ivProfileImg1);
-//            Glide.with(CopunsActivity.this).load(copunsDetail.getAttachment()).into(binding.tv_StationCode3.ivProfileImg1);
-//
-//            Glide.with(CopunsActivity.this).load(copunsDetail.getAttachment()).into(binding.recyclerviewCopunsList.tv_StationCode1.ivProfileImg1);
-//
-//
-////            Glide.with(CopunsActivity.this).load(catList.get(position).getName()).into(holder.project_img);
-////            Glide.with(CopunsActivity.this).load(catList.get(position).getName()).into(holder.ivProfileImg1);
-//            Glide.with(CopunsActivity.this).load(copunsDetail.get(position).getName()).into(holder.ivProfileImg1);
-//
-////            Glide.with(CopunsActivity.this).load(Constants.LOGO_IMG_URL + stationDataList.get(position).getBrandIcon()).into(holder.project_img);
-//            Glide.with(CopunsActivity.this).load(Constants.COPUNS_IMG_URL + get(position).getBrandIcon()).into(holder.ivProfileImg1);
-//
-//
-//            Glide.with(CopunsActivity.this).load(position.body().getBase_path() + position.body().getCopunsDetails().getAttachment())
-//                    .error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfileImg1);
-//
-//
-//            Glide.with(CopunsActivity.this).load(position.body().getBase_path())
-//                    .error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfileImg1);
 
         }
 
@@ -225,7 +252,7 @@ public class CopunsActivity extends AppCompatActivity {
             public ViewHolder(@NonNull CopunsListItemBinding ubinding) {
                 super(ubinding.getRoot());
                 binding = ubinding;
-                 i = binding.getRoot().findViewById(R.id.iv_profile_img1);
+                i = binding.getRoot().findViewById(R.id.iv_profile_img1);
             }
         }
     }

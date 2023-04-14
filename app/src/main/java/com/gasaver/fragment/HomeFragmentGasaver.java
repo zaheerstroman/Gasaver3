@@ -54,6 +54,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -338,6 +339,8 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
                     case R.id.btnMenu:
                         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+//                        mGoogleMap.setOnInfoWindowCloseListener(Color.RED);
+
                         break;
 
                     case R.id.btnNormal:
@@ -425,6 +428,38 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
                 showBottomSheet();
             }
         });
+
+        binding.btnPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+//                GoogleMap map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.homeMap)).getMap();
+                SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.homeMap);
+
+//                Button zoomInButton = (Button) findViewById(R.id.zoom_in_button);
+                Button zoomInButton = (Button) view.findViewById(R.id.btnPlus);
+
+                zoomInButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Get the current camera position and zoom level
+                        CameraPosition cameraPosition = map.getCameraPosition();
+                        float zoomLevel = cameraPosition.zoom;
+
+                        // Increment the zoom level and animate the camera to the new position
+                        map.animateCamera(CameraUpdateFactory.zoomTo(zoomLevel + 1));
+                    }
+                });
+//                showBottomSheet();
+            }
+        });
+
+
+
+
+
+        // Get a reference to the Google Map object
+
 
         binding.edtPlaceName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -986,11 +1021,14 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         mGoogleMap.setOnMyLocationChangeListener(location -> {
 
             myLocation = location;
+
+            //Currect, Your & My Location will show only, Google Map Fuel Logo Marker also show then get back Live Location
+
 //            LatLng ltlng = new LatLng(location.getLatitude(), location.getLongitude());
 //            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(ltlng, 16f);
 //                mGoogleMap.animateCamera(cameraUpdate);
-        });
 
+        });
 
 
     }
@@ -1286,10 +1324,14 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 //                    mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,13f));
 
 
-                } catch (Exception e) {
+                    //Ali
+//                    LatLng latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+//                    mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 13f));
+
+                }
+                catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }
         });
     }
@@ -1504,6 +1546,8 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
+//                Log.e(TAG, "onSuccess: " + location );
 
 
                 try {

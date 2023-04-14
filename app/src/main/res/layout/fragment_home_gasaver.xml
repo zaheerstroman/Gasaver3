@@ -49,7 +49,7 @@
             android:background="@drawable/spinner_border_background"
             app:tint="@color/primaryColor"
             app:drawableTint="@color/primaryColor"
-            android:popupBackground="#A6FFFFFF"
+            android:popupBackground="#BEFFFFFF"
             android:gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
             android:padding="10dp"
@@ -74,7 +74,8 @@
             android:gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
             android:padding="10dp"
-            android:popupBackground="#A6FFFFFF"
+            android:popupBackground="#BFFFFFFF"
+
             android:textColor="@color/black"
             android:textSize="10sp"
             android:hint="Selected"
