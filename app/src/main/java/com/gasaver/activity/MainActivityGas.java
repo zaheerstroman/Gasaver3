@@ -1,5 +1,9 @@
 package com.gasaver.activity;
 
+import static android.content.ContentValues.TAG;
+
+import static com.gasaver.activity.AdvancedBannerSlidSearchActivity.context;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -8,28 +12,41 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.gasaver.R;
+import com.gasaver.Response.GraphReportsResponse;
 import com.gasaver.databinding.ActivityMainGasBinding;
 import com.gasaver.databinding.NavDrawerLayoutBinding;
 import com.gasaver.databinding.ToolbarLayoutBinding;
 import com.gasaver.fragment.AdvancedBannerSlidSearchFragment;
 import com.gasaver.fragment.HomeFragmentGasaver;
 import com.gasaver.fragment.ProfileFragment;
+import com.gasaver.network.APIClient;
+import com.gasaver.network.ApiInterface;
+import com.gasaver.utils.CommonUtils;
 import com.gasaver.view.FuelDistanceEmployeeListFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.squareup.picasso.Picasso;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 //import io.sentry.Sentry;
 
@@ -121,8 +138,7 @@ public class MainActivityGas extends AppCompatActivity {
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivityGas.this, GraphActivityGeeks.class));
-
+                ShowGraph();
             }
         });
 
@@ -251,6 +267,57 @@ public class MainActivityGas extends AppCompatActivity {
                 navDrawerLayoutGasBinding.navigationView,
                 navController
         );
+
+    }
+
+    private void ShowGraph() {
+        CommonUtils.showLoading(getApplicationContext(), "Please Wait", false);
+
+        ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
+
+        JsonObject jsonObject = new JsonObject();
+
+        jsonObject.addProperty("user_id", "119");
+        jsonObject.addProperty("token", "24631cdd0323cea063e6cb4e5b2b0f6606540a5ae48428ed41e412131efb3c5a");
+
+        Call<GraphReportsResponse> call = apiInterface.fetchGraphReports(jsonObject);
+
+        call.enqueue(new Callback<GraphReportsResponse>() {
+
+            @Override
+            public void onResponse(Call<GraphReportsResponse> call, Response<GraphReportsResponse> response) {
+
+                GraphReportsResponse graphReportsResponse = response.body();
+
+                if (graphReportsResponse != null && !graphReportsResponse.getGraphReport().isEmpty()) {
+
+                    if (graphReportsResponse.getMessage() != null && !graphReportsResponse.getMessage().isEmpty()) {
+
+                        // Extract the graph image URL from the response
+                        String graphImageUrl = graphReportsResponse.getGraphReport();
+
+                        // Create a dialog to display the graph image
+                        Dialog dialog = new Dialog(HomeFragmentGasaver.context);
+                        dialog.setContentView(R.layout.graph_dialog_layout);
+
+                        // Load the graph image into an ImageView in the dialog
+                        ImageView graphImageView = dialog.findViewById(R.id.graph_image_view);
+                        Picasso.get().load(graphImageUrl).into(graphImageView);
+
+                        // Show the dialog
+                        dialog.show();
+                    }
+                }
+                CommonUtils.hideLoading();
+            }
+
+            @Override
+            public void onFailure(Call<GraphReportsResponse> call, Throwable t) {
+
+                t.printStackTrace();
+                CommonUtils.hideLoading();
+            }
+        });
 
     }
 

@@ -187,7 +187,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
     private String[] budgetArrayList = {"", "E10", "Diesel", "AdBlue", "Unleaded", "PremDSL", "U95", "TruckDSL", "E85", "U98", "U91", "P95", "P98", "PDL", "B20", "EV", "DL"};
 
 
-    public Context context;
+    public static Context context;
 
 
     private FragmentHomeGasaverBinding binding;
@@ -986,11 +986,11 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         mGoogleMap.setOnMyLocationChangeListener(location -> {
 
             myLocation = location;
-            LatLng ltlng = new LatLng(location.getLatitude(), location.getLongitude());
-            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(ltlng, 16f);
-                mGoogleMap.animateCamera(cameraUpdate);
+//            LatLng ltlng = new LatLng(location.getLatitude(), location.getLongitude());
+//            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(ltlng, 16f);
+//                mGoogleMap.animateCamera(cameraUpdate);
         });
-        mGoogleMap.animateCamera(CameraUpdateFactory.newCameraPosition(mGoogleMap.getCameraPosition()));
+
 
 
     }
@@ -1282,8 +1282,8 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
                 Log.e(TAG, "onSuccess: "+location );
 
                 try {
-                    LatLng latLng = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
-                    mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,13f));
+//                    LatLng latLng = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
+//                    mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,13f));
 
 
                 } catch (Exception e) {
