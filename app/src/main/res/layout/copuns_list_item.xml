@@ -22,7 +22,10 @@
             android:layout_marginRight="10sp"
             android:background="@drawable/outline_border_curve_toolbar"
             android:orientation="horizontal"
-            android:paddingBottom="10sp">
+            android:paddingBottom="10sp"
+
+            android:backgroundTint="@color/light_blue_600"
+            >
 
 
 
@@ -38,7 +41,6 @@
                 android:paddingLeft="10dp"
                 android:paddingTop="05dp"
                 android:paddingRight="40dp"
-                android:background="@color/blue"
                 >
 
 
@@ -49,7 +51,7 @@
                     android:paddingLeft="20dp"
                     android:paddingTop="05dp"
                     android:text="# Name (US-7856)"
-                    android:textColor="@color/purple"
+                    android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold"
 
@@ -93,6 +95,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingTop="10dp"
+                    android:paddingStart="20dp"
+
                     android:gravity="center"
                     android:layout_gravity="center"
 
@@ -106,20 +110,23 @@
                         android:layout_weight="1.9"
                         android:gravity="center"
                         android:layout_gravity="center"
+
                         >
 
                         <!--                    app:shapeAppearanceOverlay="@style/circleImageViewStyle"-->
-
                         <!--                    <com.google.android.material.imageview.ShapeableImageView-->
-                        <ImageView
 
+<!--                        android:scaleType="fitXY"-->
+
+                        <ImageView
                             android:id="@+id/iv_profile_img1"
                             android:layout_width="@dimen/_200sdp"
                             android:layout_height="@dimen/_120sdp"
+
                             android:layout_centerInParent="true"
+                            android:background="@drawable/outline_border_white"
                             android:paddingLeft="20dp"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/profile_img"
+                            android:src="@drawable/united_full_copy"
                             app:shapeAppearanceOverlay="@style/circleImageViewStyle" />
                     </RelativeLayout>
 
