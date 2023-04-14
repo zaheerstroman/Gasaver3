@@ -1,5 +1,7 @@
 package com.gasaver.activity;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -374,11 +376,13 @@ public class MainPickmanActivity extends AppCompatActivity implements View.OnCli
         jsonObject.addProperty("category", getIntent().getStringExtra("category"));
         jsonObject.add("prices", getPrices());
         Call<BaseResponse> call = apiInterface.updatepriceing(jsonObject);
+        Log.e(TAG, "updatepriceing: " );
         call.enqueue(new Callback<BaseResponse>() {
             @Override
             public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
                 try {
                     CommonUtils.hideLoading();
+                    Log.e(TAG, response.body().toString() );
                     Toast.makeText(MainPickmanActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -388,6 +392,7 @@ public class MainPickmanActivity extends AppCompatActivity implements View.OnCli
 
             @Override
             public void onFailure(Call<BaseResponse> call, Throwable t) {
+                Log.e(TAG, t.getMessage() );
                 CommonUtils.hideLoading();
             }
         });

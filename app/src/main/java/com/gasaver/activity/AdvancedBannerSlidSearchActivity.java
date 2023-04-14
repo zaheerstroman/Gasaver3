@@ -79,7 +79,7 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
             finish();
         });
         recyclerview_Company_Logos = findViewById(R.id.recyclerview_Company_Logos);
-        
+
         ArrayList<String> imageUrlList = new ArrayList<>();
         imageUrlList.add("https://houseofspiritshyd.in/gasaver/admin/assets/images_backup/company/4725_1680756148_BP.png");
         imageUrlList.add("https://houseofspiritshyd.in/gasaver/admin/assets/images_backup/company/4725_1680756148_BP.png");
@@ -210,6 +210,10 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
                     }
                      else {
                         // No promotions data available, handle this case
+                        ArrayList<String> urls1 = new ArrayList<>();
+                        urls1.add("");
+                        ImageAdapter adapter = new ImageAdapter(AdvancedBannerSlidSearchActivity.context, urls);
+                        AdvancedBannerSlidSearchActivity.viewPager.setAdapter(adapter);
                         Toast.makeText(AdvancedBannerSlidSearchActivity.context, "No Data Fund", Toast.LENGTH_SHORT).show();
                     }
                 } else {
