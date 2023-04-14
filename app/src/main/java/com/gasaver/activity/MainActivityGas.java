@@ -13,9 +13,12 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -24,7 +27,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
+import com.ceylonlabs.imageviewpopup.ImagePopup;
 import com.gasaver.R;
+import com.gasaver.Response.CopunsResponse;
 import com.gasaver.Response.GraphReportsResponse;
 import com.gasaver.databinding.ActivityMainGasBinding;
 import com.gasaver.databinding.NavDrawerLayoutBinding;
@@ -295,17 +300,17 @@ public class MainActivityGas extends AppCompatActivity {
 
                         // Extract the graph image URL from the response
                         String graphImageUrl = graphReportsResponse.getGraphReport();
+                        final ImagePopup imagePopup = new ImagePopup(MainActivityGas.this);
+                        imagePopup.setBackgroundColor(Color.TRANSPARENT);
+                        imagePopup.setFullScreen(false);
+                        imagePopup.setHideCloseIcon(true);
+                        imagePopup.setImageOnClickClose(true);
+                        imagePopup.setHideCloseIcon(true);
+                        imagePopup.setMaxWidth(60);
+                        imagePopup.setMaxHeight(200);
+                        imagePopup.initiatePopupWithPicasso(graphImageUrl);
+                        imagePopup.viewPopup();
 
-                        // Create a dialog to display the graph image
-                        Dialog dialog = new Dialog(HomeFragmentGasaver.context);
-                        dialog.setContentView(R.layout.graph_dialog_layout);
-
-                        // Load the graph image into an ImageView in the dialog
-                        ImageView graphImageView = dialog.findViewById(R.id.graph_image_view);
-                        Picasso.get().load(graphImageUrl).into(graphImageView);
-
-                        // Show the dialog
-                        dialog.show();
                     }
                 }
                 CommonUtils.hideLoading();

@@ -24,7 +24,7 @@
             android:orientation="horizontal"
             android:paddingBottom="10sp"
 
-            android:backgroundTint="@color/light_blue_900"
+            android:backgroundTint="@color/light_blue_600"
             >
 
 
@@ -40,7 +40,7 @@
                 android:orientation="vertical"
                 android:paddingLeft="10dp"
                 android:paddingTop="05dp"
-                android:paddingRight="10dp"
+                android:paddingRight="40dp"
                 >
 
 
@@ -95,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingTop="10dp"
-                    android:paddingStart="00dp"
+                    android:paddingStart="20dp"
 
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -105,31 +105,27 @@
                     <RelativeLayout
                         android:id="@+id/tv_StationCode3"
 
-                        android:layout_width="349dp"
-                        android:layout_height="155dp"
-                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_weight="1.9"
                         android:gravity="center"
-                        android:paddingLeft="10dp"
-
-                        android:paddingRight="10dp"
+                        android:layout_gravity="center"
 
                         >
 
                         <!--                    app:shapeAppearanceOverlay="@style/circleImageViewStyle"-->
                         <!--                    <com.google.android.material.imageview.ShapeableImageView-->
 
-                        <!--                        android:scaleType="fitXY"-->
+<!--                        android:scaleType="fitXY"-->
 
                         <ImageView
                             android:id="@+id/iv_profile_img1"
-                            android:layout_width="324dp"
-                            android:layout_height="147dp"
+                            android:layout_width="@dimen/_200sdp"
+                            android:layout_height="@dimen/_120sdp"
 
                             android:layout_centerInParent="true"
                             android:background="@drawable/outline_border_white"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="20dp"
                             android:src="@drawable/united_full_copy"
                             app:shapeAppearanceOverlay="@style/circleImageViewStyle" />
                     </RelativeLayout>

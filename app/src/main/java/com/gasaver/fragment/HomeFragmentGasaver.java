@@ -1051,7 +1051,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
                         }
                     });
         } else {
-            // Request location permission
+
             ActivityCompat.requestPermissions(HomeFragmentGasaver.this.getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION_PERMISSION);
         }
     }
