@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -204,9 +205,9 @@ public class CopunsActivity extends AppCompatActivity {
             holder.binding.tvStationCode1.setText(copunsDetail.getName());
 
 
-            Glide.with(CopunsActivity.this).load(CopunsResponse.BASE_URL + copunsDetail.getAttachment())
-                    .error(R.drawable.profile_img).error(R.drawable.profile_img).into(holder.i);
+            Glide.with(CopunsActivity.this).load(CopunsResponse.BASE_URL + copunsDetail.getAttachment()).error(R.drawable.profile_img).into(holder.i);
 
+            Log.e(TAG, CopunsResponse.BASE_URL + copunsDetail.getAttachment() );
 
 //        recyclerview_Copuns_List.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -228,8 +229,6 @@ public class CopunsActivity extends AppCompatActivity {
                 imagePopup.setHideCloseIcon(true);
                 imagePopup.setMaxWidth(60);
                 imagePopup.setMaxHeight(200);
-
-//                imagePopup.initiatePopupWithPicasso(photoUrl);
                 imagePopup.initiatePopupWithPicasso(CopunsResponse.BASE_URL + copunsDetail.getAttachment());
                 imagePopup.viewPopup();
             });
@@ -253,6 +252,8 @@ public class CopunsActivity extends AppCompatActivity {
                 super(ubinding.getRoot());
                 binding = ubinding;
                 i = binding.getRoot().findViewById(R.id.iv_profile_img1);
+                Drawable drawable = getResources().getDrawable(R.drawable.united_full_copy);
+                i.setImageDrawable(drawable);
             }
         }
     }

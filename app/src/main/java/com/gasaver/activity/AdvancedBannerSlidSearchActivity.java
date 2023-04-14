@@ -14,12 +14,14 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Outline;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -56,13 +58,9 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
     BannersResponse bannersResponse;
     RecyclerView recyclerview_Company_Logos;
     private int[] imageIds = new int[]{
-//            R.drawable.sample1,
-//            R.drawable.sample2,
-//            R.drawable.sample3
-
-            R.drawable.statice_company_logo_3_4,
-            R.drawable.statice_company_logo_3_4,
-            R.drawable.statice_company_logo_3_4
+            R.drawable.sample1,
+            R.drawable.sample2,
+            R.drawable.sample3
     };
 
     @Override
@@ -76,25 +74,15 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Promotions");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //do something you want
-                finish();
-            }
+        toolbar.setNavigationOnClickListener(view -> {
+            super.onBackPressed();
+            finish();
         });
-
-
         recyclerview_Company_Logos = findViewById(R.id.recyclerview_Company_Logos);
-
+        
         ArrayList<String> imageUrlList = new ArrayList<>();
-//        imageUrlList.add("https://cdn.pixabay.com/photo/2023/03/22/11/07/seeds-7869190_960_720.jpg");
-//        imageUrlList.add("https://cdn.pixabay.com/photo/2022/05/11/22/17/pink-hibiscus-7190314_960_720.jpg");
-//        imageUrlList.add("https://cdn.pixabay.com/photo/2023/03/16/08/51/flowers-7856225_960_720.jpg");
-
         imageUrlList.add("https://houseofspiritshyd.in/gasaver/admin/assets/images_backup/company/4725_1680756148_BP.png");
-        imageUrlList.add("https://houseofspiritshyd.in/gasaver/admin/assets/images_backup/company/4673_1680756441_Shell.png");
+        imageUrlList.add("https://houseofspiritshyd.in/gasaver/admin/assets/images_backup/company/4725_1680756148_BP.png");
         imageUrlList.add("https://houseofspiritshyd.in/gasaver/admin/assets/images_backup/company/8033_1680850274_category-03.jpg");
         ArrayList<String> ids = new ArrayList<>();
         ids.add("1");
@@ -284,9 +272,10 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
             companyLogoImageView = itemView.findViewById(R.id.iv_profile_img);
         }
     }
-    private static class ImageAdapter extends PagerAdapter {
-        private final Context context;
-        private final ArrayList<String> imageUrls;
+    public class ImageAdapter extends PagerAdapter {
+
+        private Context context;
+        private ArrayList<String> imageUrls;
 
         public ImageAdapter(Context context, ArrayList<String> imageUrls) {
             this.context = context;
@@ -308,7 +297,15 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
             ImageView imageView = new ImageView(context);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             Glide.with(context).load(imageUrls.get(position)).into(imageView);
-            container.addView(imageView, 0);
+            int radius = context.getResources().getDimensionPixelSize(R.dimen.view_pager_radius);
+            imageView.setClipToOutline(true);
+            imageView.setOutlineProvider(new ViewOutlineProvider() {
+                @Override
+                public void getOutline(View view, Outline outline) {
+                    outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), radius);
+                }
+            });
+            container.addView(imageView);
             return imageView;
         }
 
@@ -317,6 +314,7 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
             container.removeView((ImageView) object);
         }
     }
+
 
 
 }
