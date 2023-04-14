@@ -377,6 +377,7 @@ public class MainPickmanActivity extends AppCompatActivity implements View.OnCli
         jsonObject.add("prices", getPrices());
         Call<BaseResponse> call = apiInterface.updatepriceing(jsonObject);
         Log.e(TAG, "updatepriceing: " );
+        
         call.enqueue(new Callback<BaseResponse>() {
             @Override
             public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
