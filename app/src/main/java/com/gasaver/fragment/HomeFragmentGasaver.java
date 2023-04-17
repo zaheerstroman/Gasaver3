@@ -200,6 +200,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
     //NearMe
     private GoogleMap mGoogleMap;
+    FuelDistanceEmployeeListFragment addPhotoBottomDialogFragment;
     private AppPermissions appPermissions;
     private boolean isLocationPermissionOk, isTrafficEnable;
     private LocationRequest locationRequest;
@@ -930,6 +931,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
 
                     stationDataList = response.body().getData();
+                    addPhotoBottomDialogFragment.dismiss();
                     showBottomSheet();
                     CommonUtils.hideLoading();
 
@@ -1854,7 +1856,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
     //---------------------------------
 
     public void showBottomSheet() {
-        FuelDistanceEmployeeListFragment addPhotoBottomDialogFragment = new FuelDistanceEmployeeListFragment(stationDataList, currentLocation,this.requireContext());
+        addPhotoBottomDialogFragment = new FuelDistanceEmployeeListFragment(stationDataList, currentLocation,this.requireContext());
 
         addPhotoBottomDialogFragment.show(getParentFragmentManager(), "");
     }
