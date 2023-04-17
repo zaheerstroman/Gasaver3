@@ -935,6 +935,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
                     addPhotoBottomDialogFragment.dismiss();
                     showBottomSheet();
                     CommonUtils.hideLoading();
+                    
 
                 } catch (Exception e) {
                     e.printStackTrace();
