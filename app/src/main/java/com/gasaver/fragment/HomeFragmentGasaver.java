@@ -277,8 +277,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 //    List<MainData> tempList = new ArrayList<>();
 
 
-    public HomeFragmentGasaver() {
-    }
+    public static HomeFragmentGasaver context1;
 
     private static final int NOTIFICATION_ID = 1;
     @Override
@@ -300,6 +299,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         userSavedLocationId = new ArrayList<>();
         locationReference = FirebaseDatabase.getInstance().getReference("Places");
 
+        context1 = HomeFragmentGasaver.this;
 
         //-----------------------------
 
@@ -396,12 +396,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
             popupMenu.show();
         });
 
-        binding.btnMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showBottomSheet();
-            }
-        });
 
         binding.enableTraffic.setOnClickListener(view -> {
 
@@ -422,6 +416,12 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
         binding.currentLocation.setOnClickListener(v -> getMyLocationNow());
 
+        binding.btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showBottomSheet();
+            }
+        });
 
         binding.btnSearchPlus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -754,7 +754,9 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
                             //05-04-2023
 //                            if (binding.spinnerSubcat.getSelectedItemPosition() != 0)
-                                getStationsData();
+
+
+                            getStationsData();
 //                            else {
 
                                 //05-04-2023
@@ -808,7 +810,6 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         mGoogleMap.clear();
 
         CommonUtils.showLoading(getActivity(), "Please Wait", false);
-
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("latitude", searchCityLat);
         jsonObject.addProperty("longitude", searchCityLang);
@@ -818,11 +819,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         jsonObject.addProperty("distance", "30");
 
         jsonObject.addProperty("city", searchCity);
-
-//        jsonObject.addProperty("soty_order", "distance");
-
         jsonObject.addProperty("sort", "distance");
-
         jsonObject.addProperty("order", "asc");
 
         jsonObject.addProperty("category", catList.get(binding.spinnerCaseText1.getSelectedItemPosition()).getId());
@@ -894,9 +891,70 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
 
     }
+    public void getStationsList(String sortby) {
 
 
-    //RecyclerView Slider or Scroller:----------------
+
+        CommonUtils.showLoading(getActivity(), "Please Wait", false);
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("latitude", searchCityLat);
+        jsonObject.addProperty("longitude", searchCityLang);
+
+
+        //23-03-2023
+        jsonObject.addProperty("distance", "30");
+
+        jsonObject.addProperty("city", searchCity);
+
+        jsonObject.addProperty("sort", sortby);
+
+        jsonObject.addProperty("order", "asc");
+
+        jsonObject.addProperty("category", catList.get(binding.spinnerCaseText1.getSelectedItemPosition()).getId());
+        if (binding.spinnerSubcat.getSelectedItemPosition() != 0)
+            jsonObject.addProperty("subcategory", subcatList.get(binding.spinnerSubcat.getSelectedItemPosition() - 1).getId());
+        jsonObject.addProperty("user_id", SharedPrefs.getInstance(getActivity()).getString(Constants.USER_ID));
+        jsonObject.addProperty("token", SharedPrefs.getInstance(getActivity()).getString(Constants.TOKEN));
+
+
+        com.gasaver.network.ApiInterface apiInterface = APIClient.getClient().create(com.gasaver.network.ApiInterface.class);
+
+
+
+        Call<StationDataResponse> call = apiInterface.getStationsData(jsonObject);
+
+        call.enqueue(new Callback<StationDataResponse>() {
+            @Override
+            public void onResponse(Call<StationDataResponse> call, Response<StationDataResponse> response) {
+
+                try {
+
+
+                    stationDataList = response.body().getData();
+                    showBottomSheet();
+                    CommonUtils.hideLoading();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<StationDataResponse> call, Throwable t) {
+
+                CommonUtils.hideLoading();
+
+                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+    }
+
+
 
     public class ProjectAdapter extends RecyclerView.Adapter<ViewHolder> {
 
@@ -1797,7 +1855,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
     //---------------------------------
 
     public void showBottomSheet() {
-        FuelDistanceEmployeeListFragment addPhotoBottomDialogFragment = new FuelDistanceEmployeeListFragment(stationDataList, currentLocation);
+        FuelDistanceEmployeeListFragment addPhotoBottomDialogFragment = new FuelDistanceEmployeeListFragment(stationDataList, currentLocation,this.requireContext());
 
         addPhotoBottomDialogFragment.show(getParentFragmentManager(), "");
     }

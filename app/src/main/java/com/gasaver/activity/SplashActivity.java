@@ -5,6 +5,7 @@ import static com.gasaver.utils.Constants.USER_ID;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
@@ -32,6 +33,8 @@ SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         Bundle bundle = getIntent().getExtras();
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
 
         if (bundle != null && bundle.get("data") != null) {
 
@@ -41,7 +44,7 @@ SplashActivity extends AppCompatActivity {
             Toast.makeText(this, datas, Toast.LENGTH_SHORT).show();
 
         }
-        if ((Build.VERSION.SDK_INT >= 23) && ActivityCompat.checkSelfPermission(SplashActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(SplashActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(SplashActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
         } else {
             launchApp();
