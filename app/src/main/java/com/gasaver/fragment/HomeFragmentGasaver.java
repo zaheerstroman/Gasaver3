@@ -817,7 +817,12 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
         jsonObject.addProperty("distance", "30");
 
         jsonObject.addProperty("city", searchCity);
-        jsonObject.addProperty("soty_order", "distance");
+
+//        jsonObject.addProperty("soty_order", "distance");
+
+        jsonObject.addProperty("sort", "distance");
+
+        jsonObject.addProperty("order", "asc");
 
         jsonObject.addProperty("category", catList.get(binding.spinnerCaseText1.getSelectedItemPosition()).getId());
         if (binding.spinnerSubcat.getSelectedItemPosition() != 0)

@@ -14,12 +14,4 @@
         android:layout_weight="1"
         android:src="@drawable/gas_saver_logo_rectangular_min" />
 
-    <!--<TextView
-        android:id="@+id/tv_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="FITNESS WALA"
-        android:textColor="#ffffff"
-        android:textSize="18sp" />-->
 </LinearLayout>

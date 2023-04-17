@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--    type="com.example.nearmedemo.GooglePlaceModel" />-->
-<!--    type="com.example.nearmedemo.NearLocationInterface" />-->
 
 <layout>
 
     <data>
 
-<!--        <variable-->
-<!--            name="googlePlaceModel"-->
-<!--            type="com.e.gasaver.GooglePlaceModel" />-->
-
         <variable
             name="googlePlaceModel"
             type="com.gasaver.GooglePlaceModel" />
-
-
-<!--        <variable-->
-<!--            name="listener"-->
-<!--            type="com.e.gasaver.NearLocationInterface" />-->
 
         <variable
             name="listener"

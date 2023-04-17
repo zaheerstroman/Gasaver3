@@ -45,12 +45,6 @@
         android:backgroundTint="#80FFFFFF"
         />
 
-
-<!--    <item-->
-<!--        android:id="@+id/btnGraph"-->
-<!--        android:title="Graph" />-->
-
-<!--    android:alpha="0.x"-->
     <item
         android:id="@+id/btnSearchPlus"
         android:title="Search Plus"

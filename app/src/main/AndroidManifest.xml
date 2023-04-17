@@ -181,34 +181,17 @@
             android:name=".activity.NotificationsActivity"
             android:exported="false" />
 
-        <activity
-            android:name=".activity.RewardMyTripTaksikuActivity"
-            android:exported="false" />
-
 
         <activity
             android:name=".activity.OtherFloatingFabActivity"
             android:exported="false" />
-        <activity
-            android:name=".activity.WebsiteActivity"
-            android:exported="false" />
 
-
-        <activity
-            android:name=".activity.DataRecoveryPikmenActivity"
-            android:exported="false" />
 
         <activity
             android:name=".activity.MainPickmanActivity"
             android:exported="false" />
         <activity
             android:name=".activity.GraphActivityGeeks"
-            android:exported="false" />
-        <activity
-            android:name=".activity.MainActivityGeeks"
-            android:exported="false" />
-        <activity
-            android:name=".activity.DashBoardGeeksActivity"
             android:exported="false" />
         <activity
             android:name=".activity.HomeTaksikuActivity"
@@ -249,12 +232,6 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.NavigationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.MainActivity"
-            android:exported="true" />
         <activity
             android:name=".activity.GettingStarted"
             android:exported="false" />
