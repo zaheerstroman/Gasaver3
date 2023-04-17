@@ -8,6 +8,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
@@ -32,6 +33,7 @@ import java.util.Locale;
 import com.gasaver.activity.DirectionActivity;
 import com.gasaver.activity.MainPickmanActivity;
 import com.gasaver.databinding.ActivityFuelDistanceEmployeeListActivityityBinding;
+import com.gasaver.fragment.HomeFragmentGasaver;
 import com.gasaver.network.APIClient;
 import com.gasaver.utils.CommonUtils;
 import com.gasaver.utils.Constants;
@@ -52,9 +54,11 @@ public class FuelDistanceEmployeeListFragment extends BottomSheetDialogFragment 
     ArrayList<StationDataResponse.StationDataModel> stationDataList;
     Location cuLocation;
 
-    public FuelDistanceEmployeeListFragment(ArrayList<StationDataResponse.StationDataModel> stationDataList, Location currentLocation) {
+    Context context;
+    public FuelDistanceEmployeeListFragment(ArrayList<StationDataResponse.StationDataModel> stationDataList, Location currentLocation, Context context) {
         this.stationDataList = stationDataList;
         this.cuLocation = currentLocation;
+        this.context = context;
     }
 
     @Nullable
@@ -66,7 +70,7 @@ public class FuelDistanceEmployeeListFragment extends BottomSheetDialogFragment 
         if (stationDataList == null || stationDataList.isEmpty()) {
             Toast.makeText(getActivity(), "no stations found", Toast.LENGTH_SHORT).show();
         } else
-            binding.recyEmployeelist.setAdapter(new FuelDistanceEmployeeListAdapter(getActivity(), stationDataList));
+            binding.recyEmployeelist.setAdapter(new FuelDistanceEmployeeListAdapter(context, stationDataList));
         return binding.getRoot();
     }
 
@@ -188,6 +192,14 @@ public class FuelDistanceEmployeeListFragment extends BottomSheetDialogFragment 
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            binding.tvDistance.setOnClickListener(view -> {
+                HomeFragmentGasaver activity = (HomeFragmentGasaver) HomeFragmentGasaver.context1;
+                activity.getStationsList("distance");
+            });
+            binding.tvPriceL.setOnClickListener(view -> {
+                HomeFragmentGasaver activity = (HomeFragmentGasaver) HomeFragmentGasaver.context1;
+                activity.getStationsList("price");
+            });
         }
 
         @Override
@@ -212,12 +224,11 @@ public class FuelDistanceEmployeeListFragment extends BottomSheetDialogFragment 
                 ll_delete_my_prop.setVisibility(View.GONE);
                 btn_submit_prices = itemView.findViewById(R.id.btn_submit_prices);
                 btn_navigate = itemView.findViewById(R.id.btn_navigate);
-                tv_dis = itemView.findViewById(R.id.tv_dis);
-                tv_price = itemView.findViewById(R.id.tv_price);
+                tv_dis = itemView.findViewById(R.id.tv_distance);
+                tv_price = itemView.findViewById(R.id.tv_price_L);
                 tv_addr = itemView.findViewById(R.id.tv_addr);
                 tv_city = itemView.findViewById(R.id.tvcity);
                 layoutid = itemView.findViewById(R.id.layoutid);
-
             }
         }
     }

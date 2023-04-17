@@ -41,7 +41,7 @@ SplashActivity extends AppCompatActivity {
             Toast.makeText(this, datas, Toast.LENGTH_SHORT).show();
 
         }
-        if ((Build.VERSION.SDK_INT >= 23) && ActivityCompat.checkSelfPermission(SplashActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(SplashActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(SplashActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
         } else {
             launchApp();
