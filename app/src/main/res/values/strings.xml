@@ -1,9 +1,5 @@
 <resources>
-    <!--    <string name="app_name">GasServiceApp</string>-->
     <string name="app_name">Gasaver</string>
-
-
-    <!--  -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
 
     <string name="network_not_connected">There is no network connection.Please try again.</string>
     <string name="failed_request">Please try again...</string>
@@ -23,9 +19,6 @@
 
     <string name="msg_token_fmt"> c5pBXXsuCN0:APA91bH8nLMt084KpzMrmSWRS2SnKZudyNjtFVxLRG7VFEFk_RgOm-Q5EQr_oOcLbVcCjFH6vIXIyWhST1jdhR8WMatujccY5uy1TE0hkppW_TSnSBiUsH_tRReutEgsmIMmq8fexTmL </string>
 
-    <!--  -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-
-    <!--    Taxi-App-Android-XML-master-->
 
     <string name="title_activity_home_maps">Map</string>
     <string name="style_json">[
@@ -245,23 +238,6 @@
 ]</string>
     <string name="title_activity_select_driver">SelectDriver</string>
 
-    <!--    NearMe-->
-    <!--    <string name="API_KEY">YOUR_API_KEY</string>-->
-
-
-    <!--    <string name="API_KEY">API_KEY</string>-->
-
-    <!--  <string name="API_KEY">AIzaSyBE7yYMI-BoD9YVZ7MTjLze7Oi6sNhbMAw</string>-->
-
-
-    <!--  69 Api-->
-    <!--    <string name="API_KEY">AIzaSyBrBCjR96NhwdK1RM5S00y-8edeAuMuA0g</string>-->
-
-    <!--  Api-->
-    <!--  <string name="API_KEY">AIzaSyC9XBwSdZXnvuWPDXH26NJphvRAZpDzo74</string>-->
-
-    <!--  AIzaSyC9XBwSdZXnvuWPDXH26NJphvRAZpDzo74-->
-
     <string name="API_KEY">AIzaSyA1B-lkYW4V5rR8PP3Zr9gUbBWZoR3hOkg</string>
 
 
@@ -272,127 +248,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <!--For Gaming Purpose-->
-    <!--    App ID: 1978443379165893-->
-    <!--    App secret : e07cdebfef141934ec6170bea3672306-->
-
-    <!--    For Normal Purpose-->
-    <!--    App ID: 3404036846585679-->
-    <!--    App secret : 16ed412bbafa2027e3e8ae4d0e2fb473-->
-
-    <!--    <string name="facebook_app_id">397578975119616</string>-->
-    <!--    <string name="fb_login_protocol_scheme">fb1215678558858798</string>-->
-    <!--    <string name="login">Login</string>-->
-
-    <!--    -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-    <!--    ARIQT::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
-
-
-    <!--    zaheerstroman@gmai.com--><!--For Gaming Purpose-->
-    <!--        <string name="facebook_app_id">1978443379165893</string>-->
-    <!--&lt;!&ndash;    <string name="fb_login_protocol_scheme">fb1978443379165893</string>&ndash;&gt;-->
-    <!--        <string name="fb_login_protocol_scheme">e07cdebfef141934ec6170bea3672306</string>-->
-    <!--        <string name="facebook_client_token"></string>-->
-
-
-    <!--    https://gasserviceapp.firebaseapp.com/__/auth/handler-->
-    <!--    zaheerstroman@gmai.com--><!--For Normal Purpose-->
-    <!--        <string name="facebook_app_id">3404036846585679</string>-->
-    <!--    <string name="fb_login_protocol_scheme">fb3404036846585679</string>-->
-    <!--&lt;!&ndash;    <string name="fb_login_protocol_scheme">16ed412bbafa2027e3e8ae4d0e2fb473</string>&ndash;&gt;-->
-    <!--            <string name="facebook_client_token">fcbb94822f41b07dc6e9aa297e659c33</string>-->
-
-
-    <!--    &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-
-
-    <!--    zaheerstroman@gmai.com--><!--For Customer Purpose-->
-    <!--        <string name="facebook_app_id">1888772714819505</string>-->
-    <!--&lt;!&ndash;        <string name="fb_login_protocol_scheme">fb1888772714819505</string>&ndash;&gt;-->
-    <!--        <string name="fb_login_protocol_scheme">80b56104cd7b6e0b6781de774880c44d</string>-->
-    <!--    <string name="facebook_client_token">63b81f7ae1b7fa21b710d2908af01242</string>-->
-
-    <!--   Key hashes = d98iPnBzgIwWwNOyGLUhPMMBrMM=-->
-
-    <!--   Key hashes = QZ4PxrzP4b+H5Zk8Syk+YIXqNZc=-->
-
-
-    <!--   Key hashes = QZ4PxrzP4b+H5Zk8Syk+YLXqNZc=-->
-    <!--   Key hashes = QZ4PxrzP4b+H5Zk8Syk+YlXqNZc=-->
-    <!--   Key hashes = QZ4PxrzP4b+H5Zk8Syk+Y1XqNZc=-->
-
-
-    <!--    &lt;!&ndash;        zaheerstroman@gmai.com For Bussiness Purpose&ndash;&gt;-->
-    <!--    <string name="facebook_app_id">649134260296370</string>-->
-    <!--&lt;!&ndash;            <string name="fb_login_protocol_scheme">fb649134260296370</string>&ndash;&gt;-->
-    <!--    <string name="fb_login_protocol_scheme">c2940d963cc15d8be8b2f920d2baaa75</string>-->
-    <!--    <string name="facebook_client_token">6612530361623dc724b1ee882ffda2e7</string>-->
-
-    <!--    zaheerstroman@gmai.com--><!--For Different Home Purpose-->
-    <!--    <string name="facebook_app_id"></string>-->
-    <!--        <string name="fb_login_protocol_scheme">fbded7202c1ab168920680a23359c7d44a</string>-->
-    <!--&lt;!&ndash;    <string name="fb_login_protocol_scheme">ded7202c1ab168920680a23359c7d44a</string>&ndash;&gt;-->
-    <!--    <string name="facebook_client_token">b5b2279bfbfe070cd99c84c6b8f54f2a</string>-->
-    <!--    Clent Tokent : b5b2279bfbfe070cd99c84c6b8f54f2a-->
-
-
-    <!--    zaheerstroman@gmai.com--><!--For Different Home Purpose-->
-    <!--        <string name="facebook_app_id">868402934201647</string>-->
-    <!--            <string name="fb_login_protocol_scheme">fb868402934201647</string>-->
-    <!--&lt;!&ndash;        <string name="fb_login_protocol_scheme">ded7202c1ab168920680a23359c7d44a</string>&ndash;&gt;-->
-    <!--        <string name="facebook_client_token">b5b2279bfbfe070cd99c84c6b8f54f2a</string>-->
-
-
-    <!--    &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-    <!--    AAKRUTI::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
-
-    <!--    d98iPnBzgIwWwNOyGLUhPMMBrMM=-->
-    <!--    &lt;!&ndash;        zaheerstroman@gmai.com For OFFICE Setby Set Purpose&ndash;&gt;-->
-    <!--    <string name="facebook_app_id">533002308888744</string>-->
-    <!--                <string name="fb_login_protocol_scheme">fb533002308888744</string>-->
-    <!--&lt;!&ndash;    <string name="fb_login_protocol_scheme">5d4410a7678ab70b17540f685d1f716a</string>&ndash;&gt;-->
-    <!--    <string name="facebook_client_token">c878474ca90e86971aa13287ce7485df</string>-->
-
-
-    <!--    QZ4PxrzP4b+H5Zk8Syk+YIXqNZc=-->
-    <!--    YES Facebook-->
-    <!--    NO LIVE-->
-    <!--        <string name="facebook_app_id">499471095609339</string>-->
-    <!--                    <string name="fb_login_protocol_scheme">fb499471095609339</string>-->
-    <!--&lt;!&ndash;        <string name="fb_login_protocol_scheme">88945bf2ea0a9ad514e865f98ea762ca</string>&ndash;&gt;-->
-    <!--        <string name="facebook_client_token">54abb1d241c81b5495b4b03e0b479a34</string>-->
-
-
-    <!--    SUCCESS-->
-    <!--    QZ4PxrzP4b+H5Zk8Syk+YIXqNZc=-->
-    <!--    No Facebook-->
-    <!--    LIVE DATA SHOW BUT NOT LIVE-->
     <string name="facebook_app_id">688503272769502</string>
     <string name="fb_login_protocol_scheme">fb688503272769502</string>
-    <!--    <string name="fb_login_protocol_scheme">c79c5942fa39232318a9103afc1d347b</string>-->
     <string name="facebook_client_token">332564cf316a9d9f5c0ebdc957c6322b</string>
-
-
-    <!--    QZ4PxrzP4b+H5Zk8Syk+YLXqNZc=-->
-    <!--    No Facebook-->
-    <!--    LIVE DATA SHOW BUT NOT LIVE-->
-    <!--    <string name="facebook_app_id">1499889177207886</string>-->
-    <!--                        <string name="fb_login_protocol_scheme">fb1499889177207886</string>-->
-    <!--&lt;!&ndash;    <string name="fb_login_protocol_scheme">5c91c025bb386d2c2b4fe9f86e0bd847</string>&ndash;&gt;-->
-    <!--    <string name="facebook_client_token">332564cf316a9d9f5c0ebdc957c6322b</string>-->
-
-
-    <!--    QZ4PxrzP4b+H5Zk8Syk+YlXqNZc=-->
-    <!--    No Facebook-->
-    <!--    LIVE DATA SHOW BUT NOT LIVE-->
-    <!--    <string name="facebook_app_id">1680097185754182</string>-->
-    <!--&lt;!&ndash;    <string name="fb_login_protocol_scheme">fb1680097185754182</string>&ndash;&gt;-->
-    <!--        <string name="fb_login_protocol_scheme">d0f212b4e2f9f837c08db75bb15bd39e</string>-->
-    <!--    <string name="facebook_client_token">963c0fa949b30e25122c943e0e890672</string>-->
-
-
-    <!--    <string name="navigation_drawer_open">Open navigation drawer</string>-->
-    <!--    <string name="navigation_drawer_close">Close navigation drawer</string>-->
 
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
