@@ -25,13 +25,12 @@ import retrofit2.http.POST;
 public interface ApiInterface {
 
 
-    //    String BASE_URL = "https://jsonplaceholder.typicode.com/";
     String BASE_URL = "https://houseofspiritshyd.in/gasaver/admin/api/";
 
 //    ----------------------- SIGNING LOGIN ---------------------------------------------
 
 
-    //    UserSignInActivity:--------------------
+//    UserSignInActivity:--------------------
 //    @POST("login_controller/index")
     @POST("sendOtp")
 //    Call<UserRegResponseGasaver> userLogin(@Body RequestBody postObj);
@@ -43,7 +42,7 @@ public interface ApiInterface {
     Call<OtpResponseGasaverTProperty> verifyOtp(@Body RequestBody postObj);
 
 
-    //    // for otp verification
+// for otp verification
 //    @POST("login_controller/index")
     @POST("sendOtp")
     Call<BaseResponseGasaverTProperty> resendOtp(@Body RequestBody postObj);

@@ -22,7 +22,6 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
         init();
 
         String image=getIntent().getStringExtra("Attachment");
-//        String image=getIntent().getStringExtra("Terms Conditions");
         webView.loadUrl(image);
     }
 
@@ -31,8 +30,6 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
-//        getSupportActionBar().setTitle("ViewAttachment");
-//        getSupportActionBar().setTitle("Terms & Conditions");
         getSupportActionBar().setTitle("Privacy Policy");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

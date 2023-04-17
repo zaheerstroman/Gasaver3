@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.gasaver.databinding.FragmentNotificationsBinding;
 
-//import com.e.gasserviceapp.activity.databinding.FragmentNotificationsBinding;
 
 public class NotificationsFragment extends Fragment {
 

@@ -8,12 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.SplashActivityGas">
 
-<!--    splash_background-->
-<!--    android:scaleType="centerCrop"-->
-<!--    android:scaleType="fitXY"-->
-
-<!--    Blare Image Brightenss low type-->
-<!--    android:alpha="0.6"-->
 
     <ImageView
         android:layout_width="match_parent"

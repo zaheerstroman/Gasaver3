@@ -32,13 +32,7 @@ public class LocationAddress {
                     Log.e(TAG, "addressList: "+ new Gson().toJson(addressList));
                     if (addressList != null && addressList.size() > 0) {
                         Address address = addressList.get(0);
-//                        StringBuilder sb = new StringBuilder();
-//                        for (int i = 0; i < address.getMaxAddressLineIndex(); i++) {
-//                            sb.append(address.getAddressLine(i)).append("\n");
-//                        }
-//                        sb.append(address.getLocality()).append("\n");
-//                        sb.append(address.getPostalCode()).append("\n");
-//                        sb.append(address.getCountryName());
+
                         result = address.getLocality();
                     }
                 } catch (IOException e) {
@@ -46,21 +40,8 @@ public class LocationAddress {
                 } finally {
                     Message message = Message.obtain();
                     message.setTarget(handler);
-//                    if (result != null) {
-//                        message.what = 1;
-//                        Bundle bundle = new Bundle();
-//                        result = "Latitude: " + latitude + " Longitude: " + longitude +
-//                                "\n\nAddress:\n" + result;
-//                        bundle.putString("address", result);
-//                        message.setData(bundle);
-//                    } else {
-//                        message.what = 1;
-//                        Bundle bundle = new Bundle();
-//                        result = "Latitude: " + latitude + " Longitude: " + longitude +
-//                                "\n Unable to get address for this lat-long.";
-//                        bundle.putString("address", result);
-//                        message.setData(bundle);
-//                    }
+
+
                     Bundle bundle = new Bundle();
                     bundle.putString("address", result);
                     Log.e(TAG, "address: "+ result);
@@ -68,6 +49,7 @@ public class LocationAddress {
                 }
             }
         };
+
         thread.start();
     }
 

@@ -7,7 +7,6 @@ public class Constants {
 
     public static final String PROPERTY_IMAGE_URL = BASE_URL + "public/img/projects/photos/";
 
-    //    public static final String BANNER_IMAGE_URL = BASE_URL + "public/img/banner/";
     public static final String BANNER_IMAGE_URL = BASE_URL + "assets/images_backup/banner/";
 
     public static final String GRAPH_IMAGE_URL = BASE_URL + "assets/portal/reports/report_graph.png";
@@ -22,10 +21,8 @@ public class Constants {
     public static final String UNIT_FLOOR_IMG_URL = BASE_URL + "public/img/projects/units/";
     public static final String PROP_NEWS_URL = BASE_URL + "frontend/Blog";
 
-    //    public static final String TERMS_COND_URL = BASE_URL + "frontend/Terms";
     public static final String TERMS_COND_URL = BASE_URL + "termsAndConditions.html";
 
-    //    public static final String LOGO_IMG_URL = BASE_URL + "assets/portal/icons/7-Eleven.png";
     public static final String LOGO_IMG_URL = BASE_URL + "assets/portal/icons/";
 
     public static final String COPUNS_IMG_URL = BASE_URL + "assets/images_backup/copuns/";
@@ -57,7 +54,6 @@ public class Constants {
     public static final String USER_TYPE = "User_Type";
     public static final String USER_NAME = "User_Name";
     public static final String USER_EMAIL = "User_Email";
-//    public static final String USER_CODE = "user_code";
 
 
     public static final String ID = "id";
@@ -69,9 +65,7 @@ public class Constants {
     public static final String NAME = "name";
     public static final String EMAIL = "email";
 
-    //public static final String USER_MOBILE= "mobile";
     public static final String MOBILE = "mobile";
-//    public static final String MOBILE = "Mobile";
 
     public static final String USER_MOBILE = "mobile_number";
     public static final String MOBILE_EMAIL = "mobile_number";

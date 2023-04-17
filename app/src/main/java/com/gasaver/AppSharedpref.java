@@ -70,7 +70,6 @@ public class AppSharedpref {
 
     //------------------------------------- Employeelist --------------------------------
 
-    //    public void setemployeelistdetailsdata(List<StationDataJsonSchema2PojoResponseGasaver> restaurentList) {
     public void setemployeelistdetailsdata(List<StationData_0.Data> restaurentList) {
 
         SharedPreferences.Editor editor;
@@ -79,14 +78,12 @@ public class AppSharedpref {
         gsonBuilder.setLongSerializationPolicy(LongSerializationPolicy.STRING);
         Gson gson = gsonBuilder.create();
         String adjn = gson.toJson(restaurentList);
-//        Gson gson = new Gson();
-//        String cartList = gson.toJson(productsInCartList);
+
         editor.putString(CATEGORIES, adjn);
         editor.apply();
         editor.commit();
     }
 
-    //    public List<StationDataJsonSchema2PojoResponseGasaver> getemployeelistdetailsdata() {
     public List<StationData_0.Data> getemployeelistdetailsdata() {
 
 
@@ -100,11 +97,7 @@ public class AppSharedpref {
                         StationData_0.Data[].class);
 
 
-//                StationDataJsonSchema2PojoResponseGasaver List<StationDataJsonSchema2PojoResponseGasaver> favoriteItems = gson.fromJson(jsonFavorites,
-//                StationDataJsonSchema2PojoResponseGasaver List<StationDataJsonSchema2PojoResponseGasaver>.class);
-
                 servicesList = Arrays.asList(favoriteItems);
-//               servicesList = new ArrayList<>(servicesList);
             } else {
                 servicesList = new ArrayList<>();
             }

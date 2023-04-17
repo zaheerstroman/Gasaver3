@@ -14,7 +14,6 @@ public class SelectCityActivity extends AppCompatActivity {
     RecyclerView rv_cities, rv_autoSearch;
     ImageView iv_back;
     EditText et_autoSearch;
-//    PostFilterSearch postFilterSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

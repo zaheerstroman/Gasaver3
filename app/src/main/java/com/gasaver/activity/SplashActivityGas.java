@@ -24,31 +24,15 @@ public class SplashActivityGas extends AppCompatActivity {
             public void run() {
 
                 if (firebaseAuth.getCurrentUser() != null) {
-//                    startActivity(new Intent(SplashActivityGas.this, MainActivity.class));
-//                    startActivity(new Intent(SplashActivityGas.this, MainActivityGas.class));
 
-//                    startActivity(new Intent(SplashActivityGas.this, HomeTaksikuActivity.class));
-//                    startActivity(new Intent(SplashActivityGas.this, MainActivityGasWithoutFirebase.class));
-
-//                    startActivity(new Intent(SplashActivityGas.this, LoginActivityGas.class));
-//                    startActivity(new Intent(SplashActivityGas.this, LoginActivity.class));
                     startActivity(new Intent(SplashActivityGas.this, UserSignInActivity.class));
 
 
                     finish();
                 } else {
-//                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-//                    startActivity(new Intent(SplashActivityGas.this, LoginActivity.class));
+
+
                     startActivity(new Intent(SplashActivityGas.this, GettingStarted.class));
-//                    startActivity(new Intent(SplashActivityGas.this, MainActivity.class));
-
-//                    startActivity(new Intent(SplashActivityGas.this, LoginActivityGas.class));
-//                    startActivity(new Intent(SplashActivityGas.this, MainActivityGas.class));
-
-//                    startActivity(new Intent(SplashActivityGas.this, MainActivityGasWithoutFirebase.class));
-
-//                    startActivity(new Intent(SplashActivityGas.this, MainActivityGas.class));
-
 
 
                     finish();

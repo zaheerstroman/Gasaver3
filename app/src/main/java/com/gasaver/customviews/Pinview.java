@@ -84,13 +84,7 @@ public class Pinview extends LinearLayout implements TextWatcher, View.OnFocusCh
         init(context, attrs, defStyleAttr);
     }
 
-    /**
-     * A method to take care of all the initialisations.
-     *
-     * @param context
-     * @param attrs
-     * @param defStyleAttr
-     */
+
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         this.removeAllViews();
         mPinHeight *= DENSITY;
@@ -151,13 +145,7 @@ public class Pinview extends LinearLayout implements TextWatcher, View.OnFocusCh
         setTransformation();
     }
 
-    /**
-     * This method gets the attribute values from the XML, if not found it takes the default values.
-     *
-     * @param context
-     * @param attrs
-     * @param defStyleAttr
-     */
+
     private void initAttributes(Context context, AttributeSet attrs, int defStyleAttr) {
         if (attrs != null) {
             final TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.Pinview, defStyleAttr, 0);
@@ -176,13 +164,7 @@ public class Pinview extends LinearLayout implements TextWatcher, View.OnFocusCh
         }
     }
 
-    /**
-     * Takes care of styling the editText passed in the param.
-     * tag is the index of the editText.
-     *
-     * @param styleEditText
-     * @param tag
-     */
+
     private void generateOneEditText(EditText styleEditText, String tag) {
         params.setMargins(mSplitWidth / 2, mSplitWidth / 2, mSplitWidth / 2, mSplitWidth / 2);
         filters[0] = new InputFilter.LengthFilter(1);
@@ -228,11 +210,6 @@ public class Pinview extends LinearLayout implements TextWatcher, View.OnFocusCh
         return it;
     }
 
-    /**
-     * Returns the value of the Pinview
-     *
-     * @return
-     */
 
     public String getValue() {
         StringBuilder sb = new StringBuilder();
@@ -242,11 +219,7 @@ public class Pinview extends LinearLayout implements TextWatcher, View.OnFocusCh
         return sb.toString();
     }
 
-    /**
-     * Requsets focus on current pin view and opens keyboard if forceKeyboard is enabled.
-     *
-     * @return the current focused pin view. It can be used to open softkeyboard manually.
-     */
+
     public View requestPinEntryFocus() {
         int currentTag = Math.max(0, getIndexOfCurrentFocus());
         EditText currentEditText = editTextList.get(currentTag);
@@ -264,18 +237,11 @@ public class Pinview extends LinearLayout implements TextWatcher, View.OnFocusCh
         }
     }
 
-    /**
-     * Clears the values in the Pinview
-     */
     public void clearValue() {
         setValue("");
     }
 
-    /**
-     * Sets the value of the Pinview
-     *
-     * @param value
-     */
+
     public void setValue(@NonNull String value) {
         String regex = "[0-9]*"; // Allow empty string to clear the fields
         fromSetValue = true;
@@ -336,9 +302,7 @@ public class Pinview extends LinearLayout implements TextWatcher, View.OnFocusCh
         }
     }
 
-    /**
-     * Handles the character transformation for password inputs.
-     */
+
     private void setTransformation() {
         if (mPassword) {
             for (EditText editText : editTextList) {
@@ -360,15 +324,7 @@ public class Pinview extends LinearLayout implements TextWatcher, View.OnFocusCh
 
     }
 
-    /**
-     * Fired when text changes in the editTexts.
-     * Backspace is also identified here.
-     *
-     * @param charSequence
-     * @param start
-     * @param i1
-     * @param count
-     */
+
     @Override
     public void onTextChanged(CharSequence charSequence, int start, int i1, int count) {
         if (charSequence.length() == 1 && currentFocus != null) {
@@ -425,14 +381,7 @@ public class Pinview extends LinearLayout implements TextWatcher, View.OnFocusCh
 
     }
 
-    /**
-     * Monitors keyEvent.
-     *
-     * @param view
-     * @param i
-     * @param keyEvent
-     * @return
-     */
+
     @Override
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
 

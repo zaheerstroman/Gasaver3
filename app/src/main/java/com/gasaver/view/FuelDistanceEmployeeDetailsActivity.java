@@ -24,8 +24,7 @@ public class FuelDistanceEmployeeDetailsActivity extends AppCompatActivity {
 
     AppSharedpref appSharedpref;
     Context context = FuelDistanceEmployeeDetailsActivity.this;
-    //    List<Root> list = new ArrayList<>();
-//    List<StationDataJsonSchema2PojoResponseGasaver.Data> list = new ArrayList<>();
+
     List<StationData_0.Data> list = new ArrayList<>();
 
     TextView userid, username, useremail, userphonenumber, userAddressi,
@@ -43,8 +42,7 @@ public class FuelDistanceEmployeeDetailsActivity extends AppCompatActivity {
         appSharedpref = new AppSharedpref(context);
         list = appSharedpref.getemployeelistdetailsdata();
 
-//        List<Root> postElectronicsRequests = list;
-//        List<StationDataJsonSchema2PojoResponseGasaver.Data> postElectronicsRequests = list;
+
         List<StationData_0.Data> postElectronicsRequests = list;
 
 
@@ -53,7 +51,6 @@ public class FuelDistanceEmployeeDetailsActivity extends AppCompatActivity {
         useremail = findViewById(R.id.useremail);
         userAddressi = findViewById(R.id.userAddressi);
 
-//        useraddress = findViewById(R.id.useraddress);
         useraddresstreet = findViewById(R.id.useraddresstreet);
         useraddresssuite = findViewById(R.id.useraddresssuite);
         useraddresscity = findViewById(R.id.useraddresscity);
@@ -69,37 +66,21 @@ public class FuelDistanceEmployeeDetailsActivity extends AppCompatActivity {
         userDistance = findViewById(R.id.userDistance);
 
 
-//        List<Root> listview = new ArrayList<>();
-//        List<StationDataJsonSchema2PojoResponseGasaver.Data> listview = new ArrayList<>();
+
         List<StationData_0.Data> listview = new ArrayList<>();
 
 
         for (int j = 0; j < postElectronicsRequests.size(); j++) {
 
             userid.setText(String.valueOf(postElectronicsRequests.get(j).getId()));
-//            username.setText( String.valueOf(postElectronicsRequests.get(j).getUsername()));
             username.setText(String.valueOf(postElectronicsRequests.get(j).getStationid()));
-//            useremail.setText( String.valueOf(postElectronicsRequests.get(j).getEmail().toLowerCase(Locale.ROOT)));
             useremail.setText(String.valueOf(postElectronicsRequests.get(j).getAddress().toLowerCase(Locale.ROOT)));
 
-//            userphonenumber.setText( String.valueOf(postElectronicsRequests.get(j).getPhone()));
             userphonenumber.setText(String.valueOf(postElectronicsRequests.get(j).getDepartmentId()));
 
             userAddressi.setText(String.valueOf(postElectronicsRequests.get(j).getAddress()));
 
-//            useraddresstreet.setText(String.valueOf(postElectronicsRequests.get(j).getPrices().toLowerCase(Locale.ROOT)));
             useraddresstreet.setText(String.valueOf(postElectronicsRequests.get(j).getPrices()));
-//            useraddresstreet.setText( String.valueOf(postElectronicsRequests.get(j).getAddress().getStreet()));
-//            useraddresssuite.setText( String.valueOf(postElectronicsRequests.get(j).getAddress().getSuite()));
-
-//            useraddresssuite.setText(String.valueOf(postElectronicsRequests.get(j).getPrices()));
-//            useraddresssuite.setText(String.valueOf(postElectronicsRequests.get(j).Data.getData().getPrices().getId()));
-
-//            useraddresscity.setText( String.valueOf(postElectronicsRequests.get(j).getAddress().getCity()));
-//            useraddresscity.setText(String.valueOf(postElectronicsRequests.get(j).getAddress().getType()));
-
-//            useraddresszipcode.setText( String.valueOf(postElectronicsRequests.get(j).getAddress().getZipcode()));
-//            useraddresszipcode.setText(String.valueOf(postElectronicsRequests.get(j).getAddress().getAmount()));
 
 
 //            latitude
@@ -109,20 +90,7 @@ public class FuelDistanceEmployeeDetailsActivity extends AppCompatActivity {
             userDistance.setText(String.valueOf(postElectronicsRequests.get(j).getDistance()));
 
 
-//            listview.add(postElectronicsRequests.get(j));
             listview.add(postElectronicsRequests.get(j));
-
-
-//            usercompanydetails.setText( String.valueOf(postElectronicsRequests.get(j).getCompany()));
-
-//            prices:---
-
-//            usercompanyname.setText( String.valueOf(postElectronicsRequests.get(j).getCompany().getName()));
-//            usercompanyname.setText( String.valueOf(postElectronicsRequests.get(j).getPrices().getId()));
-
-//            userwebsite.setText( String.valueOf(postElectronicsRequests.get(j).getWebsite()));
-//            userwebsite.setText( String.valueOf(postElectronicsRequests.get(j).getType()));
-//            userwebsite.setText( String.valueOf(postElectronicsRequests.get(j).getAmout()));
 
 
             userphonenumber.setOnClickListener(new View.OnClickListener() {
@@ -131,21 +99,11 @@ public class FuelDistanceEmployeeDetailsActivity extends AppCompatActivity {
                     for (int j = 0; j < listview.size(); j++) {
                         Intent callIntent = new Intent(Intent.ACTION_DIAL);
 
-//                        callIntent.setData(Uri.parse("tel:"+String.valueOf(listview.get(j).getPhone())));
-//                        callIntent.setData(Uri.parse("tel:" + String.valueOf(listview.get(j).getCity())));
                         callIntent.setData(Uri.parse("tel:" + String.valueOf(listview.get(j).getDepartmentId())));
 
-//                    callIntent.setData(Uri.parse("tel:"+ getPackageManager().getPackagesHoldingPermissions()));
                         startActivity(callIntent);
-//                    overridePendingTransition(R.anim.trans_left_in,R.anim.trans_left_out);
                         if (ActivityCompat.checkSelfPermission(FuelDistanceEmployeeDetailsActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                            // TODO: Consider calling
-                            //    ActivityCompat#requestPermissions
-                            // here to request the missing permissions, and then overriding
-                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                            //                                          int[] grantResults)
-                            // to handle the case where the user grants the permission. See the documentation
-                            // for ActivityCompat#requestPermissions for more details.
+
                             return;
                         }
 
@@ -160,9 +118,7 @@ public class FuelDistanceEmployeeDetailsActivity extends AppCompatActivity {
                     for (int j = 0; j < listview.size(); j++) {
                         Intent intent = new Intent(Intent.ACTION_SENDTO);
                         intent.setData(Uri.parse("mailto:"));
-//                        intent.putExtra(Intent.EXTRA_EMAIL ,listview.get(j).getEmail());
                         intent.putExtra(Intent.EXTRA_EMAIL, listview.get(j).getId());
-//                        intent.putExtra(Intent.EXTRA_EMAIL ,listview.get(j).getMobile());
                         intent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
 
                         startActivity(Intent.createChooser(intent, "Email via..."));

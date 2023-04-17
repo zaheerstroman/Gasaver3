@@ -11,13 +11,5 @@
 
     android:background="@drawable/splash_screen500900" >
 
-<!--    android:background="@drawable/splash_screen7201129-->
-
-
-    <!--    android:background="@drawable/splash_screen482x801" >-->
-    <!--    android:background="@drawable/splash_screen500900" >-->
-<!--    android:background="@drawable/gasaver_splash_screen_720_1080" >-->
-<!--    android:background="@drawable/splash_screen_gas_saver"-->
-<!--    ajay@2607-->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

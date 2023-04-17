@@ -13,8 +13,6 @@ import com.gasaver.R;
 
 public class MessageDialog {
 
-//        Q2R
-
     public AlertDialog alertDialog;
 
     public MessageDialog(Context context, String message) {

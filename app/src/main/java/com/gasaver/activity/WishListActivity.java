@@ -50,35 +50,15 @@ import retrofit2.Response;
 
 public class WishListActivity extends AppCompatActivity {
 
-    //    ActivityUploadBinding binding;
     ActivityWishlistBinding binding;
 
-    //    rv_my_responses
     RecyclerView rv_my_responses;
     LinearLayout ll_no_data;
     int SELECTED_POS;
         private ArrayList<StationDataResponse.StationDataModel> wishList = new ArrayList<>();
-//    private ArrayList<WishlistResponse.WishlistModel> wishList = new ArrayList<>();
 
     private WishlistAdapter wishListAdapter;
-
-//    public static Fragment getInstance(int position) {
-////        MyResponsesFragment myResponsesFragment = new MyResponsesFragment();
-//        WishListActivity myResponsesFragment = new WishListActivity();
-//
-//        Bundle args = new Bundle();
-//        args.putInt("SELECTED_POS", position);
-//        myResponsesFragment.setArguments(args);
-//        return myResponsesFragment;
-//    }
-
-//    private void init(View root) {
-//        SELECTED_POS = getArguments().getInt("SELECTED_POS");
-//        ll_no_data = root.findViewById(R.id.ll_no_data);
-////        rv_my_responses = root.findViewById(R.id.rv_my_responses);
-//        recyclerview_List = root.findViewById(R.id.recyclerview_List);
-//
-//    }
+    
 
     LinearLayout loading;
 
@@ -86,7 +66,6 @@ public class WishListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        binding = ActivityUploadBinding.inflate(getLayoutInflater());
         binding = ActivityWishlistBinding.inflate(getLayoutInflater());
 
         setContentView(binding.getRoot());
@@ -100,8 +79,7 @@ public class WishListActivity extends AppCompatActivity {
         loading = findViewById(R.id.ll_no_data);
 
         loading.setVisibility(View.VISIBLE);
-//        getSupportActionBar().setTitle("ViewAttachment");
-//        getSupportActionBar().setTitle("Terms & Conditions");
+
         getSupportActionBar().setTitle("My WishList");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -114,40 +92,7 @@ public class WishListActivity extends AppCompatActivity {
         });
 
 
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-////        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayShowTitleEnabled(true);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setTitle("Wish List");
-//
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //do something you want
-//                finish();
-//            }
-//        });
-
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayShowTitleEnabled(true);
-//
-////        getSupportActionBar().setTitle("ViewAttachment");
-////        getSupportActionBar().setTitle("Terms & Conditions");
-//        getSupportActionBar().setTitle("Wish List");
-//
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //do something you want
-//                finish();
-//            }
-//        });
-//
     }
-
-    //tv_lastupdated
 
     private void getWishlist() {
         CommonUtils.showLoading(this, "Please Wait", false);
@@ -156,18 +101,13 @@ public class WishListActivity extends AppCompatActivity {
         jsonObject.addProperty("user_id", SharedPrefs.getInstance(this).getString(Constants.USER_ID));
         jsonObject.addProperty("token", SharedPrefs.getInstance(this).getString(Constants.TOKEN));
 
-        //vendor_id
-        //wishlist
 
         Call<StationDataResponse> call = apiInterface.getWishlist(jsonObject);
-//        Call<WishlistResponse> call = apiInterface.getWishlist(jsonObject);
 
         call.enqueue(new Callback<StationDataResponse>() {
-//        call.enqueue(new Callback<WishlistResponse>() {
 
             @Override
             public void onResponse(Call<StationDataResponse> call, Response<StationDataResponse> response) {
-//            public void onResponse(Call<WishlistResponse> call, Response<WishlistResponse> response) {
 
                 try {
                     CommonUtils.hideLoading();
@@ -182,7 +122,6 @@ public class WishListActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<StationDataResponse> call, Throwable t) {
-//            public void onFailure(Call<WishlistResponse> call, Throwable t) {
 
                 Toast.makeText(WishListActivity.this, "error", Toast.LENGTH_SHORT).show();
                 CommonUtils.hideLoading();

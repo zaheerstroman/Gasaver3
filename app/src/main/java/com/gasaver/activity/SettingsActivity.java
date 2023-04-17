@@ -46,46 +46,11 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-//        setContentView(R.layout.activity_main);
 
-
-
-//        setContentView(binding.getRoot());
-//        binding.switchPushNoti.setChecked(SharedPrefs.getInstance(this).getBoolean(Constants.allow_push));
-//        binding.switchSmsNot.setChecked(SharedPrefs.getInstance(this).getBoolean(Constants.allow_sms));
-//        binding.switchEmailNot.setChecked(SharedPrefs.getInstance(this).getBoolean(Constants.allow_email));
-//        binding.btnSave.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                JsonObject jsonObject = new JsonObject();
-//                jsonObject.addProperty("user_id", SharedPrefs.getInstance(SettingsActivity.this).getString(Constants.USER_ID));
-//                jsonObject.addProperty("token", SharedPrefs.getInstance(SettingsActivity.this).getString(Constants.TOKEN));
-//                jsonObject.addProperty("allow_email", binding.switchEmailNot.isChecked() ? "Yes" : "No");
-//                jsonObject.addProperty("allow_sms", binding.switchSmsNot.isChecked() ? "Yes" : "No");
-//                jsonObject.addProperty("allow_push", binding.switchPushNoti.isChecked() ? "Yes" : "No");
-//                saveUserSettings(jsonObject);
-//            }
-//        });
     }
 
     private void init(){
 
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayShowTitleEnabled(true);
-//
-////        getSupportActionBar().setTitle("ViewAttachment");
-////        getSupportActionBar().setTitle("Terms & Conditions");
-//        getSupportActionBar().setTitle("My Settings");
-//
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //do something you want
-//                finish();
-//            }
-//        });
 
         setContentView(binding.getRoot());
         binding.switchPushNoti.setChecked(SharedPrefs.getInstance(this).getBoolean(Constants.allow_push));

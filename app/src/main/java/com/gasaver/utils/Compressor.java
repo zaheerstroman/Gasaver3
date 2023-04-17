@@ -11,7 +11,6 @@ public class Compressor {
 
     private static volatile Compressor INSTANCE;
     private Context context;
-    //max width and height values of the compressed image is taken as 612x816
     private float maxWidth = 612.0f;
     private float maxHeight = 816.0f;
     private Bitmap.CompressFormat compressFormat = Bitmap.CompressFormat.JPEG;

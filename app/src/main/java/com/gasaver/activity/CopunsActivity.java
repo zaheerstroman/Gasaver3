@@ -44,9 +44,6 @@ import retrofit2.Response;
 public class CopunsActivity extends AppCompatActivity {
 
     ActivityCopunsBinding binding;
-    //    ImageView imageView;
-//    ImageView iv_profile_img1;
-//    ImageView recyclerview_Copuns_Listc;
 
     CopunsResponse copunsResponse = new CopunsResponse();
     String baseUrl = "";
@@ -55,11 +52,9 @@ public class CopunsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        setContentView(R.layout.activity_copuns);
         binding = ActivityCopunsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        getReportsData();
         getCopunsData();
 
 
@@ -78,23 +73,7 @@ public class CopunsActivity extends AppCompatActivity {
             }
         });
         final String photoUrl = "http://pngriver.com/wp-content/uploads/2017/12/download-Android-Technology-logo-PNG-transparent-images-transparent-backgrounds-PNGRIVER-COM-Android-Mobile-App-Development-Company-In-India-brillmindztech-39975001-800-799.png";
-//        final String photoUrl = "http://pngriver.com/wp-content/uploads/2017/12/download-Android-Technology-logo-PNG-transparent-images-transparent-backgrounds-PNGRIVER-COM-Android-Mobile-App-Development-Company-In-India-brillmindztech-39975001-800-799.png";
 
-//        imageView = (ImageView) findViewById(R.id.imageView);
-//        iv_profile_img1 = (ImageView) findViewById(R.id.iv_profile_img1);
-//        recyclerview_Copuns_List = (ImageView) findViewById(R.id.recyclerview_Copuns_List);
-
-
-
-
-//        Picasso.get().load(photoUrl).into(imageView);
-//        Picasso.get().load(photoUrl).into(iv_profile_img1);
-//        Picasso.get().load(photoUrl).into(recyclerview_Copuns_List);
-
-        //------
-
-//        Picasso.setSingletonInstance(new Picasso.Builder(this).build());
-//        Log.e("Width", "" + Resources.getSystem().getDisplayMetrics().widthPixels);
 
         final ImagePopup imagePopup = new ImagePopup(this);
         imagePopup.setBackgroundColor(Color.BLACK);
@@ -104,34 +83,9 @@ public class CopunsActivity extends AppCompatActivity {
 
         imagePopup.initiatePopupWithPicasso(photoUrl);
 
-//        imageView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                /** Initiate Popup view **/
-//                imagePopup.viewPopup();
-//            }
-//        });
-
-//        iv_profile_img1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                /** Initiate Popup view **/
-//                imagePopup.viewPopup();
-//            }
-//        });
-
-//        recyclerview_Copuns_List.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                /** Initiate Popup view **/
-//                imagePopup.viewPopup();
-//            }
-//        });
-//    }
 
     }
 
-    //    private void getReportsData() {
     private void getCopunsData() {
 
         CommonUtils.showLoading(this, "Please Wait", false);
@@ -141,8 +95,6 @@ public class CopunsActivity extends AppCompatActivity {
         jsonObject.addProperty("user_id", SharedPrefs.getInstance(this).getString(Constants.USER_ID));
         jsonObject.addProperty("token", SharedPrefs.getInstance(this).getString(Constants.TOKEN));
 
-//        Call<UploadDataResponse> call = apiInterface.getRewardsData(jsonObject);
-//        Call<GetRewardDataResponse> call = apiInterface.getRewardsData(jsonObject);
         Call<CopunsResponse> call = apiInterface.getCopunsData(jsonObject);
 
         call.enqueue(new Callback<CopunsResponse>() {
@@ -151,7 +103,6 @@ public class CopunsActivity extends AppCompatActivity {
                 try {
                     CommonUtils.hideLoading();
 
-//                    binding.recyclerviewCopunsList.setAdapter(new RewardActivity.UploadAdapter(CopunsActivity.this, response.body().getCopunsDetails()));
                     binding.recyclerviewCopunsList.setAdapter(new CopunsAdapter(CopunsActivity.this, response.body().getCopunsDetails()));
 
                     Log.e(TAG, "onResponse: " + response.body().getBasePath());
@@ -159,12 +110,7 @@ public class CopunsActivity extends AppCompatActivity {
                     CopunsResponse.BASE_URL = response.body().getBasePath();
 
 
-//                    CopunsResponse copunsResponse = new CopunsResponse();
                     copunsResponse.setBasePath(response.body().getBasePath());
-
-//                    binding.recyclerviewCopunsList.setAdapter(new CopunsAdapter(CopunsActivity.this, response.body().getBasePath()));
-//                    binding.recyclerview_Reward_List.setAdapter(new RewardActivity.UploadAdapter(RewardActivity.this, response.body().getData()));
-//                    binding.recyclerviewList.setAdapter(new UploadActivity.UploadAdapter(UploadActivity.this,response.body().getData()));
 
 
                 } catch (Exception e) {
@@ -209,14 +155,6 @@ public class CopunsActivity extends AppCompatActivity {
 
             Log.e(TAG, CopunsResponse.BASE_URL + copunsDetail.getAttachment() );
 
-//        recyclerview_Copuns_List.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                /** Initiate Popup view **/
-//                imagePopup.viewPopup();
-//            }
-//        });
-//    }
 
             holder.i.setOnClickListener(v -> {
 

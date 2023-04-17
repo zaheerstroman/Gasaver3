@@ -58,9 +58,7 @@ public class AdvancedBannerSlidSearchActivity extends AppCompatActivity {
     BannersResponse bannersResponse;
     RecyclerView recyclerview_Company_Logos;
     private int[] imageIds = new int[]{
-//            R.drawable.sample1,
-//            R.drawable.sample2,
-//            R.drawable.sample3
+
             R.drawable.profile_img,
             R.drawable.profile_img,
             R.drawable.profile_img

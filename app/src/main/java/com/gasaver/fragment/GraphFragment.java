@@ -35,22 +35,15 @@ import com.gasaver.utils.CommonUtils;
 import com.google.gson.JsonObject;
 import com.jjoe64.graphview.GraphView;
 
-//import com.gasaver.fragment.databinding.FragmentGraphBinding;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
 public class GraphFragment extends Fragment implements View.OnClickListener {
 
     ViewPager mViewPager;
 
-    //ViewPagerAdapter mViewPagerAdapter;
     GraphViewPagerAdapter mViewPagerAdapter;
 
     ImageView iv_left_nav_viewpager, iv_right_nav_viewpager, iv_left_nav_proj, iv_right_nav_proj, iv_left_nav_prop, iv_right_nav_prop, iv_left_nav_agents, iv_right_nav_agents, iv_left_nav_dev, iv_right_nav_dev;
 
-    //    int[] images = {R.drawable.sample2};
     int[] images = {R.drawable.sample2, R.drawable.sample3, R.drawable.sample4, R.drawable.sample5};
 
     GraphView graphView;
@@ -66,12 +59,9 @@ public class GraphFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_graph, container, false);
         init(view);
 
-//        fetchBanners();
 
         return view;
 
-//        binding = FragmentGraphBinding.inflate(inflater, container, false);
-//        return binding.getRoot();
 
     }
 

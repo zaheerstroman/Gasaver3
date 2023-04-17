@@ -40,7 +40,6 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_otp);
-//        setContentView(R.layout.activity_otp);
 
 
         init();
@@ -56,12 +55,6 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
             tv_pin_otp.isVisibleToUserForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO);
         }
 
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-//                && ContextCompat.checkSelfPermission(this, Manifest.permission.WAKE_LOCK) != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WAKE_LOCK},
-//                    REQUEST_PERMISSION);
-//
-//        }
 
         iv_back = findViewById(R.id.iv_back);
         tv_otp_resend = findViewById(R.id.tv_otp_resend);
@@ -72,20 +65,9 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
         iv_back.setOnClickListener(this);
         tv_submit.setOnClickListener(this);
         tv_otp_resend.setOnClickListener(this);
-//        startTimer(60000, 1000);
     }
 
-//    @Override
-//    public void onRequestPermissionsResult(final int requestCode, @NonNull final String[] permissions, @NonNull final int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if (requestCode == REQUEST_PERMISSION) {
-//            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                // Permission granted.
-//            } else {
-//                // User refused to grant permission.
-//            }
-//        }
-//    }
+
 
     public void startTimer(final long finish, long tick) {
         tv_otp_resend.setEnabled(false);
@@ -167,8 +149,7 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
         sharedPrefs.saveString(Constants.TC_base_path, (String) otpResponse.getBase_path());
         sharedPrefs.saveString(Constants.privacyPolicy, (String) otpResponse.getPrivacyPolicy());
         sharedPrefs.saveString(Constants.termsAndConditions, (String) otpResponse.getTermsAndConditions());
-//        sharedPrefs.saveString(USER_ID, "2147");
-//        sharedPrefs.saveString(TOKEN, "51d557e19967ba92df834edd5df743f41c17f10ee1a6d80229f889ae9ebd48de");
+
 
     }
 
@@ -184,8 +165,6 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
                 .addFormDataPart("otp", tv_pin_otp.getValue())
                 .build();
 
-//        Call<BaseResponse> call = apiInterface.resendOtp(requestBody);
-//        Call<BaseResponseGasaver> call = apiInterface.resendOtp(requestBody);
         Call<BaseResponseGasaverTProperty> call = apiInterface.resendOtp(requestBody);
 
         call.enqueue(new Callback<BaseResponseGasaverTProperty>() {

@@ -84,7 +84,6 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
         endLng = getIntent().getDoubleExtra("lng", 0.0);
         placeId = getIntent().getStringExtra("placeId");
 
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         appPermissions = new AppPermissions();
         loadingDialog = new LoadingDialog(this);
 
@@ -169,8 +168,6 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
 
                             if (response.body().getDirectionRouteModels().size() > 0) {
                                 DirectionRouteModel routeModel = response.body().getDirectionRouteModels().get(0);
-
-//                                getSupportActionBar().setTitle(routeModel.getSummary());
 
                                 DirectionLegModel legModel = routeModel.getLegs().get(0);
                                 binding.txtStartLocation.setText(legModel.getStartAddress());
