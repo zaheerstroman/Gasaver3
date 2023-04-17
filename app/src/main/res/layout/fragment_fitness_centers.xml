@@ -5,22 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!--    <Spinner-->
-<!--        android:id="@+id/spinner_caseText1"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginLeft="05dp"-->
-<!--        android:layout_marginTop="4dp"-->
-<!--        android:background="@drawable/spinner_border_background"-->
-<!--        android:padding="25dp"-->
-<!--        android:paddingLeft="05dp"-->
-<!--        android:spinnerMode="dropdown"-->
-<!--        android:text="December 2022"-->
-<!--        android:textColor="@color/gray"-->
-<!--        android:textSize="13sp"-->
-<!--        app:fontFamily="@font/quicksand_light">-->
 
-<!--    </Spinner>-->
 
 
     <fragment

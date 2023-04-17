@@ -17,17 +17,6 @@
         app:popupTheme="@style/AppTheme.PopupOverlay">
     </androidx.appcompat.widget.Toolbar>
 
-<!--
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Select a Circle"
-        android:textStyle="bold"
-        android:layout_margin="@dimen/margin_left_10dp"
-        android:id="@+id/operator_title_tv"
-        android:textSize="20sp"
-        android:textColor="@color/colorBlack"/>
--->
 
     <LinearLayout
         android:layout_width="match_parent"

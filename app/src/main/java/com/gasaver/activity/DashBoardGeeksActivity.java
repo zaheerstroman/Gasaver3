@@ -43,7 +43,7 @@ public class DashBoardGeeksActivity extends BaseActivity implements OnMapReadyCa
 //        setContentView(R.layout.activity_dash_board);
                 setContentView(R.layout.activity_dash_board_geeks);
 
-        setTitleHome(R.id.toolbar_taksiku, R.id.iv_title, R.drawable.ic_burger, R.drawable.gas_saver_logo_rectangular_empty);
+        setTitleHome(R.id.toolbar_taksiku, R.id.iv_title, R.drawable.ic_burger, R.drawable.gas_saver_logo_rectangular_min);
 
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -56,7 +56,8 @@ public class DashBoardGeeksActivity extends BaseActivity implements OnMapReadyCa
             public void onClick(View view) {
 //                startActivity(new Intent(Home.this, SelectDriver.class));
 //                startActivity(new Intent(HomeTaksikuActivity.this, SelectDriverTaksikuActivity.class));
-                startActivity(new Intent(DashBoardGeeksActivity.this, OrderTaksikuActivity.class));
+//                startActivity(new Intent(DashBoardGeeksActivity.this, OrderTaksikuActivity.class));
+                startActivity(new Intent(DashBoardGeeksActivity.this, MainActivityGas.class));
 
             }
         });
@@ -84,7 +85,9 @@ public class DashBoardGeeksActivity extends BaseActivity implements OnMapReadyCa
                         return true;
                     case R.id.about:
 //                        startActivity(new Intent(getApplicationContext(),About.class));
-                        startActivity(new Intent(getApplicationContext(),AboutGeeksActivity.class));
+//                        startActivity(new Intent(getApplicationContext(),AboutGeeksActivity.class));
+                        startActivity(new Intent(getApplicationContext(),MainActivityGas.class));
+
                         overridePendingTransition(0,0);
                         return true;
                 }

@@ -12,7 +12,7 @@
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:src="@drawable/principle_insolvency_icons_05" />
+        android:src="@drawable/gas_saver_logo_rectangular_min" />
 
     <!--<TextView
         android:id="@+id/tv_email"

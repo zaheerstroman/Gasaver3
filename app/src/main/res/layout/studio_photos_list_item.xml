@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:scaleType="fitXY"
-        android:src="@drawable/shaadi_img"
+        android:src="@drawable/profile_img"
         android:layout_margin="2.5dp"> </ImageView>
 
 </LinearLayout>

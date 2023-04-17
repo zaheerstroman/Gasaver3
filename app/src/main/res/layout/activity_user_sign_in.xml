@@ -60,7 +60,7 @@
                 android:layout_height="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:layout_marginRight="@dimen/_10sdp"
-                android:src="@drawable/ic_mobile" />
+                android:src="@drawable/phoneicon" />
 
             <EditText
                 android:id="@+id/et_mobile_prefix"
@@ -88,28 +88,6 @@
                 android:textSize="@dimen/_14sdp" />
         </LinearLayout>
 
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:orientation="horizontal">-->
-
-        <!--            <ImageView-->
-        <!--                android:layout_width="@dimen/_15sdp"-->
-        <!--                android:layout_height="@dimen/_15sdp"-->
-        <!--                android:layout_marginTop="@dimen/_2sdp"-->
-        <!--                android:layout_marginRight="@dimen/_10sdp"-->
-        <!--                android:src="@drawable/ic_mail" />-->
-
-        <!--            <EditText-->
-        <!--                android:id="@+id/et_email"-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:background="@drawable/et_bg"-->
-        <!--                android:hint="email_id"-->
-        <!--                android:textColor="@color/black"-->
-        <!--                android:textColorHint="@color/grey"-->
-        <!--                android:textSize="@dimen/_14sdp" />-->
-        <!--        </LinearLayout>-->
 
     </LinearLayout>
 

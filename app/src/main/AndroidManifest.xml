@@ -92,19 +92,7 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity> <!-- <meta-data android:name="io.sentry.dsn" android:value="https://<key>@sentry.io/<project>" /> -->
-        <!-- &lt;!&ndash; Required: set your sentry.io project identifier (DSN) &ndash;&gt; -->
-        <!-- <meta-data android:name="io.sentry.dsn" android:value="https://examplePublicKey@o0.ingest.sentry.io/0" /> -->
-        <!-- &lt;!&ndash; enable automatic breadcrumbs for user interactions (clicks, swipes, scrolls) &ndash;&gt; -->
-        <!-- <meta-data android:name="io.sentry.traces.user-interaction.enable" android:value="true" /> -->
-        <!-- &lt;!&ndash; enable screenshot for crashes &ndash;&gt; -->
-        <!-- <meta-data android:name="io.sentry.attach-screenshot" android:value="true" /> -->
-        <!-- &lt;!&ndash; enable view hierarchy for crashes &ndash;&gt; -->
-        <!-- <meta-data android:name="io.sentry.attach-view-hierarchy" android:value="true" /> -->
-        <!-- &lt;!&ndash; enable the performance API by setting a sample-rate, adjust in production env &ndash;&gt; -->
-        <!-- <meta-data android:name="io.sentry.traces.sample-rate" android:value="1.0" /> -->
-        <!-- &lt;!&ndash; enable profiling when starting transactions, adjust in production env &ndash;&gt; -->
-        <!-- <meta-data android:name="io.sentry.traces.profiling.sample-rate" android:value="1.0" /> -->
+        </activity>
         <activity
             android:name=".activity.AdvancedBannerSlidSearchActivity"
             android:exported="false">
@@ -138,55 +126,17 @@
             android:exported="false" /> <!-- Ariqt Manohar Employee -->
         <activity
             android:name="com.gasaver.view.FuelDistanceEmployeeDetailsActivity"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".view.FuelDistanceEmployeeListActivity" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <activity
-            android:name=".activity.MyMapsFuelMarkersApi"
             android:exported="false" />
-        <activity
-            android:name=".activity.UserTypeActivity"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".activity.SplashActivity" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <!-- <activity -->
-        <!-- android:name=".Pinview" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <activity
-            android:name=".activity.UserRequirementActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.HomeActivity"
-            android:exported="false" />
+
+
         <activity
             android:name=".activity.OtpActivity"
             android:exported="false" />
         <activity
             android:name=".activity.ProfileDetailsActivity"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".EditProfileFragment" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <activity
-            android:name="com.gasaver.fragment.EditProfileFragment"
             android:exported="false" />
         <activity
-            android:name=".activity.EditProfileActivity"
+            android:name="com.gasaver.fragment.EditProfileFragment"
             android:exported="false" />
         <activity
             android:name=".activity.RateUsActivity"
@@ -199,20 +149,13 @@
             android:exported="false" />
         <activity
             android:name=".activity.ShareitActivity"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".activity.UserSignInActivity" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
+            android:exported="false" />
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
 
-            <!-- ressource file to create -->
 
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
@@ -236,85 +179,28 @@
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-        </service> <!-- BostMyToolRes:&#45;&#45; -->
-        <!-- <service -->
-        <!-- android:name=".MyFirebaseMessagingService" -->
-        <!-- android:exported="false"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="com.google.firebase.MESSAGING_EVENT" /> -->
-        <!-- </intent-filter> -->
-        <!-- </service> -->
+        </service>
         <activity
             android:name=".activity.NotificationsActivity"
             android:exported="false" />
-        <activity
-            android:name=".activity.LoginTPActivity"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".activity.DirectionBW2LocationVolleyMapoDirectionCodeWorkedActivity" -->
-        <!-- android:exported="false" /> -->
-        <!-- <activity -->
-        <!-- android:name=".activity.DirectionBW2LocationRetrofitGameAppStudioActivity" -->
-        <!-- android:exported="false" /> -->
-        <!-- <activity -->
-        <!-- android:name=".activity.DirectionBW2LocationFindRoutesTechMirrorsActivity" -->
-        <!-- android:exported="false" /> -->
-        <activity
-            android:name=".activity.NearByGasFuelCentersMapActivity"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".activity.ProfileMainActivity" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <!-- <activity -->
-        <!-- android:name=".activity.RewardMyTripTaksikuActivity" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
+
         <activity
             android:name=".activity.RewardMyTripTaksikuActivity"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".activity.RewardHomeTaksikuActivity" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <activity
-            android:name=".activity.RewardHomeTaksikuActivity"
             android:exported="false" />
+
+
         <activity
             android:name=".activity.OtherFloatingFabActivity"
             android:exported="false" />
         <activity
             android:name=".activity.WebsiteActivity"
             android:exported="false" />
-        <activity
-            android:name=".activity.TestPickmen"
-            android:exported="false" />
-        <activity
-            android:name=".activity.StudioDetailsPikmenActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.PhotoPrintsAlbumsPikmenActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.ConfirmAddressPikmenActivity"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".activity.DataRecoveryActivity" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
+
+
         <activity
             android:name=".activity.DataRecoveryPikmenActivity"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".activity.DataRecoveryPikmenActivity" -->
-        <!-- android:exported="false" /> -->
+            android:exported="false" />
+
         <activity
             android:name=".activity.MainPickmanActivity"
             android:exported="false" />
@@ -325,61 +211,24 @@
             android:name=".activity.MainActivityGeeks"
             android:exported="false" />
         <activity
-            android:name=".activity.AboutGeeksActivity"
-            android:exported="false" />
-        <activity
             android:name=".activity.DashBoardGeeksActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.OrderTaksikuActivity"
-            android:exported="false"
-            android:theme="@style/AppThemePurple" />
-        <activity
-            android:name=".activity.MyTripTaksikuActivity"
-            android:exported="false"
-            android:theme="@style/AppThemePurple" />
-        <activity
-            android:name=".activity.SelectDriverTaksikuActivity"
-            android:exported="false"
-            android:label="@string/title_activity_select_driver"
-            android:theme="@style/AppThemePurple" />
-        <activity
             android:name=".activity.HomeTaksikuActivity"
             android:exported="false"
-            android:theme="@style/AppTheme" /> <!-- <activity -->
-        <!-- android:name=".activity.SplashTaksikuActivity" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
+            android:theme="@style/AppTheme" />
+
+
+
         <activity
             android:name=".activity.BaseActivity"
             android:exported="false" /> <!-- android:debuggable="false" -->
         <activity
             android:name=".activity.DirectionActivity"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".activity.DirectionActivity" -->
-        <!-- android:theme="@style/ActionBarTheme" /> -->
-        <activity
-            android:name=".activity.ForgetActivity"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".ui.login.LoginActivityGas" -->
-        <!-- android:exported="false" -->
-        <!-- android:label="@string/title_activity_login_gas" /> -->
-        <!-- <activity -->
-        <!-- android:name=".activity.MainActivityGas" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <activity
-            android:name=".activity.SecondActivity"
-            android:exported="false" /> <!-- <meta-data android:name="com.facebook.sdk.ApplicationId" -->
-        <!-- android:value="@string/facebook_app_id"/> -->
-        <!-- <meta-data android:name="com.facebook.sdk.ApplicationId" -->
-        <!-- android:value="@string/facebook_app_id"/> -->
+            android:exported="false" />
+
+
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -404,14 +253,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.BottomNavigationLayoutActivity"
-            android:exported="false"
-            android:label="@string/title_activity_bottom_navigation_layout" />
-        <activity
             android:name=".activity.NavigationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.DashboardNearbyFuelStation"
             android:exported="false" />
         <activity
             android:name=".activity.MainActivity"
@@ -420,17 +262,11 @@
         <!-- android:exported="true" /> -->
         <activity
             android:name=".activity.GettingStarted"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".activity.IntroActivity" -->
-        <!-- android:exported="false" /> -->
-        <!-- <activity -->
-        <!-- android:name=".activity.MainActivity" -->
-        <!-- android:exported="false" /> -->
+            android:exported="false" />
+
+
         <activity
             android:name=".activity.MainActivityGas"
-            android:exported="true" />
-        <activity
-            android:name=".activity.MainActivityGasWithoutFirebase"
             android:exported="true" />
         <activity
             android:name=".activity.SplashActivity"
@@ -440,11 +276,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- SplashActivityGas -->
-        <!-- SplashTaksikuActivity -->
-        <!-- .activity.ProfileMainActivity -->
-        <!-- .activity.UserSignInActivity -->
-        <!-- .view.FuelDistanceEmployeeListActivity -->
+        </activity>
+
+
         <activity
             android:name=".activity.ProfileMainActivity"
             android:exported="true" />

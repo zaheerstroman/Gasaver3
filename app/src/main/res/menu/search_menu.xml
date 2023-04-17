@@ -20,7 +20,7 @@
 
     <item
         android:id="@+id/item_Dp"
-        android:icon="@drawable/pi_jagdish_jpeg"
+        android:icon="@drawable/search"
         android:title="Logo"
         app:showAsAction="withText" />
 

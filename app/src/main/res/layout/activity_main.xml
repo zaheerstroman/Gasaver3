@@ -15,48 +15,7 @@
         android:background="@color/Purple"
         android:fitsSystemWindows="false">
 
-        <!--        <com.google.android.material.appbar.AppBarLayout-->
-        <!--            android:layout_width="164dp"-->
-        <!--            android:layout_height="54dp"-->
-        <!--            android:layout_marginLeft="96dp"-->
-        <!--            android:layout_marginRight="96dp"-->
-        <!--            android:background="@mipmap/pi_jlogo"-->
-        <!--            android:theme="@style/AppTheme.AppBarOverlay">-->
 
-        <!--            <androidx.appcompat.widget.Toolbar-->
-        <!--                android:id="@+id/toolbar"-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="?attr/actionBarSize"-->
-        <!--                app:popupTheme="@style/AppTheme.PopupOverlay"-->
-        <!--                layout="@layout/layout_toolbar"-->
-        <!--                />-->
-        <!--            -->
-        <!--        </com.google.android.material.appbar.AppBarLayout>-->
-
-        <!--        <com.google.android.material.appbar.AppBarLayout-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="54dp"-->
-        <!--            android:layout_marginLeft="96dp"-->
-        <!--            android:layout_marginRight="96dp"-->
-        <!--            android:background="@mipmap/pi_jlogo"-->
-        <!--            android:theme="@style/AppTheme.AppBarOverlay">-->
-
-        <!--            <androidx.appcompat.widget.Toolbar-->
-        <!--                android:id="@+id/toolbar"-->
-        <!--                layout="@layout/layout_toolbar"-->
-        <!--                android:layout_width="307dp"-->
-        <!--                android:layout_height="?attr/actionBarSize"-->
-        <!--                app:popupTheme="@style/AppTheme.PopupOverlay"-->
-        <!--                />-->
-        <!--        </com.google.android.material.appbar.AppBarLayout>-->
-
-        <!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-
-
-        <!--        android:background="@mipmap/pi_logo_raju_sky_blue"-->
-        <!--        android:background="@mipmap/pi_jlogo"-->
-        <!--        android:layout_width="wrap_content"-->
-        <!--        android:layout_height="54dp"-->
 
 <!--        android:background="@mipmap/gas_saver_logo_rectangular_min"-->
         <com.google.android.material.appbar.AppBarLayout
@@ -109,15 +68,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"> </TextView>
-
-
-        <!--        &lt;!&ndash;<android.support.design.widget.FloatingActionButton-->
-        <!--            android:id="@+id/fab"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_gravity="bottom|end"-->
-        <!--            android:layout_margin="@dimen/fab_margin"-->
-        <!--            app:srcCompat="@android:drawable/ic_dialog_email" />&ndash;&gt;-->
 
 
 

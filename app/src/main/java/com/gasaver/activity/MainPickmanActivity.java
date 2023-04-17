@@ -85,8 +85,6 @@ public class MainPickmanActivity extends AppCompatActivity implements View.OnCli
         binding.ivGal.setOnClickListener(this);
         binding.searchBtn.setOnClickListener(this);
 
-
-
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 ////        setSupportActionBar(toolbar);
 //
@@ -108,11 +106,8 @@ public class MainPickmanActivity extends AppCompatActivity implements View.OnCli
 //            }
 //        });
 
-
-
         /* */
         getsubCategories();
-
 
     }
 

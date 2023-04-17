@@ -16,58 +16,7 @@
         android:background="@color/white" />
 
 
-    <!--    android:background="@color/white"-->
-    <!--    android:background="@drawable/outline_border"-->
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/tv_headingdfdfg"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginBottom="@dimen/_5sdp"-->
-    <!--        android:text=""-->
-    <!--        android:textAllCaps="true"-->
-    <!--        android:textColor="@color/toolbar_color"-->
-    <!--        android:textSize="@dimen/_10sdp"-->
-    <!--        android:textStyle="bold"-->
-    <!--        -->
-    <!--        />-->
-
-    <!--    <LinearLayout-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="@dimen/_5sdp">-->
-    <!--        <ImageView-->
-    <!--            android:layout_width="@dimen/_15sdp"-->
-    <!--            android:layout_height="@dimen/_15sdp"-->
-    <!--            android:src="@drawable/ic_location" />-->
-    <!--    </LinearLayout>-->
-
-
-    <!--    <LinearLayout-->
-
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="207dp"-->
-    <!--        android:layout_marginBottom="@dimen/_5sdp"-->
-    <!--        android:background="@drawable/outline_border_curve_toolbar"-->
-    <!--        android:orientation="vertical"-->
-    <!--        android:paddingLeft="@dimen/_10sdp"-->
-    <!--        android:paddingBottom="@+id/tv_headingdfdfg"-->
-
-
-    >
-
-    <!--        <TextView-->
-    <!--            android:id="@+id/tv_heading"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_marginBottom="@dimen/_5sdp"-->
-    <!--            android:text=""-->
-    <!--            android:textAllCaps="true"-->
-    <!--            android:textColor="@color/toolbar_color"-->
-    <!--            android:textSize="@dimen/_10sdp"-->
-    <!--            android:textStyle="bold" />-->
-
-    <!--        android:orientation="horizontal"-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -78,27 +27,6 @@
         android:background="@drawable/outline_border_curve_toolbar"
         android:orientation="horizontal">
 
-        <!--            <ImageView-->
-        <!--                android:id="@+id/iv_proj_img"-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="125dp"-->
-        <!--                android:layout_marginRight="@dimen/_10sdp"-->
-        <!--                android:layout_weight="1.2"-->
-        <!--                android:scaleType="fitXY"-->
-        <!--                android:src="@drawable/sample1" />-->
-
-        <!--            <TextView-->
-        <!--                android:id="@+id/iv_proj_img"-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="125dp"-->
-        <!--                android:layout_marginRight="@dimen/_10sdp"-->
-        <!--                android:layout_weight="1.2"-->
-        <!--                android:scaleType="fitXY"-->
-        <!--                android:text="Station Code(Name)"-->
-        <!--                android:src="@drawable/sample1"-->
-        <!--                android:textStyle="bold"-->
-        <!--                android:textColor="@color/black"-->
-        <!--                />-->
 
 
         <LinearLayout
@@ -122,22 +50,6 @@
                 android:textSize="13dp"
                 android:textStyle="bold" />
 
-            <!--            <TextView-->
-            <!--                android:id="@+id/tv_proj_acres_code"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginTop="@dimen/_2sdp"-->
-            <!--                android:paddingBottom="05dp"-->
-            <!--                android:text="U-85721"-->
-            <!--                android:textColor="@color/grey"-->
-            <!--                android:textSize="@dimen/_9sdp"-->
-            <!--                android:textStyle="bold"-->
-            <!--                android:paddingLeft="10dp"-->
-            <!--                android:paddingTop="05dp"-->
-            <!--                android:paddingRight="50dp"-->
-            <!--                />-->
-
-            <!--                android:background="@drawable/outline_border_curve_toolbar"-->
 
             <LinearLayout
                 android:layout_width="115dp"
@@ -180,115 +92,6 @@
 
 
 
-            <!--            <LinearLayout-->
-<!--                android:layout_width="115dp"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:layout_gravity="left"-->
-
-<!--                android:orientation="horizontal"-->
-<!--                android:paddingLeft="05dp"-->
-
-<!--                android:paddingRight="20dp">-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/iv_wishlist"-->
-<!--                    android:layout_width="@dimen/_20sdp"-->
-<!--                    android:layout_height="28dp"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:paddingLeft="05dp"-->
-<!--                    android:src="@drawable/ic_location"-->
-<!--                    android:visibility="gone"-->
-<!--                    />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/tv_loc"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:gravity="center"-->
-<!--                    android:paddingTop="05dp"-->
-<!--                    android:paddingBottom="05dp"-->
-<!--                    android:text="Sydney"-->
-<!--                    android:textAllCaps="true"-->
-<!--                    android:textColor="@color/toolbar_color"-->
-<!--                    android:textSize="13dp"-->
-<!--                    android:textStyle="bold" />-->
-<!--            </LinearLayout>-->
-
-
-            <!--                <TextView-->
-            <!--                    android:id="@+id/tv_City"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_marginTop="@dimen/_5sdp"-->
-            <!--                    android:text="City"-->
-            <!--                    android:textColor="@color/black"-->
-            <!--                    android:textSize="@dimen/_10sdp"-->
-            <!--                    android:textStyle="bold" />-->
-
-            <!--                <TextView-->
-            <!--                    android:id="@+id/tv_proj_loc_city1"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_marginTop="@dimen/_2sdp"-->
-            <!--                    android:text="Sydney"-->
-            <!--                    android:textColor="@color/grey"-->
-            <!--                    android:textSize="@dimen/_9sdp"-->
-            <!--                    android:textStyle="bold" />-->
-
-            <!--                <TextView-->
-            <!--                    android:id="@+id/tv_proj_date_Status"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_marginTop="@dimen/_5sdp"-->
-            <!--                    android:text="Status"-->
-            <!--                    android:textColor="@color/black"-->
-            <!--                    android:textSize="@dimen/_9sdp"-->
-            <!--                    android:textStyle="bold" />-->
-
-            <!--                <TextView-->
-            <!--                    android:id="@+id/tv_proj_locs_Status1"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_marginTop="@dimen/_2sdp"-->
-            <!--                    android:text="Active"-->
-            <!--                    android:textColor="@color/grey"-->
-            <!--                    android:textSize="@dimen/_9sdp"-->
-            <!--                    android:textStyle="bold" />-->
-
-
-            <!--                android:paddingTop="@dimen/_7sdp"-->
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/tv_proj_acres_codegdfg"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginTop="@dimen/_2sdp"-->
-            <!--                android:paddingBottom="05dp"-->
-            <!--                android:text=""-->
-            <!--                android:textColor="@color/grey"-->
-            <!--                android:textSize="@dimen/_9sdp"-->
-            <!--                android:textStyle="bold" />-->
-
-
-            <!--            <LinearLayout-->
-            <!--                android:id="@+id/ll_contact"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="20dp"-->
-            <!--                android:layout_marginLeft="@dimen/_5sdp"-->
-            <!--                android:layout_weight="1"-->
-            <!--                android:gravity="center"-->
-            <!--                android:paddingLeft="@dimen/_5sdp"-->
-            <!--                android:paddingTop="05dp"-->
-            <!--                android:paddingRight="40dp"-->
-            <!--                android:paddingBottom="@dimen/_7sdp">-->
-
-            <!--                <ImageView-->
-            <!--                    android:layout_width="@dimen/_10sdp"-->
-            <!--                    android:layout_height="match_parent"-->
-            <!--                    android:layout_gravity="center"-->
-            <!--                    android:layout_marginRight="@dimen/_8sdp"-->
-            <!--                    android:src="@drawable/ic_message" />-->
 
 
             <TextView

@@ -25,33 +25,7 @@
                 android:weightSum="4">
 
 
-<!--                <LinearLayout-->
-<!--                    android:id="@+id/main_expenses_layouts_copy1"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="01dp"-->
-<!--                    android:background="@color/Purple">-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:layout_marginLeft="10dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:text=""-->
-<!--                        android:textColor="#452B90"-->
-<!--                        android:textStyle="bold" />-->
-
-<!--&lt;!&ndash;                    <ImageView&ndash;&gt;-->
-<!--&lt;!&ndash;                        android:layout_width="30dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                        android:layout_marginRight="10dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                        android:src="@drawable/petrolbank_02" />&ndash;&gt;-->
-
-
-<!--                </LinearLayout>-->
-
-
-                <!-- //Expenses-->
 
 
                 <LinearLayout
@@ -128,11 +102,6 @@
                         android:textColor="#452B90"
                         android:textStyle="bold" />
 
-                    <!--                    <ImageView-->
-                    <!--                        android:layout_width="30dp"-->
-                    <!--                        android:layout_height="wrap_content"-->
-                    <!--                        android:layout_marginRight="10dp"-->
-                    <!--                        android:src="@drawable/petrolbank_02" />-->
 
 
                 </LinearLayout>
@@ -161,7 +130,7 @@
                             android:layout_height="50dp"
                             android:layout_gravity="left"
                             android:padding="10dp"
-                            android:src="@drawable/profile1" />
+                            android:src="@drawable/profile" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -181,13 +150,6 @@
                         android:layout_weight="1"
                         android:orientation="vertical">
 
-                        <!--                                <ImageView-->
-
-                        <!--                                    android:layout_width="120dp"-->
-                        <!--                                    android:layout_height="60dp"-->
-                        <!--                                    android:layout_gravity="center"-->
-                        <!--                                    android:padding="10dp"-->
-                        <!--                                    android:src="@drawable/petrolbank" />-->
 
                         <TextView
                             android:id="@+id/userProfile_G"

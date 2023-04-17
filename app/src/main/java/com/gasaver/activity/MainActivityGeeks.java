@@ -46,7 +46,9 @@ public class MainActivityGeeks extends AppCompatActivity {
                     case R.id.home:
                         return true;
                     case R.id.about:
-                        startActivity(new Intent(getApplicationContext(),AboutGeeksActivity.class));
+//                        startActivity(new Intent(getApplicationContext(),AboutGeeksActivity.class));
+                        startActivity(new Intent(getApplicationContext(),MainActivityGas.class));
+
                         overridePendingTransition(0,0);
                         return true;
                 }

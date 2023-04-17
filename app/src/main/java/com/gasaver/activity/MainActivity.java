@@ -15,7 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gasaver.R;
-import com.gasaver.fragment.FragmentHome;
+import com.gasaver.fragment.HomeFragmentGasaver;
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -107,7 +107,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //initializing the fragment object which is selected
         switch (itemId) {
             case R.id.nav_menu1:
-                fragment = new FragmentHome();
+                fragment = new HomeFragmentGasaver();
+//                fragment = new FragmentHome();
 //                fragment = new ProfileFragment();
 
 //                toolbar.setTitle("Home");

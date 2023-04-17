@@ -35,7 +35,7 @@ public class HomeTaksikuActivity extends BaseActivity implements OnMapReadyCallb
 
 //        setTitleHome(R.id.toolbar, R.id.iv_title, R.drawable.ic_burger, R.drawable.logo_actbar);
 //        setTitleHome(R.id.toolbar_taksiku, R.id.iv_title, R.drawable.ic_burger, R.drawable.gas_saver_logo_rectangular_empty);
-        setTitleHome(R.id.toolbar_taksiku, R.id.iv_title, R.drawable.ic_burger, R.drawable.gas_saver_logo_rectangular_empty);
+        setTitleHome(R.id.toolbar_taksiku, R.id.iv_title, R.drawable.ic_burger, R.drawable.gas_saver_logo_rectangular_min);
 
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -57,7 +57,8 @@ public class HomeTaksikuActivity extends BaseActivity implements OnMapReadyCallb
             public void onClick(View view) {
 //                startActivity(new Intent(Home.this, SelectDriver.class));
 //                startActivity(new Intent(HomeTaksikuActivity.this, SelectDriverTaksikuActivity.class));
-                startActivity(new Intent(HomeTaksikuActivity.this, OrderTaksikuActivity.class));
+//                startActivity(new Intent(HomeTaksikuActivity.this, OrderTaksikuActivity.class));
+                startActivity(new Intent(HomeTaksikuActivity.this, MainActivityGas.class));
 
             }
         });

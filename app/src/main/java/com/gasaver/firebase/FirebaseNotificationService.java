@@ -47,7 +47,10 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
                 notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
         Uri defaultSoundUri = getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.tproperty_icon)
+
+                //15-04-2023:---
+
+//                .setSmallIcon(R.drawable.tproperty_icon)
                 .setContentTitle("T Property")
                 .setContentText(messageBody)
                 .setAutoCancel(true)

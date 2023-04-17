@@ -46,20 +46,6 @@
 
 
 
-    <!--    android:textColor="@color/colorPrimary"-->
-    <!--    <TextView-->
-    <!--        android:id="@+id/login_Text2"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="70dp"-->
-    <!--        android:layout_margin="5dp"-->
-    <!--        android:layout_marginTop="10dp"-->
-    <!--        android:gravity="center"-->
-    <!--        android:src="@drawable/gas_saver_logo_rectangular_empty"-->
-    <!--        android:textAlignment="center"-->
-    <!--        android:textColor="@android:color/holo_purple"-->
-    <!--        android:textSize="30dp"-->
-    <!--        android:textStyle="bold" />-->
-
 
     <LinearLayout
         android:id="@+id/card_view1"
@@ -70,45 +56,6 @@
         card_view:cardCornerRadius="5dp">
 
 
-        <!--            <LinearLayout-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="110dp"-->
-        <!--                android:background="@color/black"-->
-        <!--                android:gravity="center"-->
-        <!--                android:orientation="vertical">-->
-
-
-        <!--                &lt;!&ndash;                <TextView&ndash;&gt;-->
-        <!--                &lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
-        <!--                &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-        <!--                &lt;!&ndash;                    android:layout_margin="5dp"&ndash;&gt;-->
-        <!--                &lt;!&ndash;                    android:text="LOGIN"&ndash;&gt;-->
-        <!--                &lt;!&ndash;                    android:textAlignment="center"&ndash;&gt;-->
-        <!--                &lt;!&ndash;                    android:textColor="@color/text_color"&ndash;&gt;-->
-        <!--                &lt;!&ndash;                android:background="@color/register_back"&ndash;&gt;-->
-        <!--                &lt;!&ndash;                    android:textSize="22dp" />&ndash;&gt;-->
-        <!--            </LinearLayout>-->
-
-
-        <!--            <RelativeLayout-->
-        <!--                android:layout_width="254dp"-->
-        <!--                android:layout_height="42dp"-->
-        <!--                android:layout_marginTop="10dp">-->
-
-        <!--                <EditText-->
-        <!--                    android:id="@+id/edit_text_1"-->
-        <!--                    android:layout_width="245dp"-->
-        <!--                    android:layout_height="37dp"-->
-        <!--                    android:layout_marginStart="5dp"-->
-        <!--                    android:layout_marginTop="5dp"-->
-        <!--                    android:layout_marginEnd="5dp"-->
-        <!--                    android:layout_marginBottom="5dp"-->
-        <!--                    android:background="@drawable/buttonshape1"-->
-        <!--                    android:drawableLeft="@mipmap/pi_mail_id_box_app_icons_01"-->
-        <!--                    android:hint="Enter Email Id" />-->
-
-
-        <!--            </RelativeLayout>-->
 
 
         <LinearLayout
@@ -124,7 +71,7 @@
                 android:layout_margin="5dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:src="@drawable/gas_saver_logo_rectangular_empty"
+                android:src="@drawable/gas_saver_logo_rectangular_min"
                 android:text="Login"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_purple"
@@ -132,8 +79,7 @@
                 android:textStyle="bold" />
 
 
-            <!--            android:drawableLeft="@mipmap/mail"-->
-            <!--            android:id="@+id/email_phone"-->
+
 
 
             <EditText
@@ -155,60 +101,13 @@
                 android:textSize="16dp"
                 android:textStyle="bold" />
 
-            <!--            <EditText-->
-            <!--                android:id="@+id/password"-->
-            <!--                android:layout_width="250dp"-->
-            <!--                android:layout_height="50dp"-->
-            <!--                android:layout_below="@+id/image"-->
-            <!--                android:layout_marginTop="15dp"-->
-            <!--                android:background="@drawable/buttonshape_purpule_blue"-->
-            <!--                android:drawableRight="@mipmap/view"-->
-            <!--                android:drawablePadding="8dp"-->
-            <!--                android:hint="Enter Pasword"-->
-            <!--                android:inputType="textPassword"-->
-            <!--                android:maxLines="1"-->
-            <!--                android:padding="15dp"-->
-            <!--                android:textColor="@color/black"                android:textSize="16dp"-->
-            <!--                android:textStyle="bold" />-->
+
 
 
             <RelativeLayout
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp">
-
-                <!--                android.support.design.widget.TextInputLayout-->
-                <!--                <com.google.android.material.textfield.TextInputLayout-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content">-->
-
-                <!--                    &lt;!&ndash;                    android:id="@+id/password_et"&ndash;&gt;-->
-                <!--                    <EditText-->
-                <!--                        android:id="@+id/password"-->
-                <!--                        android:layout_width="match_parent"-->
-                <!--                        android:layout_height="wrap_content"-->
-                <!--                        android:background="@drawable/buttonshape_purpule_blue"-->
-                <!--                        android:hint="Password"-->
-                <!--                        android:inputType="textPassword" />-->
-
-                <!--                </com.google.android.material.textfield.TextInputLayout>-->
-
-                <!--                <TextView-->
-                <!--                    android:id="@+id/show_psd_tv"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_alignParentRight="true"-->
-                <!--                    android:layout_centerVertical="true"-->
-                <!--                    android:text="Show" />-->
-
-                <!--                <ImageView-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:id="@+id/show_psd_tv"-->
-                <!--                    android:text="Show"-->
-                <!--                    android:src="@drawable/login_show"-->
-                <!--                    android:layout_centerVertical="true"-->
-                <!--                    android:layout_alignParentRight="true"/>-->
 
 
             </RelativeLayout>
@@ -240,106 +139,6 @@
             </LinearLayout>
 
 
-            <!--            <TextView-->
-            <!--                android:id="@+id/forget_TextView"-->
-            <!--                android:layout_width="243dp"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_gravity="center_horizontal"-->
-            <!--                android:layout_marginStart="8dp"-->
-            <!--                android:layout_marginTop="8dp"-->
-            <!--                android:layout_marginEnd="8dp"-->
-            <!--                android:layout_marginBottom="8dp"-->
-            <!--                android:text=""-->
-            <!--                android:textColor="@android:color/black"-->
-            <!--                android:textSize="12sp"-->
-            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--                app:layout_constraintEnd_toEndOf="parent"-->
-            <!--                app:layout_constraintHorizontal_bias="0.086"-->
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                app:layout_constraintTop_toTopOf="parent"-->
-            <!--                app:layout_constraintVertical_bias="0.029" />-->
-
-            <!--            <Button-->
-            <!--                android:id="@+id/signupAccount"-->
-            <!--                android:layout_width="fill_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:background="@color/white"-->
-            <!--                android:backgroundTint="@color/white"-->
-            <!--                android:text="Sign Up" />-->
-
-
-            <!--                <EditText-->
-            <!--                    android:id="@+id/username"-->
-            <!--                    android:layout_width="250dp"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_margin="5dp"-->
-            <!--                    android:background="@drawable/buttonshape1"-->
-            <!--                    android:hint="Enter Email ID"-->
-            <!--                    android:textColor="@color/input_color"-->
-            <!--                    android:inputType="textEmailAddress"-->
-            <!--                    android:maxLines="1"-->
-            <!--                    android:padding="12dp"-->
-            <!--                    android:textColorHint="@color/hint_color" />-->
-
-            <!--                <EditText-->
-            <!--                    android:id="@+id/password"-->
-            <!--                    android:layout_width="250dp"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_margin="5dp"-->
-            <!--                    android:background="@drawable/buttonshape1"-->
-            <!--                    android:hint="Enter Password"-->
-            <!--                    android:textColor="@color/input_color"-->
-            <!--                    android:inputType="textPassword"-->
-            <!--                    android:maxLines="1"-->
-            <!--                    android:padding="12dp"-->
-            <!--                    android:textColorHint="@color/hint_color" />-->
-
-            <!--<CheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="Remember me"
-                android:background="@drawable/button_login"
-                android:textColor="@color/colorAccent" />-->
-
-            <!--                <Button-->
-            <!--                    android:id="@+id/loginButton"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_margin="5dp"-->
-            <!--                    android:background="@color/blue"-->
-            <!--                    android:backgroundTint="@color/blue"-->
-            <!--                    android:layout_below="@id/password"-->
-            <!--                    android:padding="2dp"-->
-            <!--                    android:text="SIGN IN"-->
-            <!--                    android:layout_marginTop="20dp"-->
-            <!--                    android:textColor="@color/text_color"-->
-            <!--                    android:textSize="14dp" />-->
-
-            <!--                <ImageView-->
-            <!--                    android:id="@+id/loginButton"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_below="@id/password"-->
-            <!--                    android:layout_centerHorizontal="true"-->
-            <!--                    android:layout_marginTop="20dp"-->
-            <!--                    android:drawableLeft="@drawable/login_btn"-->
-            <!--                    android:padding="5dp"-->
-            <!--                    android:textColor="@color/white" />-->
-
-
-            <!--            <ImageView-->
-            <!--                android:id="@+id/fuil_Image"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="70dp"-->
-            <!--                android:layout_marginLeft="40dp"-->
-            <!--                android:layout_marginTop="20dp"-->
-            <!--                android:layout_marginRight="40dp"-->
-            <!--                android:inputType="phone"-->
-            <!--                android:padding="15dp"-->
-            <!--                android:src="@drawable/login_btn"-->
-            <!--                android:textSize="16sp" />-->
 
             <TextView
                 android:id="@+id/login_Text2"
@@ -348,7 +147,7 @@
                 android:layout_margin="5dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:src="@drawable/gas_saver_logo_rectangular_empty"
+                android:src="@drawable/gas_saver_logo_rectangular_min"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_purple"
                 android:textSize="30dp"
