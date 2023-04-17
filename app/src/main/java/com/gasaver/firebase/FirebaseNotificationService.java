@@ -24,13 +24,11 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        //Displaying data in log
-        //It is optional
+
         Log.d(TAG, "FromResult: " + new Gson().toJson(remoteMessage));
         Log.d(TAG, "FromResult: " + remoteMessage.getFrom());
         Log.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
         Log.d(TAG, "Notification click: " + remoteMessage.getNotification().getClickAction());
-//        String click_action=remoteMessage.getNotification().getClickAction();
 
         //Calling method to generate notification
         sendNotification(remoteMessage.getNotification().getBody());

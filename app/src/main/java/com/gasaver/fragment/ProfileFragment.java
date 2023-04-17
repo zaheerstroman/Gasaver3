@@ -120,9 +120,6 @@ public class ProfileFragment extends BottomSheetDialogFragment implements View.O
                             .error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfileImg);
 
 
-//                    Glide.with(getActivity()).load(response.body().getBarCode())
-//                            .error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfileImg1);
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -131,7 +128,6 @@ public class ProfileFragment extends BottomSheetDialogFragment implements View.O
 
             @Override
             public void onFailure(Call<ProfileUserDataResponseGasaverT> call, Throwable t) {
-//            public void onFailure(Call<List<ProfileUserDataResponseGasaverT>> call, Throwable t) {
                 CommonUtils.hideLoading();
             }
         });
@@ -146,15 +142,12 @@ public class ProfileFragment extends BottomSheetDialogFragment implements View.O
 
                 Intent intent = new Intent(getActivity(), WebViewActivity.class);
                 intent.putExtra("Attachment", SharedPrefs.getInstance(getActivity()).getString(Constants.TC_base_path) + SharedPrefs.getInstance(getActivity()).getString(Constants.termsAndConditions));
-//                intent.putExtra("Term Conditions", SharedPrefs.getInstance(getActivity()).getString(Constants.TC_base_path) +SharedPrefs.getInstance(getActivity()).getString( Constants.termsAndConditions));
 
                 startActivity(intent);
                 break;
             case R.id.layout_privacy:
-//                intent = new Intent(getActivity(), WebViewActivity.class);
                 intent = new Intent(getActivity(), PrivacyPolicyActivity.class);
                 intent.putExtra("Attachment", SharedPrefs.getInstance(getActivity()).getString(Constants.TC_base_path) + SharedPrefs.getInstance(getActivity()).getString(Constants.privacyPolicy));
-//                intent.putExtra("Privacy Policy", SharedPrefs.getInstance(getActivity()).getString(Constants.TC_base_path) +SharedPrefs.getInstance(getActivity()).getString( Constants.privacyPolicy));
 
                 startActivity(intent);
                 break;
@@ -171,38 +164,29 @@ public class ProfileFragment extends BottomSheetDialogFragment implements View.O
                 break;
 
 
-//            case R.id.layout_savedSearches:
             case R.id.layout_feedback_savedSearches:
-//
-//                intent = new Intent(getActivity(), FeedBackActivity.class);
-//                intent.putExtra("SELECTED_POS", 5);
-//                startActivity(intent);
+
                 showFeedbackDilog();
                 break;
 
-//            case R.id.layout_shortListed:
             case R.id.layout_rateUs_shortListed:
                 intent = new Intent(getActivity(), RateUsActivity.class);
                 intent.putExtra("SELECTED_POS", 4);
                 startActivity(intent);
                 break;
 
-//            case R.id.layout_contaced:
             case R.id.layout_sharit_contaced:
                 intent = new Intent(getActivity(), ShareitActivity.class);
                 intent.putExtra("SELECTED_POS", 3);
                 startActivity(intent);
                 break;
 
-//            case R.id.layout_myRequirements:
             case R.id.layout_settings_myRequirements:
                 intent = new Intent(getActivity(), SettingsActivity.class);
-//                intent = new Intent(getActivity(), UploadActivity.class);
                 intent.putExtra("SELECTED_POS", 2);
                 startActivity(intent);
                 break;
 
-//            case R.id.layout_myProperties:
             case R.id.layout_myRewardsProperties:
                 intent = new Intent(getActivity(), RewardActivity.class);
 //                intent = new Intent(getActivity(), UploadActivity.class);
@@ -214,9 +198,6 @@ public class ProfileFragment extends BottomSheetDialogFragment implements View.O
                 if (responseProfile != null) {
                     intent = new Intent(getActivity(), EditProfileFragment.class);
 
-                    //
-
-                    //
                     intent.putExtra("reward_points", (responseProfile.getRewardPoints()));
                     intent.putExtra("bar_code", (responseProfile.getBarCode()));
                     intent.putExtra("basepath", (responseProfile.getBase_path()));
@@ -227,9 +208,7 @@ public class ProfileFragment extends BottomSheetDialogFragment implements View.O
 
             case R.id.ll_logout:
                 SharedPrefs.getInstance(getActivity()).clearSharedPrefs();
-//                Intent intent1 = new Intent(getActivity(), SplashActivityGas.class);
-//                Intent intent1 = new Intent(ProfileMainActivity.this, SplashActivity.class);
-//                Intent intent1 = new Intent(ProfileMainActivity.this, SplashActivityGas.class);
+
                 Intent intent1 = new Intent(getActivity(), SplashActivity.class);
                 intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent1);
@@ -278,18 +257,15 @@ public class ProfileFragment extends BottomSheetDialogFragment implements View.O
 
         jsonObject.addProperty("description", msg);
 
-//        Call<BaseResponseGasaverTProperty> call = apiInterface.postFeedback(jsonObject);
         Call<BaseResponse> call = apiInterface.feedback(jsonObject);
 
         call.enqueue(new Callback<BaseResponse>() {
             @Override
             public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
                 BaseResponse baseResponse = response.body();
-//                if (baseResponse != null && baseResponse.getStatus()) {
                 if (baseResponse != null && baseResponse.isStatus_code()) {
 
                     dialog.dismiss();
-//                    Toast.makeText(getActivity(), baseResponse.getMsg(), Toast.LENGTH_SHORT).show();
                     Toast.makeText(getActivity(), baseResponse.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }

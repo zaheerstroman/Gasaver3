@@ -182,6 +182,7 @@ public class HomeFragmentGasaver extends Fragment implements OnMapReadyCallback,
 
 
     private static final int REQUEST_LOCATION_PERMISSION = 1;
+
     //    Spinner spinner_budget;
     Spinner spinner_subcat;
 

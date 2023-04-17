@@ -31,18 +31,9 @@ import retrofit2.Response;
 
 public class GraphActivityGeeks extends AppCompatActivity implements View.OnClickListener{
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_graph_geeks);
-//    }
-
-    // creating a variable
-    // for our graph view.
 
     ViewPager mViewPager;
 
-    //ViewPagerAdapter mViewPagerAdapter;
     GraphViewPagerAdapter mViewPagerAdapter;
 
     ImageView iv_left_nav_viewpager, iv_right_nav_viewpager, iv_left_nav_proj, iv_right_nav_proj, iv_left_nav_prop, iv_right_nav_prop, iv_left_nav_agents, iv_right_nav_agents, iv_left_nav_dev, iv_right_nav_dev;

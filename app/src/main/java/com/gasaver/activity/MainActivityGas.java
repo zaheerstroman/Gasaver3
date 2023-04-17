@@ -45,39 +45,25 @@ public class MainActivityGas extends AppCompatActivity {
 
     Spinner spinner_caseText1, spinner_subcat, registertype_spinner;
 
-    //    Spinner spinner_budget;
-//    Spinner spinner_subcat;
 
     private String[] budgetArrayList = {"", "E10", "Diesel", "AdBlue", "Unleaded", "PremDSL", "U95", "TruckDSL", "E85", "U98", "U91", "P95", "P98", "PDL", "B20", "EV", "DL"};
 
-//    Button btn_submit;
 
 
-    //    private NavDrawerLayoutBinding navDrawerLayoutBinding;
     public NavDrawerLayoutBinding navDrawerLayoutGasBinding;
 
-    //    private ActivityMainBinding activityMaininding;
     public ActivityMainGasBinding activityMainGasBinding;
 
-    //    private ToolbarLayoutBinding toolbarLayoutBinding;
     public ToolbarLayoutBinding toolbarLayoutGasBinding;
 
 
-//    private FirebaseAuth firebaseAuth;
-//    private CircleImageView imgHeader;
-//    private TextView txtName, txtEmail;
-
     public FirebaseAuth firebaseAuth;
-//    public CircleImageView imgHeader;
-//    public TextView txtName, txtEmail;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        Transperent
-//        View.setBackgroundColor(0xFFFF0000);
-//        setBackgroundColor(0xFFFF0000);
 
 
         navDrawerLayoutGasBinding = NavDrawerLayoutBinding.inflate(getLayoutInflater());
@@ -86,9 +72,6 @@ public class MainActivityGas extends AppCompatActivity {
 
         spinner_caseText1 = (Spinner) findViewById(R.id.spinner_caseText1);
         spinner_subcat = (Spinner) findViewById(R.id.spinner_subcat);
-
-//        spinner_subcat = view.findViewById(R.id.spinner_subcat);
-//        spinner_subcat.setAdapter(new ArrayAdapter<>(getActivity(), R.layout.list_units, getResources().getStringArray(R.array.budgets)));
 
         spinner_subcat.setAdapter(new ArrayAdapter<>(getApplicationContext(), R.layout.list_units, getResources().getStringArray(R.array.budgets)));
 
@@ -99,11 +82,6 @@ public class MainActivityGas extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //show the activity in full screen
 
-//        try {
-//            throw new Exception("This is a test.");
-//        } catch (Exception e) {
-//            Sentry.captureException(e);
-//        }
 
 
 
@@ -112,13 +90,10 @@ public class MainActivityGas extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-//                startActivity(new Intent(MainActivityGas.this, HomeTaksikuActivity.class));
-//                startActivity(new Intent(MainActivityGas.this, FuelDistanceEmployeeListFragment.class));
 
                 Fragment navHostFragment = getSupportFragmentManager().getPrimaryNavigationFragment();
                 Fragment fragment = navHostFragment.getChildFragmentManager().getFragments().get(0);
 
-//                        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.btnHome);
                 if (fragment instanceof HomeFragmentGasaver)
                     ((HomeFragmentGasaver) fragment).showBottomSheet();
 
@@ -138,7 +113,6 @@ public class MainActivityGas extends AppCompatActivity {
         fab3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                startActivity(new Intent(MainActivityGas.this, RewardHomeTaksikuActivity.class));
                 startActivity(new Intent(MainActivityGas.this, RewardActivity.class));
 
             }
@@ -149,21 +123,11 @@ public class MainActivityGas extends AppCompatActivity {
         fab4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                startActivity(new Intent(MainActivityGas.this, UserProfileActivity.class));
                 startActivity(new Intent(MainActivityGas.this, SettingsActivity.class));
 
 
             }
         });
-
-
-//        FloatingActionButton fab5 = (FloatingActionButton) findViewById(R.id.btnSearchPlus);
-//        fab5.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(MainActivityGas.this, FuelDistanceEmployeeListFragment.class));
-//            }
-//        });
 
 
         // Initialize and assign variable
@@ -180,31 +144,21 @@ public class MainActivityGas extends AppCompatActivity {
                 switch (item.getItemId()) {
 
                     case R.id.home:
-                        //HOME
-                        //startActivity(new Intent(getApplicationContext(),DashBoardGeeksActivity.class));
-                        //                        overridePendingTransition(0,0);
+
                         break;
 
                     case R.id.dashboard:
                         Fragment navHostFragment = getSupportFragmentManager().getPrimaryNavigationFragment();
                         Fragment fragment = navHostFragment.getChildFragmentManager().getFragments().get(0);
 
-//                        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.btnHome);
                         if (fragment instanceof HomeFragmentGasaver)
                             ((HomeFragmentGasaver) fragment).showBottomSheet();
-                        //SEARCH
-//                        startActivity(new Intent(getApplicationContext(),DashBoardGeeksActivity.class));
-//                        startActivity(new Intent(getApplicationContext(), HomeTaksikuActivity.class));
 
-//                        overridePendingTransition(0, 0);
                         return true;
-//                    case R.id.home:
-//                        return true;
 
 
                     case R.id.nav_search:
 
-//                        Intent intent = new Intent(MainActivityGas.this, AdvancedBannerSlidSearchActivity.class);
                         Intent intent = new Intent(getApplicationContext(), AdvancedBannerSlidSearchActivity.class);
                         startActivity(intent);
                         return true;
@@ -212,9 +166,6 @@ public class MainActivityGas extends AppCompatActivity {
 
                     case R.id.about:
 
-                        //LOVE
-//                        startActivity(new Intent(getApplicationContext(), AboutGeeksActivity.class));
-//                        Intent intent = new Intent(getApplicationContext(), WishListActivity.class);
                          intent = new Intent(getApplicationContext(), WishListActivity.class);
 
                         navHostFragment = getSupportFragmentManager().getPrimaryNavigationFragment();
@@ -223,8 +174,6 @@ public class MainActivityGas extends AppCompatActivity {
                             intent.putExtra("data", new Gson().toJson(((HomeFragmentGasaver) fragment).stationDataList));
                             startActivity(intent);
                         }
-
-//                        startActivity(new Intent(getApplicationContext(), DataRecoveryPikmenActivity.class));
 
                         overridePendingTransition(0, 0);
                         return true;
@@ -236,11 +185,6 @@ public class MainActivityGas extends AppCompatActivity {
                         addPhotoBottomDialogFragment.show(getSupportFragmentManager(), "");
 
 
-                        //PROFILE
-//                        startActivity(new Intent(getApplicationContext(), AboutGeeksActivity.class));
-//                        startActivity(new Intent(getApplicationContext(), ProfileMainActivity.class));
-//                        startActivity(new Intent(getApplicationContext(), DataRecoveryPikmenActivity.class));
-//                        overridePendingTransition(0, 0);
                         return true;
 
                 }
@@ -255,7 +199,6 @@ public class MainActivityGas extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.fragmentContainer);
         NavigationUI.setupWithNavController(
 
-//                navDrawerLayoutBinding.navigationView,
                 navDrawerLayoutGasBinding.navigationView,
                 navController
         );

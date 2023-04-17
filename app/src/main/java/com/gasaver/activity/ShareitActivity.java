@@ -31,7 +31,6 @@ public class ShareitActivity extends AppCompatActivity {
         rate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Uri uri = Uri.parse("market://details?id=org.halalscan.jss");
                 Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=com.pineconesoft.petrolspy&pli=1");
 
 
@@ -53,7 +52,6 @@ public class ShareitActivity extends AppCompatActivity {
                     i.putExtra(Intent.EXTRA_SUBJECT, "My application name");
                     String sAux = "\nJust clicked & install this application:\n\n";
 //
-//                    sAux = sAux + "https://play.google.com/store/apps/details?id=org.halalscan.jss\n\n";
                     sAux = sAux + " https://play.google.com/store/apps/details?id=com.pineconesoft.petrolspy&pli=1\n\n";
                     i.putExtra(Intent.EXTRA_TEXT, sAux);
                     startActivity(Intent.createChooser(i, "Choose One"));

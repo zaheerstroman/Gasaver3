@@ -27,18 +27,14 @@ public class GraphViewPagerAdapter extends PagerAdapter {
 
     Context context;
 
-    //    ArrayList<BannersResponse.AddsDetail> banners;
     GraphReportsResponse banners;
 
-    //    ArrayList<BannersResponse.AddsDetail> images;
     GraphReportsResponse images;
 
-    // Layout Inflater
     LayoutInflater mLayoutInflater;
     boolean fromPropertyDetails = false;
 
 
-    //    public GraphViewPagerAdapter(Context context, ArrayList<BannersResponse.AddsDetail> images) {
     public GraphViewPagerAdapter(Context context, GraphReportsResponse images) {
         this.context = context;
         this.banners = images;
@@ -49,7 +45,6 @@ public class GraphViewPagerAdapter extends PagerAdapter {
 
     }
 
-    //    public GraphViewPagerAdapter(Context context, ArrayList<BannersResponse.AddsDetail> images, boolean fromPropertyDetails) {
     public GraphViewPagerAdapter(Context context, GraphReportsResponse images, boolean fromPropertyDetails) {
         this.context = context;
 //        this.images = images;
@@ -66,15 +61,7 @@ public class GraphViewPagerAdapter extends PagerAdapter {
     }
 
 
-//    @Override
-//    public int getCount() {
-//            if (fromPropertyDetails)
-//                return images.size();
-//            // return the number of images
-//            return banners.size();
-////        return 0;
-////                return 0;
-//    }
+
 
     @Override
     public int getItemPosition(@NonNull Object object) {
@@ -104,19 +91,7 @@ public class GraphViewPagerAdapter extends PagerAdapter {
 
         // setting the image in the imageView
         if (fromPropertyDetails)
-//            Glide.with(context).load(Constants.PROPERTY_IMAGE_URL + images.get(position)).into(imageView);
-//            Glide.with(context).load(Constants.BANNER_IMAGE_URL + images.get(position)).into(imageView);
-//            Glide.with(context).load(Constants.BANNER_IMAGE_URL + images.get(position)).into(imageView);
 
-//        Glide.with(GraphActivityGeeks.this).load(response.body().getBarCode())
-//                .error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfileImg1);
-
-            //ProfileFragment
-//        Glide.with(getActivity()).load(response.body().getBase_path() + response.body().getData().getProfilePhoto())
-////                .error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfileImg);
-//        else
-//            Glide.with(context).load(Constants.BANNER_IMAGE_URL + banners.get(position).getAttachment()).into(imageView);
-////            Glide.with(context).load(Constants.BANNER_IMAGE_URL + banners.get(position).getBasePath()).into(imageView);
 
             // Adding the View
             Objects.requireNonNull(container).addView(itemView);
@@ -125,13 +100,7 @@ public class GraphViewPagerAdapter extends PagerAdapter {
             @Override
             public void onClick(View v) {
                 try {
-//                    if (fromPropertyDetails)
-////                        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.PROPERTY_IMAGE_URL + images.get(position))));
-//                        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.BANNER_IMAGE_URL + images.get(position))));
 
-//                    else
-//                        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(banners.get(position).getUrl())));
-//                        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(banners.get(position).getBasePath())));
 
                 } catch (Exception e) {
                     e.printStackTrace();

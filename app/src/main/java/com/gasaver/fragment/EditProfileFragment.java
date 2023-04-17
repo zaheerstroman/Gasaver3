@@ -56,25 +56,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-//public class EditProfileFragment extends AppCompatActivity {
 public class EditProfileFragment extends AppCompatActivity {
-
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-////        setContentView(R.layout.activity_edit_profile_fragment2);
-//        setContentView(R.layout.activity_edit_profile_fragment);
-//
-//    }
 
     EditText et_email, et_first_name;
     ImageView iv_close;
     ShapeableImageView iv_profile;
     Button btn_save;
 
-    //    ProfileDetailsResponse.ProfileDetails profileDetails;
-//    ProfileDetailsResponseGasaverT.Data profileDetailsT;
-//    ProfileDetailsResponseGasaverT.Data data;
     ProfileUserDataResponseGasaverT.Data data;
 
 
@@ -141,7 +129,6 @@ public class EditProfileFragment extends AppCompatActivity {
 
             Glide.with(EditProfileFragment.this).load(getIntent().getStringExtra("basepath") + data.getProfilePhoto()).error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfile);
 
-//        et_mobile.setText(profileDetailsT.getMobile());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -224,18 +211,11 @@ public class EditProfileFragment extends AppCompatActivity {
 
     private boolean isAllFieldsValidated() {
 
-//        if (TextUtils.isEmpty(selectedPath.trim())){
-//            Toast.makeText(EditProfileFragment.this, "Please select Profile Image", Toast.LENGTH_SHORT).show();
-//            return false;
-//        }
         if (TextUtils.isEmpty(et_first_name.getText().toString().trim())) {
             et_first_name.setError("Required");
             return false;
         }
-//        if (TextUtils.isEmpty(et_mobile.getText().toString().trim()) || et_mobile.getText().toString().length() != 10 || !Patterns.PHONE.matcher(et_mobile.getText().toString()).matches()) {
-//            et_mobile.setError("Not Valid");
-//            return false;
-//        }
+
         if (TextUtils.isEmpty(et_email.getText().toString().trim()) || !Patterns.EMAIL_ADDRESS.matcher(et_email.getText().toString()).matches()) {
             et_email.setError("Not Valid");
             return false;
@@ -246,13 +226,9 @@ public class EditProfileFragment extends AppCompatActivity {
 
     public void updateDetails(ProfileUserDataResponseGasaverT.Data dat) {
         this.data = dat;
-//        et_email.setText(data.getEmail());
         et_email.setText((CharSequence) data.getEmail());
-//        et_first_name.setText(data.getName());
         et_first_name.setText((CharSequence) data.getName());
-//        et_last_name.setText(data.getLastName());
 
-//        Glide.with(EditProfileFragment.this).load(Constants.PROFILE_IMG_URL + profiledetails.getAttachment()).error(R.drawable.profile_img).error(R.drawable.profile_img).into(iv_profile);
         Glide.with(EditProfileFragment.this).load(getIntent().getStringExtra("basepath") + data.getProfilePhoto()).error(R.drawable.profile_img).error(R.drawable.profile_img).into(iv_profile);
 
     }
@@ -272,11 +248,6 @@ public class EditProfileFragment extends AppCompatActivity {
                     values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera");
                     File photo = new File(Environment.getExternalStorageDirectory(), System.currentTimeMillis() + ".jpg");
                     imageUri = EditProfileFragment.this.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-
-//                    imageUri = FileProvider.getUriForFile(
-//                            EditProfileFragment.this,
-//                            BuildConfig.APPLICATION_ID + ".provider", //(use your app signature + ".provider" )
-//                            photo);
 
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
                     startActivityForResult(intent, REQUEST_TAKE_PHOTO);
@@ -345,11 +316,6 @@ public class EditProfileFragment extends AppCompatActivity {
                 values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera");
                 File photo = new File(Environment.getExternalStorageDirectory(), System.currentTimeMillis() + ".jpg");
                 imageUri = EditProfileFragment.this.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-
-//                imageUri = FileProvider.getUriForFile(
-//                        EditProfileFragment.this,
-//                        BuildConfig.APPLICATION_ID + ".provider", //(use your app signature + ".provider" )
-//                        photo);
 
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
                 startActivityForResult(intent, REQUEST_TAKE_PHOTO);
@@ -441,9 +407,7 @@ public class EditProfileFragment extends AppCompatActivity {
                     if (data.getState().equals(locationTable.getName()))
                         selPos = states.indexOf(locationTable) + 1;
                 }
-//                binding.spinnerState.
-//                        setAdapter(new ArrayAdapter<>(EditProfileFragment.this, R.layout.list_units, stateNames));
-//                binding.spinnerState.setSelection(selPos);
+
                 CommonUtils.hideLoading();
             }
 

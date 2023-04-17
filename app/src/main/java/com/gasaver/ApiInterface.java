@@ -10,23 +10,12 @@ public interface ApiInterface {
     Single<Result> getDirection(@Query("mode") String mode,
                                 @Query("transit_routing_preference") String preference,
                                 @Query("origin") String origin,
-                                //Own
-                                //@Query("origion") String origion,
                                 @Query("destination") String destination,
-                                //@Query("dest") String dest,
                                 @Query("key") String key
 
 
     );
 
-//    @GET("maps/api/directions/json")
-//    Call<Result> getDirection(@Query("mode") String mode,
-//                              @Query("transit routing preference") String preference,
-//                              @Query("origin") String origin,
-//                              @Query("destination") String destination,
-//                              @Query("key") String key
-//
-//
-//                              );
+
 
 }

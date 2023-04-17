@@ -43,15 +43,13 @@ public class UserSignInActivity extends AppCompatActivity implements TextWatcher
 
     EditText et_email, et_mobile, et_name;
     ImageView iv_back, btn_continue;
-    //    Button btn_continue;
-//    ImageView iv_back;
+
     TextView tv_terms_cond;
     LinearLayout ll_terms;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_user_sign_in);
         setContentView(R.layout.activity_login_gstp);
 
 
@@ -61,28 +59,8 @@ public class UserSignInActivity extends AppCompatActivity implements TextWatcher
 
     private void init() {
 
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayShowTitleEnabled(true);
-//
-////        getSupportActionBar().setTitle("ViewAttachment");
-////        getSupportActionBar().setTitle("Terms & Conditions");
-//        getSupportActionBar().setTitle("SignIn");
-//
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //do something you want
-//                finish();
-//            }
-//        });
-
         ll_terms = findViewById(R.id.ll_terms);
         tv_terms_cond = findViewById(R.id.tv_terms_cond);
-
-//        et_email = findViewById(R.id.et_email);
-//        et_name = findViewById(R.id.et_name);
 
         et_mobile = findViewById(R.id.et_mobile);
 
@@ -142,15 +120,7 @@ public class UserSignInActivity extends AppCompatActivity implements TextWatcher
     }
 
     private boolean isAllFieldsValidated() {
-//        if (TextUtils.isEmpty(et_name.getText().toString().trim())) {
-//            et_name.setError("Not Valid");
-//            return false;
-//        }
 
-//        if (TextUtils.isEmpty(et_mobile.getText().toString().trim()) || et_mobile.getText().toString().length() != 10 || !Patterns.PHONE.matcher(et_mobile.getText().toString()).matches()) {
-//            et_mobile.setError("Not Valid");
-//            return false;
-//        }
 
         if (TextUtils.isEmpty(et_mobile.getText().toString().trim()) || et_mobile.getText().toString().length() != 10 || !Patterns.PHONE.matcher(et_mobile.getText().toString()).matches()) {
             if (!Patterns.EMAIL_ADDRESS.matcher(et_mobile.getText().toString()).matches()) {
@@ -161,20 +131,8 @@ public class UserSignInActivity extends AppCompatActivity implements TextWatcher
         }
 
 
-        ////to
-
-//                et_mobile.setError("Not Valid");
-//                return false;
-//            }
-//        }
 
 
-//        if (!TextUtils.isEmpty(et_email.getText().toString().trim())) {
-//            if (!Patterns.EMAIL_ADDRESS.matcher(et_email.getText().toString()).matches()) {
-//                et_email.setError("Not Valid");
-//                return false;
-//            }
-//        }
 
         return true;
     }
@@ -245,15 +203,6 @@ public class UserSignInActivity extends AppCompatActivity implements TextWatcher
                 });
     }
 
-//    private void enableButtonIfReady() {
-//        if (!TextUtils.isEmpty(et_name.getText().toString().trim()) && !TextUtils.isEmpty(et_mobile.getText().toString().trim())) {
-//            btn_continue.setVisibility(View.VISIBLE);
-//            ll_terms.setVisibility(View.VISIBLE);
-//        } else {
-//            btn_continue.setVisibility(View.GONE);
-//            ll_terms.setVisibility(View.GONE);
-//        }
-//    }
 
     private void enableButtonIfReady() {
         if (!TextUtils.isEmpty(et_mobile.getText().toString().trim())) {

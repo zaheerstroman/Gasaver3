@@ -36,11 +36,8 @@ public class UserPreference {
         editor = pref.edit();
     }
 
-    //public void setCategoryItem
 
-    //    public void setcategoryItem(List<Item> productsInCartList) {
     public void setcategoryItem(List<StationData_0.Data.Prices> productsInCartList) {
-//    public void setcategoryItem(List<StationData_0.Data> productsInCartList) {
 
         SharedPreferences.Editor editor;
         editor = pref.edit();
@@ -54,13 +51,9 @@ public class UserPreference {
         editor.commit();
     }
 
-    //    public List<Item> getcategoryItem() {
-//    public List<StationData_0.Data> getcategoryItem() {
+
     public List<StationData_0.Data.Prices> getcategoryItem() {
 
-
-//        List<Item> servicesList = null;
-//        List<StationData_0.Data> servicesList = null;
         List<StationData_0.Data.Prices> servicesList = null;
 
 
@@ -68,18 +61,11 @@ public class UserPreference {
             if (pref.contains(categoryItem)) {
                 String jsonFavorites = pref.getString(categoryItem, null);
                 Gson gson = new Gson();
-//                Item[] favoriteItems = gson.fromJson(jsonFavorites,
-//                        Item[].class);
-
-//                StationData_0.Data[] favoriteItems = gson.fromJson(jsonFavorites,
-//                        StationData_0.Data[].class);
-
 
                 StationData_0.Data.Prices[] favoriteItems = gson.fromJson(jsonFavorites,
                         StationData_0.Data.Prices[].class);
 
                 servicesList = Arrays.asList(favoriteItems);
-//               servicesList = new ArrayList<>(servicesList);
             } else {
                 servicesList = new ArrayList<>();
             }
@@ -89,7 +75,7 @@ public class UserPreference {
         return servicesList;
     }
 
-    //    public void setvegcategoryItem(List<Restaurent> productsInCartList) {
+
     public void setvegcategoryItem(List<StationData_0.Data> productsInCartList) {
 
         SharedPreferences.Editor editor;
@@ -98,31 +84,25 @@ public class UserPreference {
         gsonBuilder.setLongSerializationPolicy(LongSerializationPolicy.STRING);
         Gson gson = gsonBuilder.create();
         String adjn = gson.toJson(productsInCartList);
-//        Gson gson = new Gson();
-//        String cartList = gson.toJson(productsInCartList);
+
         editor.putString(categoryItem, adjn);
         editor.apply();
         editor.commit();
     }
 
-    //    public List<Restaurent> getvegcategoryItem() {
     public List<StationData_0.Data> getvegcategoryItem() {
 
-//        List<Restaurent> servicesList = null;
         List<StationData_0.Data> servicesList = null;
 
         try {
             if (pref.contains(categoryItem)) {
                 String jsonFavorites = pref.getString(categoryItem, null);
                 Gson gson = new Gson();
-//                Restaurent[] favoriteItems = gson.fromJson(jsonFavorites,
-//                        Restaurent[].class);
 
                 StationData_0.Data[] favoriteItems = gson.fromJson(jsonFavorites,
                         StationData_0.Data[].class);
 
                 servicesList = Arrays.asList(favoriteItems);
-//               servicesList = new ArrayList<>(servicesList);
             } else {
                 servicesList = new ArrayList<>();
             }
@@ -131,13 +111,6 @@ public class UserPreference {
         }
         return servicesList;
     }
-
-
-//    public void setcategoryItem(List<Item> items) {
-//
-//    }
-
-//    public void setcardlistItem(List<Item> productsInCartList) {
 
     public void setcardlistItem(List<StationData_0.Data.Prices> productsInCartList) {
 
@@ -153,23 +126,19 @@ public class UserPreference {
         editor.commit();
     }
 
-    //    public List<Item> getcardlistItem() {
     public List<StationData_0.Data.Prices> getcardlistItem() {
 
-//        List<Item> servicesList = null;
         List<StationData_0.Data.Prices> servicesList = null;
 
         try {
             if (pref.contains(categoryItem)) {
                 String jsonFavorites = pref.getString(categoryItem, null);
                 Gson gson = new Gson();
-//                Item[] favoriteItems = gson.fromJson(jsonFavorites,
-//                        Item[].class);
+
                 StationData_0.Data.Prices[] favoriteItems = gson.fromJson(jsonFavorites,
                         StationData_0.Data.Prices[].class);
 
                 servicesList = Arrays.asList(favoriteItems);
-//               servicesList = new ArrayList<>(servicesList);
             } else {
                 servicesList = new ArrayList<>();
             }

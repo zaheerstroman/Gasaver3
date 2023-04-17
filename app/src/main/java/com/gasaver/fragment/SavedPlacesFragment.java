@@ -35,12 +35,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-//import com.e.gasserviceapp.fragment.databinding.FragmentSavedPlacesBinding;
-
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
 public class SavedPlacesFragment extends Fragment implements SavedLocationInterface {
 
     private FragmentSavedPlacesBinding binding;
@@ -60,7 +54,6 @@ public class SavedPlacesFragment extends Fragment implements SavedLocationInterf
         firebaseAuth = FirebaseAuth.getInstance();
         savedPlaceModelArrayList = new ArrayList<>();
 
-//        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Saved Places");
         return binding.getRoot();
     }
 

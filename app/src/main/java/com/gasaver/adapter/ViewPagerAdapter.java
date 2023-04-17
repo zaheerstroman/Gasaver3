@@ -22,17 +22,11 @@ import java.util.Objects;
 
 public class ViewPagerAdapter extends PagerAdapter {
 
-    // Context object
     Context context;
 
-//    ArrayList<BannersResponse.Banner> banners;
     ArrayList<BannersResponse.AddsDetail> banners;
-//    ArrayList<BannersResponse> banners;
 
-
-    //    ArrayList<BannersResponse.AddsDetail> images;
     ArrayList<BannersResponse.AddsDetail> images;
-//    ArrayList<String> images;
 
 
     // Layout Inflater
@@ -40,40 +34,13 @@ public class ViewPagerAdapter extends PagerAdapter {
     boolean fromPropertyDetails = false;
 
 
-    // Viewpager Constructor
-//    public ViewPagerAdapter(Context context, ArrayList<BannersResponse.Banner> images) {
-//    public ViewPagerAdapter(Context context, ArrayList<BannersResponse.AddsDetail> images) {
-//    public ViewPagerAdapter(Context context, ArrayList<BannersResponse> images) {
-//    public ViewPagerAdapter(Context context, ArrayList<BannersResponse.AddsDetail> images) {
-//
-//
-//        this.context = context;
-//        this.banners = images;
-//        mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//    }
-
-    // Viewpager Constructor
-//    public ViewPagerAdapter(Context context, ArrayList<String> images, boolean fromPropertyDetails) {
-//        this.context = context;
-//        this.images = images;
-//        this.fromPropertyDetails = fromPropertyDetails;
-//        mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//    }
-
-    //    public ViewPagerAdapter(Context applicationContext, String addsDetails) {
-
-
     //TPROPERTY :- HomeFragment:----(Banner):-----------------------------------------------------
     public ViewPagerAdapter(Context context, ArrayList<BannersResponse.AddsDetail> images) {
-//    public ViewPagerAdapter(Context applicationContext, ArrayList<BannersResponse.AddsDetail> images) {
-//    public ViewPagerAdapter(Context applicationContext, ArrayList<BannersResponse.AddsDetail> addsDetails) {
-//    public ViewPagerAdapter(Context applicationContext, ArrayList<BannersResponse.AddsDetail> addsDetails) {
+
         this.context = context;
-//        this.context = applicationContext;
-//        this.images = images;
+
         this.banners = images;
-//        this.images = addsDetails;
-//        this.banners = addsDetails;
+
 
         this.fromPropertyDetails = fromPropertyDetails;
         mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -85,25 +52,13 @@ public class ViewPagerAdapter extends PagerAdapter {
     //TPROPERTY :- PropertyDetailsActivity:----(Banner):-------------
     // Viewpager Constructor
     public ViewPagerAdapter(Context context, ArrayList<BannersResponse.AddsDetail> images, boolean fromPropertyDetails) {
-//    public ViewPagerAdapter(Context context, ArrayList<String> images, boolean fromPropertyDetails) {
         this.context = context;
-//        this.images = images;
         this.images = images;
 
         this.fromPropertyDetails = fromPropertyDetails;
         mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-    //GraphActivityGeek
-//    public ViewPagerAdapter(Context applicationContext, String graphReport) {
-//        this.context = applicationContext;
-//        this.images = images;
-//
-//    }
-
-//    public ViewPagerAdapter(Context applicationContext, String graphReport) {
-//
-//    }
 
     @Override
     public int getCount() {
@@ -134,16 +89,11 @@ public class ViewPagerAdapter extends PagerAdapter {
 
         // setting the image in the imageView
         if (fromPropertyDetails)
-//            Glide.with(context).load(Constants.PROPERTY_IMAGE_URL + images.get(position)).into(imageView);
-//            Glide.with(context).load(Constants.BANNER_IMAGE_URL + images.get(position)).into(imageView);
+
             Glide.with(context).load(Constants.BANNER_IMAGE_URL + images.get(position)).into(imageView);
 
-            //ProfileFragment
-//        Glide.with(getActivity()).load(response.body().getBase_path() + response.body().getData().getProfilePhoto())
-//                .error(R.drawable.profile_img).error(R.drawable.profile_img).into(binding.ivProfileImg);
         else
             Glide.with(context).load(Constants.BANNER_IMAGE_URL + banners.get(position).getAttachment()).into(imageView);
-//            Glide.with(context).load(Constants.BANNER_IMAGE_URL + banners.get(position).getBasePath()).into(imageView);
 
         // Adding the View
         Objects.requireNonNull(container).addView(itemView);
@@ -155,10 +105,6 @@ public class ViewPagerAdapter extends PagerAdapter {
                     if (fromPropertyDetails)
 //                        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.PROPERTY_IMAGE_URL + images.get(position))));
                         context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.BANNER_IMAGE_URL + images.get(position))));
-
-//                    else
-//                        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(banners.get(position).getUrl())));
-//                        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(banners.get(position).getBasePath())));
 
                 }
                 catch (Exception e) {

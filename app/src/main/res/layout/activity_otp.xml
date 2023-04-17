@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activity.OtpActivity">
-    <!--    tools:context=".UserTypeActivity">-->
 
 
     <include
@@ -82,16 +81,6 @@
             app:pinLength="4"/>
 
 
-        <!--        <com.tproperty.customviews.Pinview-->
-        <!--            android:gravity="start"-->
-        <!--            android:layout_gravity="start"-->
-        <!--            android:focusable="true"-->
-        <!--            android:importantForAutofill="noExcludeDescendants"-->
-        <!--            android:id="@+id/tv_pin_otp"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="@dimen/_40sdp"-->
-        <!--            app:inputType="number"-->
-        <!--            app:pinLength="4"/>-->
 
     </LinearLayout>
 

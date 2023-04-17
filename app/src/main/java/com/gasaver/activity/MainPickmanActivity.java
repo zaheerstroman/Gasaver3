@@ -73,11 +73,7 @@ public class MainPickmanActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        setContentView(R.layout.activity_main_pickman);
-//        setContentView(R.layout.activity_data_recovery);
-//        setContentView(R.layout.activity_main_pickman_copy);
-//        setContentView(R.layout.activity_main_pickman_demo);
-//        setContentView(R.layout.activity_main_pickman_demo_old);
+
 
         binding = ActivityMainPickmanDemoOldBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -85,28 +81,7 @@ public class MainPickmanActivity extends AppCompatActivity implements View.OnCli
         binding.ivGal.setOnClickListener(this);
         binding.searchBtn.setOnClickListener(this);
 
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-////        setSupportActionBar(toolbar);
-//
-////        getSupportActionBar().setDisplayShowTitleEnabled(true);
-////        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-////        getSupportActionBar().setTitle("Pick Price");
-//
-//        //Stackover flow
-//        // enabling action bar app icon and behaving it as toggle button
-//        getActionBar().setDisplayHomeAsUpEnabled(true);
-//        getActionBar().setHomeButtonEnabled(true);
-//        getActionBar().setTitle("Pick Price");
-//
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //do something you want
-//                finish();
-//            }
-//        });
 
-        /* */
         getsubCategories();
 
     }
@@ -284,9 +259,7 @@ public class MainPickmanActivity extends AppCompatActivity implements View.OnCli
         }
         HashMap<Integer, ArrayList<String>> hashMap = new HashMap<>();
         int size = lines.size();
-//        for (int j = 0; j < size; j++) {
-//            hashMap.put(j, lines.get(j).getText());
-//        }
+
         for (int i = 0; i < lines.size(); i++) {
             for (int j = 0; j < size; j++) {
                 if (isAtRight(lines.get(j).getBoundingBox(), lines.get(i).getBoundingBox())) {

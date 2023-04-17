@@ -32,10 +32,8 @@ public class FeedBackActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_feed_back);
         setContentView(R.layout.feedback_dialog);
 
-//        showFeedbackDilog();
 
     }
 
@@ -76,7 +74,6 @@ public class FeedBackActivity extends AppCompatActivity {
         ApiInterface apiInterface = APIClient.getClient().create(ApiInterface.class);
         JsonObject jsonObject = new JsonObject();
 
-//        jsonObject.addProperty("post_type", "feedback");
 
         jsonObject.addProperty("name", SharedPrefs.getInstance(this).getString(Constants.USER_NAME));
         jsonObject.addProperty("email", SharedPrefs.getInstance(this).getString(Constants.USER_EMAIL));
@@ -89,18 +86,15 @@ public class FeedBackActivity extends AppCompatActivity {
 
         jsonObject.addProperty("message", msg);
 
-//        Call<BaseResponseGasaverTProperty> call = apiInterface.postFeedback(jsonObject);
         Call<BaseResponseGasaverTProperty> call = apiInterface.updateProfile(jsonObject);
 
         call.enqueue(new Callback<BaseResponseGasaverTProperty>() {
             @Override
             public void onResponse(Call<BaseResponseGasaverTProperty> call, Response<BaseResponseGasaverTProperty> response) {
                 BaseResponseGasaverTProperty baseResponse = response.body();
-//                if (baseResponse != null && baseResponse.getStatus()) {
                 if (baseResponse != null && baseResponse.getStatusCode()) {
 
                     dialog.dismiss();
-//                    Toast.makeText(FeedBackActivity.this, baseResponse.getMsg(), Toast.LENGTH_SHORT).show();
                     Toast.makeText(FeedBackActivity.this, baseResponse.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }

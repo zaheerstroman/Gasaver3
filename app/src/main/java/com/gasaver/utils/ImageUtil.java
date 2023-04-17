@@ -31,8 +31,6 @@ public class ImageUtil {
 
         BitmapFactory.Options options = new BitmapFactory.Options();
 
-        //by setting this field as true, the actual bitmap pixels are not loaded in the memory. Just the bounds are loaded. If
-        //you try the use the bitmap here, you will get null.
         options.inJustDecodeBounds = false;
         Bitmap bmp = BitmapFactory.decodeFile(filePath, options);
         if (bmp == null) {
@@ -61,7 +59,6 @@ public class ImageUtil {
         float imgRatio = (float) actualWidth / actualHeight;
         float maxRatio = maxWidth / maxHeight;
 
-        //width and height values are set maintaining the aspect ratio of the image
         if (actualHeight > maxHeight || actualWidth > maxWidth) {
             if (imgRatio < maxRatio) {
                 imgRatio = maxHeight / actualHeight;
@@ -77,19 +74,15 @@ public class ImageUtil {
             }
         }
 
-        //setting inSampleSize value allows to load a scaled down version of the original image
         options.inSampleSize = calculateInSampleSize(options, actualWidth, actualHeight);
 
-        //inJustDecodeBounds set to false to load the actual bitmap
         options.inJustDecodeBounds = false;
 
-        //this options allow android to claim the bitmap memory if it runs low on memory
         options.inPurgeable = true;
         options.inInputShareable = true;
         options.inTempStorage = new byte[16 * 1024];
 
         try {
-            //load the bitmap from its path
             bmp = BitmapFactory.decodeFile(filePath, options);
             if (bmp == null) {
 
@@ -123,7 +116,6 @@ public class ImageUtil {
         canvas.setMatrix(scaleMatrix);
         canvas.drawBitmap(bmp, 0, 0, new Paint(Paint.FILTER_BITMAP_FLAG));
 
-        //check the rotation of the image and display it properly
         ExifInterface exif;
         try {
             exif = new ExifInterface(filePath);
@@ -154,19 +146,8 @@ public class ImageUtil {
 
             out = new FileOutputStream(filename);
 
-            //write the compressed bitmap at the destination specified by filename.
             ImageUtil.getScaledBitmap(context, imageUri, maxWidth, maxHeight, bitmapConfig).compress(compressFormat, quality, out);
 
-//            String filePath = imageUri.getPath();
-//            Log.e("ImageUtil: ",""+filePath);
-//            Bitmap scaledBitmap = null;
-//
-//            BitmapFactory.Options options = new BitmapFactory.Options();
-//
-//            options.inJustDecodeBounds = false;
-//            Bitmap bmp = BitmapFactory.decodeFile(filePath, options);
-//
-//            bmp.compress(compressFormat, quality, out);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

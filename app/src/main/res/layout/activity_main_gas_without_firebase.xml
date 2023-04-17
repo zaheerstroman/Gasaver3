@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <!--    <include-->
-    <!--        android:id="@+id/main_activity"-->
-    <!--        layout="@layout/activity_main" />-->
 
     <include
         android:id="@+id/main_activity_gas"

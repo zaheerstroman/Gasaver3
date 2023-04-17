@@ -39,26 +39,6 @@ public class FuelDistanceEmployeeList extends ViewModel {
         ApiInterface api = retrofit.create(ApiInterface.class);
 
 
-//        Call<ResponseBody> call = api.getsampleapi("14");
-//        Call<ResponseBody> call = api.getemployeelistapi();
 
-        //Body As Per Bill And Restaurent App:----------------------------------------------------------
-//        MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
-
-
-//        Call<ResponseBody> call = api.getFuelDistanceemployeelistapi(builder.build());
-//        Call<ResponseBody> call = api.getStationsData();
-
-//        call.enqueue(new Callback<ResponseBody>() {
-//            @Override
-//            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-//                loginlist.setValue(response.body());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ResponseBody> call, Throwable t) {
-//
-//            }
-//        });
     }
 }

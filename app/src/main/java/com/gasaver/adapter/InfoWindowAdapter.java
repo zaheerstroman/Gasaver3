@@ -42,13 +42,8 @@ public class InfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
     @Override
     public View getInfoWindow(Marker marker) {
 
-//        StationDataResponse
-//        StationDataModel
-//        by
-//        PriceModel, DefaultDataModel
 
        StationDataResponse.StationDataModel stationDataModel=new Gson().fromJson( marker.getSnippet(), StationDataResponse.StationDataModel.class);
-//        StationDataResponse.StationDataModel.DefaultDataModel stationDataModel=new Gson().fromJson( marker.getSnippet(), StationDataResponse.StationDataModel.DefaultDataModel.class);
 
         String markerTag = (String) marker.getTag();
         Log.d("TAG", "onMarkerClick: " + markerTag);
@@ -101,10 +96,6 @@ public class InfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
             binding.txtPriceLocationDistance.setText("");
             binding.txtPriceLocationDistance2.setText("");
             binding.txtPriceLocationDistance3.setText("");
-
-//            for (int i = 0; i < total; i++){
-//                        for (int i = 0; i < txtPriceLocationDistance; i++){
-//            }
 
 /// Sort the default data models by price in ascending order
             List<DefaultDataModel> sortedDefaultDataModels = defaultDataModels.stream()

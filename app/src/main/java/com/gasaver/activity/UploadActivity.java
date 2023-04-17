@@ -38,33 +38,16 @@ public class UploadActivity extends AppCompatActivity {
         getReportsData();
 
 
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayShowTitleEnabled(true);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setTitle("My Uploads");
-//
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //do something you want
-//                finish();
-//            }
-//        });
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
-//        getSupportActionBar().setTitle("ViewAttachment");
-//        getSupportActionBar().setTitle("Terms & Conditions");
         getSupportActionBar().setTitle("My Uploads");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //do something you want
                 finish();
             }
         });

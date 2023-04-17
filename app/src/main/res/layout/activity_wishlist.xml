@@ -10,15 +10,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activity.WishListActivity">
 
-<!--<layout xmlns:app="http://schemas.android.com/apk/res-auto">-->
-<!--    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:id="@+id/cv_station"-->
-<!--        android:orientation="vertical"-->
-<!--        xmlns:tools="http://schemas.android.com/tools"-->
-<!--        tools:context=".activity.WishListActivity">-->
-
 
     <include layout="@layout/layout_toolbar"/>
 
@@ -29,9 +20,6 @@
         android:layout_height="match_parent"
         tools:listitem="@layout/fueldistanceemployeelistlayout"
         />
-
-<!--    tools:listitem="@layout/wish_list_item"-->
-<!--    tools:listitem="@layout/fueldistanceemployeelistlayout"-->
 
 
     <LinearLayout
@@ -57,8 +45,5 @@
             android:text="No Records Found"/>
     </LinearLayout>
 
-
-<!--    </LinearLayout>-->
-<!--</layout>-->
 
 </LinearLayout>

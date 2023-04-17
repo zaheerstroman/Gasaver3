@@ -14,8 +14,6 @@ import com.gasaver.R;
 
 public class FailureDialog {
 
-    //    Q2R
-
     public AlertDialog alertDialog;
 
     public FailureDialog(Context context, String message) {

@@ -69,21 +69,12 @@ SplashActivity extends AppCompatActivity {
             public void run() {
                 if (SharedPrefs.getInstance(SplashActivity.this).getString(USER_ID).isEmpty()) {
                     Intent intent = new Intent(SplashActivity.this, GettingStarted.class);
-//                    Intent intent = new Intent(SplashActivity.this, UserSignInActivity.class);
-//                    Intent intent = new Intent(SplashActivity.this, MainActivityGas.class);
-//
                     startActivity(intent);
                 } else {
 
-//                    SharedPrefs.getInstance(SplashActivity.this).saveString(USER_ID,"2156");
-//                    SharedPrefs.getInstance(SplashActivity.this).saveString(TOKEN,"c2054772e07b9e6dac5b6555c82cdfe1e9f6c2bfe2e909b7a81cf09cf4ebd5be");
-//                    SharedPrefs.getInstance(SplashAcivity.this).saveString(USER_MOBILE,"7674834030");
-
                     Log.e(TAG, "user_id: " + SharedPrefs.getInstance(SplashActivity.this).getString(USER_ID));
                     Log.e(TAG, "api_key: " + SharedPrefs.getInstance(SplashActivity.this).getString(Constants.API_KEY));
-//                    Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
                     Intent intent = new Intent(SplashActivity.this, MainActivityGas.class);
-//                    Intent intent = new Intent(SplashActivity.this, UserSignInActivity.class);
 
                     startActivity(intent);
                 }

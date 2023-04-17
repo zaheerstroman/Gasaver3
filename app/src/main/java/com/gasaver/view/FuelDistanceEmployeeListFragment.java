@@ -99,16 +99,12 @@ public class FuelDistanceEmployeeListFragment extends BottomSheetDialogFragment 
                     @Override
                     public void onClick(View v) {
                         saveWishlist(stationDataModel, stationDataModel.getId(), stationDataModel.getWishlist() != null && stationDataModel.getWishlist().equalsIgnoreCase("Yes") ? "No" : "Yes", holder.iv_wishlist1);
-//
-//                        saveWishlist(wishlistModel, wishlistModel.getId(), stationDataModel.getWishlist() != null && stationDataModel.getWishlist().equalsIgnoreCase("Yes") ? "No" : "Yes");
-//                        saveWishlist(wishlistModel, wishlistModel.getId(), wishlistModel.getWishlist() != null && wishlistModel.getWishlist().equalsIgnoreCase("Yes") ? "No" : "Yes");
 
                     }
                 });
 
                 List<StationDataResponse.PriceModel> prices = stationDataModel.getPrices();
                 Glide.with(getActivity()).load(stationDataList.get(position).getBrandIcon()).into(holder.iv_proj_img);
-//                stationDataList
                 holder.tv_name.setText(stationDataModel.getName());
 
 
@@ -152,14 +148,12 @@ public class FuelDistanceEmployeeListFragment extends BottomSheetDialogFragment 
                         holder.tv_dis.setText("N/A");
 
                     }
-//                    binding.stationLayout.txtDis.setText(String.valueOf(stationDataModel.getDistance()));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 holder.btn_navigate.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        Findroutes(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()), marker.getPosition());
                         {
 
                             Intent intent = new Intent(requireContext(), DirectionActivity.class);
@@ -223,7 +217,6 @@ public class FuelDistanceEmployeeListFragment extends BottomSheetDialogFragment 
     }
 
     private void saveWishlist(StationDataResponse.StationDataModel stationDataModel, Integer stationid, String iswishlist, ImageView ivWishlist) {
-//private void saveWishlist(WishlistResponse.WishlistModel wishlistModel, Integer stationid, String iswishlist) {
 
         CommonUtils.showLoading(getActivity(), "Please Wait", false);
         com.gasaver.network.ApiInterface apiInterface = APIClient.getClient().create(com.gasaver.network.ApiInterface.class);
@@ -234,21 +227,17 @@ public class FuelDistanceEmployeeListFragment extends BottomSheetDialogFragment 
         jsonObject.addProperty("wishlist", iswishlist);
 
         Call<StationDataResponse> call = apiInterface.saveWishlist(jsonObject);
-//    Call<WishlistResponse> call = apiInterface.saveWishlist(jsonObject);
 
         call.enqueue(new Callback<StationDataResponse>() {
-//    call.enqueue(new Callback<WishlistResponse>() {
 
             @Override
             public void onResponse(Call<StationDataResponse> call, Response<StationDataResponse> response) {
-//        public void onResponse(Call<WishlistResponse> call, Response<WishlistResponse> response) {
 
                 try {
                     CommonUtils.hideLoading();
                     if (response.body().isStatus_code()) {
 
                         stationDataModel.setWishlist(iswishlist);
-//                        wishlistModel.setWishlist(iswishlist);
 
                         ivWishlist.setImageResource(iswishlist.equalsIgnoreCase("yes") ? R.drawable.wishlist_added : R.drawable.like_icon);
                     }
@@ -260,7 +249,6 @@ public class FuelDistanceEmployeeListFragment extends BottomSheetDialogFragment 
 
             @Override
             public void onFailure(Call<StationDataResponse> call, Throwable t) {
-//            public void onFailure(Call<WishlistResponse> call, Throwable t) {
 
                 CommonUtils.hideLoading();
             }
